@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://ckavqb25bdaul"]
 
-[ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://world/world.gd" id="1_1tnoa"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_1tnoa"]
 [ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://entity/bird_1.tscn" id="1_jeodi"]
-[ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://world/game_ui.tscn" id="2_qcaji"]
+[ext_resource type="PackedScene" path="res://world/game_ui.tscn" id="2_qcaji"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_5hvw7"]
+[ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://art/forestbg.jpg" id="5_ahhnx"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
 
 [node name="World" type="Node2D" unique_id=1550517037]
 script = ExtResource("1_1tnoa")
-metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_qcaji")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=257559454]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_gv5m4")
@@ -29,3 +30,9 @@ zoom = Vector2(4, 4)
 [node name="Icon" type="Sprite2D" parent="." unique_id=1001805182]
 position = Vector2(544, 157)
 texture = ExtResource("4_5hvw7")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=536565872]
+offset_right = 14637.0
+offset_bottom = 3240.0
+texture = ExtResource("5_ahhnx")
+stretch_mode = 1
