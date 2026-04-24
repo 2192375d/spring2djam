@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckavqb25bdaul"]
 
-[ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://animals/bird_1.tscn" id="1_jeodi"]
+[ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://entities/bird_1.tscn" id="1_jeodi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
 

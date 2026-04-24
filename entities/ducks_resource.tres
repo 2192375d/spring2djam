@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CollectableResource" format=3 uid="uid://c7mcv577bp2we"]
+
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entities/entity_resource.gd" id="1_6f07c"]
+
+[resource]
+script = ExtResource("1_6f07c")

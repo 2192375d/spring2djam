@@ -23,13 +23,13 @@ Constants="*uid://shehpekoqxo5"
 
 folder_colors={
 "res://UI/": "green",
-"res://animals/": "orange",
 "res://art/": "red",
+"res://autoloads/": "yellow",
+"res://entities/": "orange",
 "res://objects/": "orange",
 "res://player/": "teal",
 "res://resources/": "gray",
 "res://sound/": "pink",
-"res://util/": "yellow",
 "res://world/": "blue"
 }
 
