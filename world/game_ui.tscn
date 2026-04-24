@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dy7truvlgrnsw"]
+
+[ext_resource type="Script" uid="uid://87sevvw8jmnd" path="res://world/game_ui.gd" id="1_apb6g"]
+
+[node name="game_ui" type="CanvasLayer" unique_id=686514258 node_paths=PackedStringArray("hunger_bar")]
+script = ExtResource("1_apb6g")
+hunger_bar = NodePath("HBoxContainer/hunger bar")
+metadata/_custom_type_script = "uid://87sevvw8jmnd"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1036018819]
+anchors_preset = -1
+anchor_left = 0.065972224
+anchor_top = 0.10339506
+anchor_right = 0.40538195
+anchor_bottom = 0.14969136
+metadata/_edit_use_anchors_ = true
+
+[node name="exp" type="Label" parent="HBoxContainer" unique_id=490867003]
+modulate = Color(1, 0.6117647, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "hunger"
+
+[node name="hunger bar" type="ProgressBar" parent="HBoxContainer" unique_id=952911101]
+layout_mode = 2
+size_flags_horizontal = 3

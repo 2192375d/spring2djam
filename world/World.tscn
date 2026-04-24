@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://ckavqb25bdaul"]
 
-[ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://entities/bird_1.tscn" id="1_jeodi"]
+[ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://world/world.gd" id="1_1tnoa"]
+[ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://entity/bird_1.tscn" id="1_jeodi"]
+[ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://world/game_ui.tscn" id="2_qcaji"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_5hvw7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
 
-[node name="World" type="Node2D" unique_id=854171014]
+[node name="World" type="Node2D" unique_id=1550517037]
+script = ExtResource("1_1tnoa")
+metadata/_custom_type_script = "uid://b2t65g5s8eli3"
+
+[node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_qcaji")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=257559454]
 offset_right = 1152.0
@@ -12,6 +19,13 @@ offset_bottom = 648.0
 texture = SubResource("CanvasTexture_gv5m4")
 
 [node name="Bird1" parent="." unique_id=1999415573 instance=ExtResource("1_jeodi")]
-position = Vector2(400, 333)
-scale = Vector2(0.2, 0.2)
+position = Vector2(398.99997, 235.99998)
 speed = 50.0
+
+[node name="Camera2D" type="Camera2D" parent="Bird1" unique_id=1138602335]
+scale = Vector2(30, 30)
+zoom = Vector2(4, 4)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1001805182]
+position = Vector2(544, 157)
+texture = ExtResource("4_5hvw7")

@@ -18,14 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*uid://shehpekoqxo5"
+GameSession="*uid://c3kndpx3bs0e6"
 
 [file_customization]
 
 folder_colors={
-"res://UI/": "green",
 "res://art/": "red",
 "res://autoloads/": "yellow",
-"res://entities/": "orange",
+"res://entity/": "orange",
 "res://objects/": "orange",
 "res://player/": "teal",
 "res://resources/": "gray",
