@@ -1,3 +1,16 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1777048595
+::res://::1777054773
 icon.svg::CompressedTexture2D::1790880795757653::1777048542::1777048602::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://animals/::1777054773
+bird_1.tscn::PackedScene::6941215815907737228::1777054715::0::1::::<><><>0<>0<><>::uid://dpue3jvb1jwsd::::res://player/player.gd<>uid://4q335xxs2p::::res://icon.svg
+::res://art/::1777054607
+::res://objects/::1777054715
+::res://player/::1777054715
+player.gd::GDScript::8253675636162991367::1777054519::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://resources/::1777054659
+::res://sound/::1777054676
+::res://UI/::1777054684
+::res://util/::1777054690
+constants.gd::GDScript::1278105992794590198::1777053751::0::1::::<>Node<><>0<>0<><>::
+::res://world/::1777054730
+World.tscn::PackedScene::5476033528914687067::1777054778::0::1::::<><><>0<>0<><>::uid://c55m2s1sfkjls::::res://objects/bird_1.tscn

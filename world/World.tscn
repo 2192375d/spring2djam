@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckavqb25bdaul"]
+
+[ext_resource type="PackedScene" uid="uid://c55m2s1sfkjls" path="res://animals/bird_1.tscn" id="1_jeodi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
+
+[node name="World" type="Node2D" unique_id=854171014]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=257559454]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_gv5m4")
+
+[node name="Bird1" parent="." unique_id=1999415573 instance=ExtResource("1_jeodi")]
+position = Vector2(400, 333)
+scale = Vector2(0.2, 0.2)
+speed = 50.0
