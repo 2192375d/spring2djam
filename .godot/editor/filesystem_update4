@@ -1,5 +1,1 @@
-res://entities/bird_1.tscn
-res://autoloads/constants.gd
-res://entities/entity_resource.gd
-res://player/player.gd
-res://entity/bird_1.tscn
+res://world/bloodparticle.tscn

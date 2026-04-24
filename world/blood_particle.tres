@@ -1,0 +1,18 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cax5ngbqlvi7l"]
+
+[sub_resource type="Curve" id="Curve_stawg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5270271, 0.97752815), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pucf0"]
+curve = SubResource("Curve_stawg")
+
+[resource]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 32.239998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_pucf0")
