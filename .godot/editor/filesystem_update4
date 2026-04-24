@@ -1,5 +1,12 @@
-res://entities/bird_1.tscn
-res://autoloads/constants.gd
-res://entities/entity_resource.gd
-res://player/player.gd
 res://entity/bird_1.tscn
+res://entity/resources/seeds_resource.tres
+res://autoloads/game_session.gd
+res://autoloads/constants.gd
+res://entity/entity_resource.gd
+res://entity/animal.gd
+res://world/game_ui.tscn
+res://world/World.tscn
+res://world/game_ui.gd
+res://entity/kiwi.tscn
+res://world/world.gd
+res://entity/kiwi.gd
