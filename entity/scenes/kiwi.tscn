@@ -5,6 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dlx73nrjcb3km" path="res://art/kiwi-walking-Sheet.png" id="3_av3wk"]
 [ext_resource type="Texture2D" uid="uid://diggjk3mk244m" path="res://art/kiwi-eating.png" id="3_iv2qb"]
 [ext_resource type="Texture2D" uid="uid://mv0xed5acgjk" path="res://art/kiwi-standing.png" id="4_iwrvm"]
+[ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="6_w0s2l"]
+[ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="7_yh4cs"]
+[ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="8_ugxqd"]
+[ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="9_02w1o"]
+[ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="10_esqq4"]
 
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
@@ -74,11 +79,17 @@ size = Vector2(17, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_af2pw"]
 radius = 12.539936
 
-[node name="Kiwi" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_aunm4"]
+radius = 39.028835
+
+[node name="Kiwi" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_7kg4r")
 speed = 100.0
 animation = NodePath("AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_iwrvm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
@@ -94,4 +105,31 @@ shape = SubResource("RectangleShape2D_6k04w")
 shape = SubResource("CircleShape2D_af2pw")
 debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
-[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]
+[node name="VisionArea" type="Area2D" parent="." unique_id=1778467255]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1042049892]
+shape = SubResource("CircleShape2D_aunm4")
+debug_color = Color(0.1821481, 0.6385072, 0.2549099, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=1499970792 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("6_w0s2l")
+actor = NodePath("..")
+starting_state = NodePath("IDLE")
+state_dictionary = {
+0: NodePath(""),
+1: NodePath(""),
+2: NodePath(""),
+3: NodePath("")
+}
+
+[node name="IDLE" type="Node" parent="StateMachine" unique_id=723113771]
+script = ExtResource("7_yh4cs")
+
+[node name="CHASE" type="Node" parent="StateMachine" unique_id=849516890]
+script = ExtResource("8_ugxqd")
+
+[node name="RUN_AWAY" type="Node" parent="StateMachine" unique_id=514587269]
+script = ExtResource("9_02w1o")
+
+[node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=1737987249]
+script = ExtResource("10_esqq4")

@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_c3q6h"]
 [ext_resource type="Texture2D" uid="uid://bci8iorrnj8pp" path="res://art/worm.png" id="3_cr74x"]
 [ext_resource type="Texture2D" uid="uid://ftkp86cxduan" path="res://art/worm-Sheet.png" id="4_c3q6h"]
+[ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="5_alvju"]
+[ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="6_fxco0"]
+[ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="7_uwi2s"]
+[ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="8_ranbx"]
+[ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="9_m8udw"]
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
@@ -60,11 +65,17 @@ size = Vector2(16, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3q6h"]
 radius = 12.539936
 
-[node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr74x"]
+radius = 33.359993
+
+[node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
 speed = 30.0
 animation = NodePath("AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_c3q6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
@@ -83,4 +94,31 @@ shape = SubResource("RectangleShape2D_wrm4l")
 shape = SubResource("CircleShape2D_c3q6h")
 debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
-[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]
+[node name="VisionArea" type="Area2D" parent="." unique_id=753519038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=187976476]
+shape = SubResource("CircleShape2D_cr74x")
+debug_color = Color(0, 0.63963425, 0.38425085, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=1278136630 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("5_alvju")
+actor = NodePath("..")
+starting_state = NodePath("IDLE")
+state_dictionary = {
+0: NodePath("IDLE"),
+1: NodePath("CHASE"),
+2: NodePath("RUN_AWAY"),
+3: NodePath("HEAD_BACK")
+}
+
+[node name="IDLE" type="Node" parent="StateMachine" unique_id=117424367]
+script = ExtResource("6_fxco0")
+
+[node name="CHASE" type="Node" parent="StateMachine" unique_id=366311644]
+script = ExtResource("7_uwi2s")
+
+[node name="RUN_AWAY" type="Node" parent="StateMachine" unique_id=1663358039]
+script = ExtResource("8_ranbx")
+
+[node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=1900716332]
+script = ExtResource("9_m8udw")
