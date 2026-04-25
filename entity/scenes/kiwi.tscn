@@ -2,20 +2,14 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_7kg4r"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_iv2qb"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://dlx73nrjcb3km" path="res://art/kiwi-walking-Sheet.png" id="3_av3wk"]
-[ext_resource type="Texture2D" uid="uid://diggjk3mk244m" path="res://art/kiwi-eating.png" id="3_iv2qb"]
-[ext_resource type="Texture2D" uid="uid://mv0xed5acgjk" path="res://art/kiwi-standing.png" id="4_iwrvm"]
+[ext_resource type="Texture2D" uid="uid://daqv83nstkwcj" path="res://art/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
+[ext_resource type="Texture2D" uid="uid://n5uvqbygdk43" path="res://art/animals/kiwi/kiwi-standing.png" id="4_aunm4"]
+[ext_resource type="Texture2D" uid="uid://df680j0pvvbne" path="res://art/animals/kiwi/kiwi-walking-Sheet.png" id="5_rw33j"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="6_w0s2l"]
 [ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="7_yh4cs"]
 [ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="8_ugxqd"]
 [ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="9_02w1o"]
 [ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="10_esqq4"]
-=======
-[ext_resource type="Texture2D" uid="uid://daqv83nstkwcj" path="res://art/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
-[ext_resource type="Texture2D" uid="uid://n5uvqbygdk43" path="res://art/animals/kiwi/kiwi-standing.png" id="4_aunm4"]
-[ext_resource type="Texture2D" uid="uid://df680j0pvvbne" path="res://art/animals/kiwi/kiwi-walking-Sheet.png" id="5_rw33j"]
->>>>>>> 53b5b92 (added some animals)
 
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
@@ -100,7 +94,7 @@ entity_resource = SubResource("Resource_iwrvm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 sprite_frames = SubResource("SpriteFrames_252sp")
-animation = &"eat"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
@@ -122,10 +116,10 @@ script = ExtResource("6_w0s2l")
 actor = NodePath("..")
 starting_state = NodePath("IDLE")
 state_dictionary = {
-0: NodePath(""),
-1: NodePath(""),
-2: NodePath(""),
-3: NodePath("")
+0: NodePath("IDLE"),
+1: NodePath("CHASE"),
+2: NodePath("RUN_AWAY"),
+3: NodePath("HEAD_BACK")
 }
 
 [node name="IDLE" type="Node" parent="StateMachine" unique_id=723113771]

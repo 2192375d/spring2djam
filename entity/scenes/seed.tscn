@@ -1,11 +1,5 @@
 [gd_scene format=3 uid="uid://6ngnf01jash3"]
 
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://entity/plant.gd" id="1_kuox1"]
-[ext_resource type="Resource" uid="uid://bewrr8e5yi170" path="res://entity/resources/seeds_resource.tres" id="2_leakp"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_leakp"]
-
-=======
 [ext_resource type="Script" uid="uid://bcvo8nvvwoj31" path="res://entity/plant.gd" id="1_kuox1"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_0gwcn"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_leakp"]
@@ -20,7 +14,6 @@ hunger_gain = 1
 hunger_max = -1
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
->>>>>>> 53b5b92 (added some animals)
 [sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
 animations = [{
 "frames": [],
@@ -46,16 +39,9 @@ animations = [{
 size = Vector2(17, 16)
 
 [node name="Seed" type="CharacterBody2D" unique_id=936244655]
-<<<<<<< HEAD
-position = Vector2(1, 1)
-scale = Vector2(2, 2)
-script = ExtResource("1_kuox1")
-entity_resource = ExtResource("2_leakp")
-=======
 scale = Vector2(2, 2)
 script = ExtResource("1_kuox1")
 entity_resource = SubResource("Resource_leakp")
->>>>>>> 53b5b92 (added some animals)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
