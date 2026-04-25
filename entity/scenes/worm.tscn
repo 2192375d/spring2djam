@@ -58,9 +58,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm4l"]
 size = Vector2(16, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3q6h"]
-size = Vector2(20, 8)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr74x"]
 size = Vector2(86, 11)
 
@@ -71,7 +68,7 @@ animation = NodePath("AnimatedSprite2D")
 domain_radius = null
 domain_point = null
 vision_area = NodePath("ViewArea")
-eating_area = NodePath("EatArea")
+eating_area = NodePath("")
 entity_resource = SubResource("Resource_ernl4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
@@ -83,13 +80,6 @@ frame_progress = 0.06908285
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387006371]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_wrm4l")
-
-[node name="EatArea" type="Area2D" parent="." unique_id=341893914]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea" unique_id=785073328]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_c3q6h")
-debug_color = Color(1, 0.09809364, 0.3880529, 0.41960785)
 
 [node name="ViewArea" type="Area2D" parent="." unique_id=1141754944]
 
