@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_7kg4r"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_iv2qb"]
-[ext_resource type="Texture2D" uid="uid://daqv83nstkwcj" path="res://art/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
+[ext_resource type="Texture2D" uid="uid://bcun6eokdcg1q" path="res://art/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
 [ext_resource type="Texture2D" uid="uid://n5uvqbygdk43" path="res://art/animals/kiwi/kiwi-standing.png" id="4_aunm4"]
 [ext_resource type="Texture2D" uid="uid://df680j0pvvbne" path="res://art/animals/kiwi/kiwi-walking-Sheet.png" id="5_rw33j"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="6_w0s2l"]
@@ -14,6 +14,7 @@
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
 id = 100
+spawn_height = 1
 hierarchy = 1
 exp_gain = 3
 exp_max = 30

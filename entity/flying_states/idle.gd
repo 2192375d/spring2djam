@@ -4,7 +4,6 @@ class_name FlyingIdleState
 var dirvec : Vector2
 
 func enter() -> void:
-	print("idle")
 	dirvec = (self.actor.domain_point - self.actor.global_position)
 	dirvec.x *= [0.5,1.5][randi_range(0, 1)]
 	dirvec.y *= [0.5,1.5][randi_range(0, 1)]

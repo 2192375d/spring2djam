@@ -8,12 +8,10 @@ var actor: GroundAnimal
 var state_name: Name
 
 func enter() -> void:
-	print("Entered state ", state_name)
 	# logic on enter
 	pass
 
 func exit() -> void:
-	print("Exited state ", state_name)
 	# logic on exit
 	pass
 

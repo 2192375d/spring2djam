@@ -11,6 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
+spawn_height = 1
 exp_gain = 3
 exp_max = 3
 hunger_gain = 2
@@ -51,6 +52,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3q6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr74x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b312i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k58r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm4l"]
@@ -76,8 +94,7 @@ entity_resource = SubResource("Resource_c3q6h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_8guuy")
-animation = &"idle"
-frame_progress = 0.06908285
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387006371]
 position = Vector2(0, 2)
