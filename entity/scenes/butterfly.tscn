@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://byv78g02t3584"]
+[gd_scene format=3 uid="uid://c3c06xmeu51n0"]
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_0kf1m"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_p33uf"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcun6eokdcg1q"
-path="res://.godot/imported/kiwi-eating.png-3ff1c2d7105da93a8d0beaaad168cc3e.ctex"
+uid="uid://f1l8desd23ko"
+path="res://.godot/imported/heron-eating.png-405ae7067fbeda116165c2f430fd4b0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/animals/kiwi/kiwi-eating.png"
-dest_files=["res://.godot/imported/kiwi-eating.png-3ff1c2d7105da93a8d0beaaad168cc3e.ctex"]
+source_file="res://art/animals/heron/heron-eating.png"
+dest_files=["res://.godot/imported/heron-eating.png-405ae7067fbeda116165c2f430fd4b0e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcun6eokdcg1q"
-path="res://.godot/imported/kiwi-eating.png-3ff1c2d7105da93a8d0beaaad168cc3e.ctex"
+uid="uid://de7ceb5r8h00o"
+path="res://.godot/imported/duck-walking.png-0ef917be3b684267094b54af9b87a55b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/animals/kiwi/kiwi-eating.png"
-dest_files=["res://.godot/imported/kiwi-eating.png-3ff1c2d7105da93a8d0beaaad168cc3e.ctex"]
+source_file="res://art/animals/duck/duck-walking.png"
+dest_files=["res://.godot/imported/duck-walking.png-0ef917be3b684267094b54af9b87a55b.ctex"]
 
 [params]
 
