@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bi425yc0h3pqt"]
+[gd_scene format=3 uid="uid://6ngnf01jash3"]
 
 [ext_resource type="Script" uid="uid://bcvo8nvvwoj31" path="res://entity/plant.gd" id="1_kuox1"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_0gwcn"]
@@ -39,9 +39,10 @@ animations = [{
 size = Vector2(17, 16)
 
 [node name="Seed" type="CharacterBody2D" unique_id=936244655]
+position = Vector2(1, 1)
 scale = Vector2(2, 2)
 script = ExtResource("1_kuox1")
-entity_resource = SubResource("Resource_leakp")
+entity_resource = ExtResource("2_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
