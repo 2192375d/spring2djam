@@ -7,10 +7,13 @@
 
 [sub_resource type="Resource" id="Resource_ernl4"]
 script = ExtResource("2_c3q6h")
+id = null
+hierarchy = null
 exp_gain = 1
 exp_max = 10
 hunger_gain = 1
 hunger_max = 10
+ai_type = null
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr74x"]
@@ -55,10 +58,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm4l"]
 size = Vector2(16, 4)
 
-[node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3q6h"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr74x"]
+size = Vector2(86, 11)
+
+[node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
 script = ExtResource("1_oixa4")
 speed = 30.0
 animation = NodePath("AnimatedSprite2D")
+domain_radius = null
+domain_point = null
+vision_area = NodePath("ViewArea")
+eating_area = NodePath("EatArea")
 entity_resource = SubResource("Resource_ernl4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
@@ -70,3 +83,17 @@ frame_progress = 0.06908285
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387006371]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_wrm4l")
+
+[node name="EatArea" type="Area2D" parent="." unique_id=341893914]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea" unique_id=785073328]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_c3q6h")
+debug_color = Color(1, 0.09809364, 0.3880529, 0.41960785)
+
+[node name="ViewArea" type="Area2D" parent="." unique_id=1141754944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea" unique_id=2064973443]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_cr74x")
+debug_color = Color(1.92523e-06, 0.62076735, 0.5623828, 0.41960785)

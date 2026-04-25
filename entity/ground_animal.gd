@@ -4,9 +4,19 @@ class_name GroundAnimal
 
 @export var speed: float
 @export var animation: AnimatedSprite2D
+@export var domain_radius : int
+@export var domain_point : Vector2
+@export var state_machine : GroundStateMachine
+@export var vision_area : Area2D
+@export var eating_area : Area2D
+
+var preylist : Array 
 
 func _ready() -> void:
 	animation.play("idle")
+	# connect signals
+	vision_area.area_entered.connect(_on_vision_area_entered)
+	
 
 func _physics_process(delta: float) -> void:
 	if get_parent() is not Player:
