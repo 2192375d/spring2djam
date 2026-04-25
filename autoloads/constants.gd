@@ -4,6 +4,12 @@ var GRAVITY: float = 30.0
 var JUMP_SPEED: float = 100.0
 var CONSTANT_DOMAIN_RADIUS : float = 50.0
 
+enum SpawnHeight { # This is a bitmap enum (special special)
+	LOW = 1, 
+	MEDIUM = 2,
+	HIGH = 4
+}
+
 enum FoodHierarchy { 
 	SEED = -1,
 	TIER0 = 0,
@@ -44,6 +50,10 @@ enum EntityID {
 	
 	# tier 3
 	HERON = 301,
+	
+	# tier 4
+	
+	# dominant
 } 
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {

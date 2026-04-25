@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="CollectableResource" format=3 uid="uid://dfif1bb2fv38j"]
-
-[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entities/entity_resource.gd" id="1_yh44i"]
-
-[resource]
-script = ExtResource("1_yh44i")

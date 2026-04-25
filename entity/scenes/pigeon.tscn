@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_j3ujl"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_wmuns"]
-[ext_resource type="Texture2D" uid="uid://fqbmt0hki5rh" path="res://art/animals/pidgeon/pigeon-eating.png" id="3_te6o7"]
+[ext_resource type="Texture2D" uid="uid://0rtn41wgbbrf" path="res://art/animals/pidgeon/pigeon-eating.png" id="3_te6o7"]
 [ext_resource type="Texture2D" uid="uid://b6i3iiegg8ldi" path="res://art/animals/pidgeon/pigeon-flying.png" id="4_jp6wy"]
 [ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="4_q2pjv"]
 [ext_resource type="Texture2D" uid="uid://q2mmacyajtw0" path="res://art/animals/pidgeon/pigeon-standing.png" id="5_6qm3i"]
@@ -15,6 +15,7 @@
 [sub_resource type="Resource" id="Resource_leakp"]
 script = ExtResource("2_wmuns")
 id = 102
+spawn_height = 3
 hierarchy = 1
 exp_gain = 5
 exp_max = 30

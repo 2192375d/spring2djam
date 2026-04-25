@@ -5,7 +5,7 @@ class_name FlyingAnimal
 @export var speed: float
 @export var animation: AnimatedSprite2D
 @export var domain_radius : int
-@export var domain_point : Vector2
+# @export var domain_point : Vector2
 @export var state_machine : FlyingStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
@@ -15,7 +15,6 @@ var predatorlist : Array[Animal]
 var accel_scale = 1
 
 func _ready() -> void:
-	print(self)
 	animation.play("idle")
 
 	if (!eating_area):
@@ -36,8 +35,6 @@ func _ready() -> void:
 		if (!state_machine):
 			push_error("no state machine for", self)
 		self.state_machine.setup()
-
-
 	pass
 
 func player_movement(_delta: float) -> void:

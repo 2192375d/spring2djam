@@ -10,7 +10,6 @@ var current_state : GroundState
 
 func setup() -> void:
 	for key: GroundState.Name in state_dictionary:
-		print("ACTOR:", self.actor)
 		state_dictionary[key].setup(self.actor)
 	change_state(starting_state)
 
