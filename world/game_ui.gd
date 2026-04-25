@@ -5,8 +5,7 @@ class_name GameUI
 @export var exp_bar: ProgressBar
 @export var hunger_bar: ProgressBar
 
-func _ready() -> void:
-	GameSession.game_ui = self
+
 
 func update_exp_bar_max(new_max: float) -> void:
 	exp_bar.max_value = new_max

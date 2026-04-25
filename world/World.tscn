@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://world/world.gd" id="1_1tnoa"]
 [ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://world/game_ui.tscn" id="2_qcaji"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_5hvw7"]
+[ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player/player.gd" id="5_0wlj7"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://art/forestbg.jpg" id="5_ahhnx"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
@@ -39,9 +40,12 @@ position = Vector2(392, 279)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1046109085]
 shape = SubResource("RectangleShape2D_5hvw7")
 
-[node name="HungerDrainTimer" type="Timer" parent="." unique_id=988556076]
+[node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("ui")]
+script = ExtResource("5_0wlj7")
+ui = NodePath("../game_ui")
+metadata/_custom_type_script = "uid://dpue3jvb1jwsd"
+
+[node name="HungerDrainTimer" type="Timer" parent="Player" unique_id=988556076]
 autostart = true
 
-[node name="Player" type="Node2D" parent="." unique_id=1262927291]
-
-[connection signal="timeout" from="HungerDrainTimer" to="." method="_on_hunger_drain_timer_timeout"]
+[connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
