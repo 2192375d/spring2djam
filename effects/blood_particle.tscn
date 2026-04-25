@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://cax5ngbqlvi7l" path="res://effects/blood_particle.tres" id="1_emdme"]
 
 [node name="Bloodparticle" type="Node2D" unique_id=1430481892]
+scale = Vector2(5, 5)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=917649454]
 emitting = false
