@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	if get_parent() is not Player:
 		state_machine.process_physics_frame(delta)
 		if !is_on_floor():
-			grav_accel += Constants.GRAVITY * delta
+			grav_accel += Constants.GRAVITY 
 			velocity.y += grav_accel 
 		else:
 			grav_accel = 0

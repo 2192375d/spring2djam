@@ -1,13 +1,14 @@
 extends GroundState
 class_name GroundIdleState
 
+var dirvec : Vector2
+
 func enter() -> void:
-	print("entered Idle")
 	var rval = [-1,1][randi_range(0, 1)] # random -1 or 1
-	actor.velocity.x = rval * actor.speed
+	dirvec = Vector2(rval * actor.speed, 0)
+	
 	
 func exit() -> void:
-	print("exited Idle")
 	pass
 
 func setup(actor : GroundAnimal) -> void:
@@ -15,7 +16,7 @@ func setup(actor : GroundAnimal) -> void:
 	self.state_name = GroundState.Name.IDLE	
 	
 func process_physics_frame(delta : float) -> GroundState.Name:
-	
+	self.actor.velocity = self.dirvec 
 	# check if predators exist
 	if (len(self.actor.predatorlist) > 0):
 		return GroundState.Name.RUN_AWAY

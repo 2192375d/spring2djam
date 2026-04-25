@@ -6,7 +6,7 @@ class_name FlyingAnimal
 @export var animation: AnimatedSprite2D
 @export var domain_radius : int
 @export var domain_point : Vector2
-#@export var state_machine : FlyingStateMachine
+@export var state_machine : FlyingStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
 
@@ -18,55 +18,72 @@ func _ready() -> void:
 	print(self)
 	animation.play("idle")
 
-	# connect signals
-	self.vision_area.body_entered.connect(_on_vision_body_entered)
-	self.vision_area.body_exited.connect(_on_vision_body_exited)
-	self.eating_area.body_entered.connect(_on_eating_area_body_entered)
+	if (!eating_area):
+		push_error("no eating area for", self)
+	eating_area.body_entered.connect(_on_eating_area_body_entered)
+	
+	# AI specific configurations
+	if get_parent() is not Player:
+		if (!vision_area):
+			push_error("no vision area for", self)
+		vision_area.body_entered.connect(_on_vision_body_entered)
+		vision_area.body_exited.connect(_on_vision_body_exited)
+		# default domain unassigned
+		if (domain_point == Vector2(0,0)): 
+			domain_point = self.global_position
+		if (!domain_radius):
+			domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
+		if (!state_machine):
+			push_error("no state machine for", self)
+		self.state_machine.setup()
+
+
 	pass
 
 func player_movement(_delta: float) -> void:
-	
 
 	velocity = Vector2.ZERO
 	
 	var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 	velocity = direction_vector * speed
 	
+
+func _physics_process(_delta: float) -> void:
+	if get_parent() is not Player:
+		state_machine.process_physics_frame(_delta)
+
 	if !is_on_floor():
 		animation.play("fly")	
-		self.rotation = self.velocity.normalized().angle()
+		self.animation.rotation = self.velocity.normalized().angle()
 		
 		if velocity.x < 0:
-			self.rotation = self.rotation-PI
+			self.animation.rotation = self.animation.rotation-PI
 			animation.flip_h = true
 		elif velocity.x > 0:
 			animation.flip_h = false
 		elif (velocity.x == 0 && velocity.y != 0):
 			if (animation.flip_h):
-				self.rotation = self.rotation+PI
+				self.animation.rotation = self.animation.rotation+PI
 		
 		if (self.velocity.y > 0):
 			accel_scale += Constants.GRAVITY / 10 * _delta
 		else:
+			#pass
 			accel_scale -= Constants.GRAVITY / 20 * _delta 
-		accel_scale = max(1, accel_scale)
-	
+		accel_scale = min(max(1, accel_scale), 2)
+		
 		self.velocity *= accel_scale
-
 	
 	else:
 		animation.play("walk")
-		self.rotation = 0
+		self.animation.rotation = 0
 		if velocity.x < 0:
 			animation.flip_h = true
 		elif velocity.x > 0:
 			animation.flip_h = false
+	
+	
 
-
-
-func _physics_process(delta: float) -> void:
-	if get_parent() is not Player:
-		pass	
 	move_and_slide()
 
 func _on_vision_body_entered(body: Node2D) -> void:

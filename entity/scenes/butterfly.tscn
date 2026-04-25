@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_0kf1m"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_p33uf"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_282ea"]
+[ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="4_bu7ff"]
+[ext_resource type="Script" uid="uid://b7owura0ml3t7" path="res://entity/flying_states/chase.gd" id="5_6vhfy"]
+[ext_resource type="Script" uid="uid://do8kdix62e608" path="res://entity/flying_states/head_back.gd" id="6_o2x23"]
+[ext_resource type="Script" uid="uid://x0hsslsv2mco" path="res://entity/flying_states/idle.gd" id="7_a7fu5"]
+[ext_resource type="Script" uid="uid://drj6xqlq1cvve" path="res://entity/flying_states/run_away.gd" id="8_bmtlu"]
 
 [sub_resource type="Resource" id="Resource_leakp"]
 script = ExtResource("2_p33uf")
@@ -44,13 +49,12 @@ radius = 12.539936
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kf1m"]
 radius = 136.00827
 
-[node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
+[node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
 speed = 100.0
 animation = NodePath("AnimatedSprite2D")
-domain_radius = null
-domain_point = null
+state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_leakp")
@@ -82,3 +86,27 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=779019025]
 shape = SubResource("CircleShape2D_0kf1m")
 debug_color = Color(3.85046e-07, 0.64647317, 0.27174348, 0.41960785)
+
+[node name="FlyingStateMachine" type="Node" parent="." unique_id=2101319488 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("4_bu7ff")
+actor = NodePath("..")
+starting_state = NodePath("IDLE")
+state_dictionary = {
+0: NodePath("IDLE"),
+1: NodePath("CHASE"),
+2: NodePath("RUN_AWAY"),
+3: NodePath("HEAD_BACK")
+}
+metadata/_custom_type_script = "uid://cxckhend6obel"
+
+[node name="CHASE" type="Node" parent="FlyingStateMachine" unique_id=1827766066]
+script = ExtResource("5_6vhfy")
+
+[node name="HEAD_BACK" type="Node" parent="FlyingStateMachine" unique_id=1403704242]
+script = ExtResource("6_o2x23")
+
+[node name="IDLE" type="Node" parent="FlyingStateMachine" unique_id=355602577]
+script = ExtResource("7_a7fu5")
+
+[node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=914110797]
+script = ExtResource("8_bmtlu")
