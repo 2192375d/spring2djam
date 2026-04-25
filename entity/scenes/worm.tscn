@@ -63,6 +63,7 @@ radius = 12.539936
 radius = 33.359993
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
+modulate = Color(1, 0.6117647, 0.7176471, 1)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
 speed = 300.0

@@ -13,6 +13,7 @@ enum FoodHierarchy {
 	TIER4 = 4, 
 	DOMINANT = 5,
 }
+
 enum AIType {
 	NONE = -1,
 	GROUND = 0, 
@@ -20,6 +21,8 @@ enum AIType {
 	HIGH = 1,
 }
 enum EntityID {
+	NONE = -999,
+	
 	SEEDS = -100,
 	BERRIES = -99,
 	EGGS = -98,
@@ -45,8 +48,11 @@ enum EntityID {
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.WORM: load("uid://d2kw626g1cvh2"),
-	EntityID.CROW : load("uid://cxb7ymqcrgll7"),
+	EntityID.BUTTERFLY: load("uid://byv78g02t3584"),
 	EntityID.KIWI: load("uid://n17g23ay3e7i"),
+	EntityID.PIGEON: load("uid://b20swbnjy7tpn"),
+	EntityID.CROW: load("uid://cxb7ymqcrgll7"),
+	EntityID.DUCK: load("uid://bijg1ulfxx0wp"),
 }
 
 var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")
