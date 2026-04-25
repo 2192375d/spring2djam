@@ -40,7 +40,7 @@ func _ready() -> void:
 	animal.position = Vector2(200, 30)
 	
 	hunger_max = animal.entity_resource.hunger_max
-	hunger_value = float(animal.entity_resource.hunger_max) / 2
+	hunger_value = float(hunger_max) / 2
 	exp_max = animal.entity_resource.exp_max
 	exp_value = 0.0
 
@@ -62,13 +62,6 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	
 	add_child(animal)
 
-func player_drain_hunger() -> void:
-	hunger_value -= hunger_max / float(50) # decrease 2% each second
-	
-	if hunger_value < 0:
-		print("you dead!")
-		
-
 func _physics_process(delta: float) -> void:
 	
 	if !animal:
@@ -77,9 +70,11 @@ func _physics_process(delta: float) -> void:
 		animal.die()
 		animal = null
 		return
-	if animal.entity_resource.ai_type == Constants.AIType.GROUND:
-		animal.player_movement(delta)
+	animal.player_movement(delta)
+
+func eat(experience: float, hunger: float) -> void:
+	exp_value = min(exp_max, exp_value + experience)
+	hunger_value = min(hunger_max, hunger_value + hunger)
 
 func _on_hunger_drain_timer_timeout() -> void:
-	hunger_value -= hunger_max / 10.0
-	
+	hunger_value -= hunger_max / 50.0

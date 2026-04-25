@@ -33,3 +33,11 @@ func player_movement(_delta: float) -> void:
 		animation.play("idle")
 	
 	velocity.x = x_direction * speed
+
+func _on_eating_area_body_entered(body: Node2D) -> void:
+	if body is Animal:
+		if body.entity_resource.hierarchy < entity_resource.hierarchy:
+			if get_parent() is Player:
+				var player: Player = get_parent() as Player
+				player.eat(body.entity_resource.exp_gain, body.entity_resource.hunger_gain)
+			body.die()
