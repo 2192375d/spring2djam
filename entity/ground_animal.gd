@@ -22,7 +22,6 @@ func player_movement(_delta: float) -> void:
 		velocity.y += Constants.GRAVITY
 	elif Input.is_action_just_pressed("space"):
 			velocity.y = -500.0
-	
 	var x_direction: float = sign(Input.get_axis("left", "right"))
 	if x_direction < 0.0:
 		animation.play("walk")
