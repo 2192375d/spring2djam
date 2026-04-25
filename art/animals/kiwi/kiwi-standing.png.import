@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mv0xed5acgjk"
-path="res://.godot/imported/kiwi-standing.png-21bcaaa3a481f19aecbf7bff9989e7c6.ctex"
+uid="uid://n5uvqbygdk43"
+path="res://.godot/imported/kiwi-standing.png-dcd5fde85c7e7f02bc51f7c7229d7b53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/kiwi-standing.png"
-dest_files=["res://.godot/imported/kiwi-standing.png-21bcaaa3a481f19aecbf7bff9989e7c6.ctex"]
+source_file="res://art/animals/kiwi/kiwi-standing.png"
+dest_files=["res://.godot/imported/kiwi-standing.png-dcd5fde85c7e7f02bc51f7c7229d7b53.ctex"]
 
 [params]
 

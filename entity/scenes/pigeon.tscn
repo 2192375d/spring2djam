@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b20swbnjy7tpn"]
 
-[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_j3ujl"]
+[ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_j3ujl"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_wmuns"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_v32gu"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="4_q2pjv"]
@@ -46,6 +46,7 @@ size = Vector2(17, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3ujl"]
 radius = 12.539936
 
+<<<<<<< HEAD
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qm3i"]
 radius = 33.68234
 
@@ -57,6 +58,12 @@ animation = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")
+=======
+[node name="Pigeon" type="CharacterBody2D" unique_id=936244655]
+scale = Vector2(2, 2)
+script = ExtResource("1_j3ujl")
+speed = 100.0
+>>>>>>> 53b5b92 (added some animals)
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]

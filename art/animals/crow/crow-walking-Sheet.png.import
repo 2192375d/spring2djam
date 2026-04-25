@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diggjk3mk244m"
-path="res://.godot/imported/kiwi-eating.png-d05fea95ece8c9024d3fcc249b052594.ctex"
+uid="uid://ddq080b62upbd"
+path="res://.godot/imported/crow-walking-Sheet.png-45a95494ff83b5ca70f9380ba7d7545b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/kiwi-eating.png"
-dest_files=["res://.godot/imported/kiwi-eating.png-d05fea95ece8c9024d3fcc249b052594.ctex"]
+source_file="res://art/animals/crow/crow-walking-Sheet.png"
+dest_files=["res://.godot/imported/crow-walking-Sheet.png-45a95494ff83b5ca70f9380ba7d7545b.ctex"]
 
 [params]
 

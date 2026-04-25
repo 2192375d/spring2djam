@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_7kg4r"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_iv2qb"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dlx73nrjcb3km" path="res://art/kiwi-walking-Sheet.png" id="3_av3wk"]
 [ext_resource type="Texture2D" uid="uid://diggjk3mk244m" path="res://art/kiwi-eating.png" id="3_iv2qb"]
 [ext_resource type="Texture2D" uid="uid://mv0xed5acgjk" path="res://art/kiwi-standing.png" id="4_iwrvm"]
@@ -10,6 +11,11 @@
 [ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="8_ugxqd"]
 [ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="9_02w1o"]
 [ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="10_esqq4"]
+=======
+[ext_resource type="Texture2D" uid="uid://daqv83nstkwcj" path="res://art/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
+[ext_resource type="Texture2D" uid="uid://n5uvqbygdk43" path="res://art/animals/kiwi/kiwi-standing.png" id="4_aunm4"]
+[ext_resource type="Texture2D" uid="uid://df680j0pvvbne" path="res://art/animals/kiwi/kiwi-walking-Sheet.png" id="5_rw33j"]
+>>>>>>> 53b5b92 (added some animals)
 
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
@@ -21,27 +27,27 @@ hunger_gain = 3
 hunger_max = 20
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kg4r"]
-atlas = ExtResource("3_av3wk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdddw"]
+atlas = ExtResource("5_rw33j")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iv2qb"]
-atlas = ExtResource("3_av3wk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_72jjp"]
+atlas = ExtResource("5_rw33j")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iwrvm"]
-atlas = ExtResource("3_av3wk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0s2l"]
+atlas = ExtResource("5_rw33j")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6k04w"]
-atlas = ExtResource("3_av3wk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh4cs"]
+atlas = ExtResource("5_rw33j")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_iv2qb")
+"texture": ExtResource("3_af2pw")
 }],
 "loop": true,
 "name": &"eat",
@@ -49,7 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_iwrvm")
+"texture": ExtResource("4_aunm4")
 }],
 "loop": true,
 "name": &"idle",
@@ -57,16 +63,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7kg4r")
+"texture": SubResource("AtlasTexture_hdddw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iv2qb")
+"texture": SubResource("AtlasTexture_72jjp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iwrvm")
+"texture": SubResource("AtlasTexture_w0s2l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6k04w")
+"texture": SubResource("AtlasTexture_yh4cs")
 }],
 "loop": true,
 "name": &"walk",
@@ -94,7 +100,7 @@ entity_resource = SubResource("Resource_iwrvm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 sprite_frames = SubResource("SpriteFrames_252sp")
-animation = &"walk"
+animation = &"eat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
