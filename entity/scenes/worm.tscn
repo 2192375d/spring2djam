@@ -7,6 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
+id = null
+hierarchy = null
 exp_gain = 3
 exp_max = 3
 hunger_gain = 2
@@ -59,7 +61,7 @@ size = Vector2(16, 4)
 radius = 12.539936
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation")]
-scale = Vector2(3, 3)
+scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
 speed = 30.0
 animation = NodePath("AnimatedSprite2D")

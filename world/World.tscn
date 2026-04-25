@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dl1yglg8oo5px" path="res://art/forestground.png" id="6_dodpj"]
 [ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player/player.gd" id="7_txrfu"]
 [ext_resource type="PackedScene" uid="uid://d2kw626g1cvh2" path="res://entity/scenes/worm.tscn" id="8_txrfu"]
+[ext_resource type="PackedScene" uid="uid://bi425yc0h3pqt" path="res://entity/scenes/seed.tscn" id="9_crsqw"]
+[ext_resource type="PackedScene" uid="uid://c68plsy2aoxpn" path="res://entity/scenes/pigeon.tscn" id="10_8mymi"]
+[ext_resource type="PackedScene" uid="uid://dlwfvhsm8ocu0" path="res://entity/scenes/duck.tscn" id="11_0n6y5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
 
@@ -201,5 +204,17 @@ tile_set = SubResource("TileSet_txrfu")
 
 [node name="Worm2" parent="." unique_id=1498860485 instance=ExtResource("8_txrfu")]
 position = Vector2(780, 963.00006)
+
+[node name="Seed" parent="." unique_id=936244655 instance=ExtResource("9_crsqw")]
+position = Vector2(673, 890)
+
+[node name="Seed2" parent="." unique_id=1587733142 instance=ExtResource("9_crsqw")]
+position = Vector2(486, 931)
+
+[node name="Pigeon" parent="." unique_id=1504360008 instance=ExtResource("10_8mymi")]
+position = Vector2(596, 790)
+
+[node name="Duck" parent="." unique_id=1763314182 instance=ExtResource("11_0n6y5")]
+position = Vector2(101, 967)
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
