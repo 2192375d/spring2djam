@@ -1,3 +1,5 @@
+TileMapLayer
+TileMap
 Sprite2D
 TextureRect
 GPUParticles2D
@@ -10,6 +12,3 @@ Label
 TextureProgressBar
 Control
 CPUParticles2D
-ProgressBar
-CanvasLayer
-CollisionShape2D
