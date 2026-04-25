@@ -4,7 +4,7 @@ class_name GroundIdleState
 func enter() -> void:
 	print("entered Idle")
 	var rval = [-1,1][randi_range(0, 1)] # random -1 or 1
-	actor.velocity.x = rval * 100
+	actor.velocity.x = rval * actor.speed
 	
 func exit() -> void:
 	print("exited Idle")

@@ -200,6 +200,6 @@ tile_map_data = PackedByteArray("AAAIABQAAAABAAAAAAAJABQAAAABAAAAAAAKABQAAAABAAA
 tile_set = SubResource("TileSet_txrfu")
 
 [node name="Worm" parent="." unique_id=1498860485 instance=ExtResource("8_txrfu")]
-position = Vector2(760, 946.00006)
+position = Vector2(727, 983.00006)
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]

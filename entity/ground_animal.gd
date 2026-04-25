@@ -29,20 +29,31 @@ func _ready() -> void:
 	if (!domain_radius):
 		domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
 	# connect signals	
-	vision_area.body_entered.connect(_on_vision_area_entered)
+	vision_area.body_entered.connect(_on_vision_body_entered)
+	vision_area.body_exited.connect(_on_vision_body_exited)
 	#if (eating_area):
 	eating_area.body_entered.connect(_on_eating_area_body_entered)
 	if get_parent() is not Player:
 		self.state_machine.setup()
 
-func _on_vision_area_entered(body: Node2D) -> void:
+func _on_vision_body_entered(body: Node2D) -> void:
 	# check predator or prey
 	if body is Animal:
-		if body.entity_resource.hierarchy < entity_resource.hierarchy: # TODO: CHANGE THIS IF THIS CAUSES BUGS
+		if body.entity_resource.hierarchy < entity_resource.hierarchy:
 			preylist.push_back(body)
 		elif body.entity_resource.hierarchy > entity_resource.hierarchy:
 			predatorlist.push_back(body)
 	
+func _on_vision_body_exited(body: Node2D) -> void:
+	if body is Animal:
+		if body.entity_resource.hierarchy < entity_resource.hierarchy:
+			# remove the corresponding body
+			if (body in preylist):
+				preylist.remove_at(preylist.find(body))
+		elif body.entity_resource.hierarchy > entity_resource.hierarchy:
+			if (body in predatorlist):
+				predatorlist.remove_at(predatorlist.find(body))
+			
 
 func _physics_process(delta: float) -> void:
 	if get_parent() is not Player:
