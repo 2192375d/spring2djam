@@ -1,39 +1,90 @@
 [gd_scene format=3 uid="uid://bijg1ulfxx0wp"]
 
-[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_0sod6"]
-[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_8gljy"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_f2ms7"]
-[ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="4_yp7so"]
-[ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="5_ixeun"]
-[ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="6_ronqj"]
-[ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="7_qlkq5"]
-[ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="8_kxjd5"]
+[ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_ronqj"]
+[ext_resource type="Resource" uid="uid://c7mcv577bp2we" path="res://entity/resources/ducks_resource.tres" id="2_qlkq5"]
+[ext_resource type="Texture2D" uid="uid://djff6xcmt6p2b" path="res://art/animals/duck/duck-eating.png" id="3_qlkq5"]
+[ext_resource type="Texture2D" uid="uid://b37f78gvynpt8" path="res://art/animals/duck/duck-flying.png" id="4_kxjd5"]
+[ext_resource type="Texture2D" uid="uid://d2tf0vp8o614d" path="res://art/animals/duck/duck-standing.png" id="5_tf3w3"]
+[ext_resource type="Texture2D" uid="uid://de7ceb5r8h00o" path="res://art/animals/duck/duck-walking.png" id="6_fohmq"]
+[ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="6_qlkq5"]
+[ext_resource type="Script" uid="uid://b7owura0ml3t7" path="res://entity/flying_states/chase.gd" id="7_kxjd5"]
+[ext_resource type="Script" uid="uid://do8kdix62e608" path="res://entity/flying_states/head_back.gd" id="8_tf3w3"]
+[ext_resource type="Script" uid="uid://x0hsslsv2mco" path="res://entity/flying_states/idle.gd" id="9_fohmq"]
+[ext_resource type="Script" uid="uid://drj6xqlq1cvve" path="res://entity/flying_states/run_away.gd" id="10_xeoxt"]
 
-[sub_resource type="Resource" id="Resource_leakp"]
-script = ExtResource("2_8gljy")
-id = 202
-hierarchy = 2
-exp_gain = 10
-exp_max = 40
-hunger_gain = 20
-hunger_max = 50
-metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeoxt"]
+atlas = ExtResource("3_qlkq5")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kge5o"]
+atlas = ExtResource("4_kxjd5")
+region = Rect2(0, 0, 210, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iijpb"]
+atlas = ExtResource("4_kxjd5")
+region = Rect2(210, 0, 210, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3lnx"]
+atlas = ExtResource("5_tf3w3")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqq5t"]
+atlas = ExtResource("6_fohmq")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsho1"]
+atlas = ExtResource("6_fohmq")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq78s"]
+atlas = ExtResource("6_fohmq")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd2lm"]
+atlas = ExtResource("6_fohmq")
+region = Rect2(600, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeoxt")
+}],
 "loop": true,
 "name": &"eat",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kge5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iijpb")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3lnx")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_f2ms7")
+"texture": SubResource("AtlasTexture_hqq5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsho1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq78s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd2lm")
 }],
 "loop": true,
 "name": &"walk",
@@ -51,19 +102,20 @@ radius = 83.501495
 
 [node name="Duck" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
-script = ExtResource("1_0sod6")
-speed = 100.0
+script = ExtResource("1_ronqj")
+speed = 80.0
 animation = NodePath("AnimatedSprite2D")
-state_machine = NodePath("StateMachine")
+domain_radius = 180
+state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")
-entity_resource = SubResource("Resource_leakp")
+entity_resource = ExtResource("2_qlkq5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
 scale = Vector2(0.1328125, 0.12500001)
 sprite_frames = SubResource("SpriteFrames_252sp")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
@@ -87,8 +139,8 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 shape = SubResource("CircleShape2D_tf3w3")
 debug_color = Color(0.1821481, 0.6385072, 0.2549099, 0.41960785)
 
-[node name="StateMachine" type="Node" parent="." unique_id=663420212 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
-script = ExtResource("4_yp7so")
+[node name="FlyingStateMachine" type="Node" parent="." unique_id=789777180 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("6_qlkq5")
 actor = NodePath("..")
 starting_state = NodePath("IDLE")
 state_dictionary = {
@@ -97,15 +149,16 @@ state_dictionary = {
 2: NodePath("RUN_AWAY"),
 3: NodePath("HEAD_BACK")
 }
+metadata/_custom_type_script = "uid://cxckhend6obel"
 
-[node name="IDLE" type="Node" parent="StateMachine" unique_id=1498266605]
-script = ExtResource("5_ixeun")
+[node name="CHASE" type="Node" parent="FlyingStateMachine" unique_id=1771034156]
+script = ExtResource("7_kxjd5")
 
-[node name="CHASE" type="Node" parent="StateMachine" unique_id=1795261871]
-script = ExtResource("6_ronqj")
+[node name="HEAD_BACK" type="Node" parent="FlyingStateMachine" unique_id=1298265309]
+script = ExtResource("8_tf3w3")
 
-[node name="RUN_AWAY" type="Node" parent="StateMachine" unique_id=173386237]
-script = ExtResource("7_qlkq5")
+[node name="IDLE" type="Node" parent="FlyingStateMachine" unique_id=1715379791]
+script = ExtResource("9_fohmq")
 
-[node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=1858245607]
-script = ExtResource("8_kxjd5")
+[node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=1134994629]
+script = ExtResource("10_xeoxt")
