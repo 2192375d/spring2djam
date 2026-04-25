@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://87sevvw8jmnd" path="res://world/game_ui.gd" id="1_apb6g"]
 
-[node name="game_ui" type="CanvasLayer" unique_id=686514258 node_paths=PackedStringArray("hunger_bar")]
+[node name="game_ui" type="CanvasLayer" unique_id=686514258 node_paths=PackedStringArray("exp_bar", "hunger_bar")]
 script = ExtResource("1_apb6g")
-hunger_bar = NodePath("HBoxContainer/hunger bar")
+exp_bar = NodePath("HBoxContainer/bars/exp bar")
+hunger_bar = NodePath("HBoxContainer/bars/hunger bar")
 metadata/_custom_type_script = "uid://87sevvw8jmnd"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1036018819]
@@ -15,13 +16,31 @@ anchor_right = 0.40538195
 anchor_bottom = 0.14969136
 metadata/_edit_use_anchors_ = true
 
-[node name="exp" type="Label" parent="HBoxContainer" unique_id=490867003]
+[node name="labels" type="VBoxContainer" parent="HBoxContainer" unique_id=46383511]
+layout_mode = 2
+
+[node name="exp" type="Label" parent="HBoxContainer/labels" unique_id=490867003]
+modulate = Color(1, 0.6117647, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "exp      "
+
+[node name="hunger" type="Label" parent="HBoxContainer/labels" unique_id=1476068666]
 modulate = Color(1, 0.6117647, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "hunger"
 
-[node name="hunger bar" type="ProgressBar" parent="HBoxContainer" unique_id=952911101]
+[node name="bars" type="VBoxContainer" parent="HBoxContainer" unique_id=193923895]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="exp bar" type="ProgressBar" parent="HBoxContainer/bars" unique_id=952911101]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hunger bar" type="ProgressBar" parent="HBoxContainer/bars" unique_id=490975786]
 layout_mode = 2
 size_flags_horizontal = 3

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CollectableResource" format=3 uid="uid://cp3rfcpeskug5"]
 
-[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entities/entity_resource.gd" id="1_sot32"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="1_sot32"]
 
 [resource]
 script = ExtResource("1_sot32")
