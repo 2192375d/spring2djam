@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://ckavqb25bdaul"]
 
-[ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://world/world.gd" id="1_mad0u"]
-[ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://world/world_ui.tscn" id="2_ocfjn"]
+[ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://game/world.gd" id="1_mad0u"]
+[ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://game/world_ui.tscn" id="2_ocfjn"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_dqqhb"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://art/forestbg.jpg" id="4_b2suy"]
-[ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://world/player/player.gd" id="5_h8lre"]
+[ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://game/player/player.gd" id="5_h8lre"]
 [ext_resource type="Texture2D" uid="uid://dl1yglg8oo5px" path="res://art/forestground.png" id="6_ysn08"]
 [ext_resource type="Texture2D" uid="uid://d26yqn7fxd0kg" path="res://art/tree.png" id="7_m0cxt"]
 [ext_resource type="PackedScene" uid="uid://d2kw626g1cvh2" path="res://entity/scenes/worm.tscn" id="8_j34ew"]
@@ -214,7 +214,6 @@ autostart = true
 zoom = Vector2(2, 2)
 
 [node name="RainParticle" type="GPUParticles2D" parent="Player" unique_id=1933084900]
-visible = false
 modulate = Color(1, 1, 1, 0.5921569)
 z_index = 100
 position = Vector2(200, 300)

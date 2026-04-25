@@ -32,11 +32,11 @@ folder_colors={
 "res://autoloads/": "yellow",
 "res://effects/": "blue",
 "res://entity/": "orange",
+"res://game/": "blue",
+"res://game/player/": "teal",
 "res://objects/": "orange",
 "res://resources/": "gray",
-"res://sound/": "pink",
-"res://world/": "blue",
-"res://world/player/": "teal"
+"res://sound/": "pink"
 }
 
 [input]
