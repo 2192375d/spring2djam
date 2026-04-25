@@ -233,7 +233,7 @@ tile_map_data = PackedByteArray("AAAIABQAAAABAAAAAAAJABQAAAABAAAAAAAKABQAAAABAAA
 tile_set = SubResource("TileSet_txrfu")
 
 [node name="Worm" parent="." unique_id=1498860485 instance=ExtResource("8_j34ew")]
-position = Vector2(727, 983.00006)
+position = Vector2(605, 758)
 
 [node name="Seed" parent="." unique_id=936244655 instance=ExtResource("9_p2iis")]
 position = Vector2(2098, 972)
@@ -251,7 +251,7 @@ position = Vector2(1576, 961)
 position = Vector2(101, 967)
 
 [node name="Crow" parent="." unique_id=1761793004 instance=ExtResource("12_3ljsx")]
-position = Vector2(293.99997, 959)
+position = Vector2(1815.0001, -124.99999)
 
 [node name="Worm2" parent="." unique_id=455173402 instance=ExtResource("8_j34ew")]
 position = Vector2(1397, 969)

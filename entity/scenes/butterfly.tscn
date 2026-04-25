@@ -52,7 +52,7 @@ radius = 136.00827
 [node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
-speed = 100.0
+speed = 600.0
 animation = NodePath("AnimatedSprite2D")
 state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")

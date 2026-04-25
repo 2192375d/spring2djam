@@ -2,6 +2,10 @@ extends Node2D
 
 class_name Player
 
+const CAMERA_ZOOM_MAX := 2.0
+const CAMERA_ZOOM_MIN := 0.35
+const CAMERA_REFERENCE_VISION_RADIUS := 33.359993
+
 var animal: Animal
 @export var STARTING_CHARACTER = Constants.EntityID.CROW
 
@@ -35,16 +39,7 @@ var exp_max: float = 50:
 			ui.update_exp_bar_max(exp_max)
 
 func _ready() -> void:
-	var animal_scene: PackedScene = Constants.entity_dict.get(STARTING_CHARACTER)
-	animal = animal_scene.instantiate()
-	add_child(animal)
-	
-	animal.global_position = spawnpoint_marker.global_position
-	
-	hunger_max = animal.entity_resource.hunger_max
-	hunger_value = float(hunger_max) / 2
-	exp_max = animal.entity_resource.exp_max
-	exp_value = 0.0
+	change_playing_animal(STARTING_CHARACTER)
 
 func _physics_process(delta: float) -> void:
 	
@@ -61,9 +56,10 @@ func _physics_process(delta: float) -> void:
 	animal.player_movement(delta)
 
 func change_playing_animal(animal_id: Constants.EntityID) -> void:
-	# change player as the correct animal
-	var spawnpoint: Vector2 = animal.position
-	animal.queue_free()
+	var spawnpoint: Vector2 = spawnpoint_marker.global_position
+	if animal:
+		spawnpoint = animal.global_position
+		animal.queue_free()
 	
 	var animal_scene: PackedScene = Constants.entity_dict.get(animal_id)
 	animal = animal_scene.instantiate()
@@ -73,16 +69,42 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	exp_max = animal.entity_resource.exp_max
 	exp_value = 0.0
 	
-	animal.position = spawnpoint
-	
 	add_child(animal)
+	animal.global_position = spawnpoint
+	_update_camera_zoom()
 
 func eat(experience: float, hunger: float) -> void:
 	exp_value += exp_value + experience
 	hunger_value = min(hunger_max, hunger_value + hunger)
 	
 	if exp_value > exp_max:
-		pass
+		change_playing_animal(get_next_entity_id(animal.entity_resource.id))
 
 func _on_hunger_drain_timer_timeout() -> void:
 	hunger_value -= hunger_max / 50.0
+
+func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
+	var ids: Array = Constants.EntityID.values()
+	var index := ids.find(current_id)
+	if index == -1:
+		return Constants.EntityID.NONE
+	
+	for i in range(index + 1, ids.size()):
+		var candidate = ids[i]
+		if Constants.entity_dict.has(candidate):
+			return candidate
+	
+	return Constants.EntityID.NONE
+
+func _update_camera_zoom() -> void:
+	var vision_shape: CollisionShape2D = animal.get_node_or_null("VisionArea/CollisionShape2D")
+	if !vision_shape or !(vision_shape.shape is CircleShape2D):
+		return
+
+	var vision_radius: float = (vision_shape.shape as CircleShape2D).radius
+	var zoom_amount: float = clamp(
+		CAMERA_REFERENCE_VISION_RADIUS / vision_radius * CAMERA_ZOOM_MAX,
+		CAMERA_ZOOM_MIN,
+		CAMERA_ZOOM_MAX
+	)
+	camera.zoom = Vector2.ONE * zoom_amount
