@@ -1,6 +1,6 @@
 extends Node
 
-var GRAVITY: float = 20.0
+var GRAVITY: float = 30.0
 var JUMP_SPEED: float = 100.0
 var CONSTANT_DOMAIN_RADIUS : float = 50.0
 
@@ -45,7 +45,7 @@ enum EntityID {
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.WORM: load("uid://d2kw626g1cvh2"),
-	
+	EntityID.CROW : load("uid://cxb7ymqcrgll7"),
 	EntityID.KIWI: load("uid://n17g23ay3e7i"),
 }
 

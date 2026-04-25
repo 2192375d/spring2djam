@@ -12,7 +12,7 @@ class_name GroundAnimal
 
 var preylist : Array 
 var predatorlist : Array 
-
+var grav_accel : float
 
 func _ready() -> void:
 	print("SELF:", self)
@@ -28,9 +28,7 @@ func _ready() -> void:
 			push_error("no vision area for", self)
 		vision_area.body_entered.connect(_on_vision_body_entered)
 		vision_area.body_exited.connect(_on_vision_body_exited)
-		# default domain unassigned
-		if (domain_point == Vector2(0,0)): 
-			domain_point = self.global_position
+
 		if (!domain_radius):
 			domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
 		if (!state_machine):
@@ -60,7 +58,13 @@ func _physics_process(delta: float) -> void:
 	if get_parent() is not Player:
 		state_machine.process_physics_frame(delta)
 		if !is_on_floor():
-			velocity.y += Constants.GRAVITY * delta
+			grav_accel += Constants.GRAVITY 
+			velocity.y += grav_accel 
+		else:
+			grav_accel = 0
+			# default domain unassigned
+			if (domain_point == Vector2(0,0)): 
+				domain_point = self.global_position
 	move_and_slide()
 
 func player_movement(_delta: float) -> void:
@@ -73,14 +77,14 @@ func player_movement(_delta: float) -> void:
 	var x_direction: float = sign(Input.get_axis("left", "right"))
 	if x_direction < 0.0:
 		animation.play("walk")
-		animation.flip_h = false
+		animation.flip_h = true
 	elif x_direction > 0.0:
 		animation.play("walk")
-		animation.flip_h = true
+		animation.flip_h = false
 	else:
 		animation.play("idle")
-	
 	velocity.x = x_direction * speed
+	
 
 func _on_eating_area_body_entered(body: Node2D) -> void:
 	if body is Animal:

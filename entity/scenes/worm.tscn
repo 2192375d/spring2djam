@@ -11,8 +11,6 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
-id = 0
-hierarchy = 0
 exp_gain = 3
 exp_max = 3
 hunger_gain = 2
@@ -67,7 +65,7 @@ radius = 33.359993
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
-speed = 30.0
+speed = 300.0
 animation = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
 vision_area = NodePath("VisionArea")

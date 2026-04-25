@@ -2,11 +2,9 @@ extends GroundState
 class_name GroundHeadBackState
 
 func enter() -> void:
-	print("entered head_back")
 	# logic
 	pass
 func exit() -> void:
-	print("exited head_back")
 	# logic
 	pass
 
@@ -16,7 +14,9 @@ func setup(actor : GroundAnimal) -> void:
 	
 func process_physics_frame(delta : float) -> GroundState.Name:
 	# go back to domain
-	actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
+	self.actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
+	self.actor.velocity.y -= 20 # to go up platforms
+	self.actor.velocity 
 
 	# check if predators exist
 	if (len(self.actor.predatorlist) > 0):
