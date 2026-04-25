@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cje3l1g7nsohf"]
+
+[ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_yny8u"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_v068a"]
+[ext_resource type="Texture2D" uid="uid://bqlduvaiwyff5" path="res://art/animals/crow/crow-standing.png" id="3_v068a"]
+[ext_resource type="Texture2D" uid="uid://ddq080b62upbd" path="res://art/animals/crow/crow-walking-Sheet.png" id="4_d1ypr"]
+
+[sub_resource type="Resource" id="Resource_leakp"]
+script = ExtResource("2_v068a")
+id = 103
+hierarchy = 2
+exp_gain = 7
+exp_max = 30
+hunger_gain = 15
+hunger_max = 40
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcn5m"]
+atlas = ExtResource("4_d1ypr")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vclyw"]
+atlas = ExtResource("4_d1ypr")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f33fb"]
+atlas = ExtResource("4_d1ypr")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7k8d"]
+atlas = ExtResource("4_d1ypr")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v068a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcn5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vclyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f33fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7k8d")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(17, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0sod6"]
+radius = 12.539936
+
+[node name="Crow" type="CharacterBody2D" unique_id=936244655]
+scale = Vector2(5, 5)
+script = ExtResource("1_yny8u")
+speed = 100.0
+entity_resource = SubResource("Resource_leakp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+position = Vector2(-1.4901161e-08, 1.1622906e-06)
+scale = Vector2(0.1328125, 0.12500001)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=562133539]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=774710001]
+shape = SubResource("CircleShape2D_0sod6")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]

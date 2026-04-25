@@ -33,10 +33,10 @@ folder_colors={
 "res://effects/": "blue",
 "res://entity/": "orange",
 "res://objects/": "orange",
-"res://player/": "teal",
 "res://resources/": "gray",
 "res://sound/": "pink",
-"res://world/": "blue"
+"res://world/": "blue",
+"res://world/player/": "teal"
 }
 
 [input]

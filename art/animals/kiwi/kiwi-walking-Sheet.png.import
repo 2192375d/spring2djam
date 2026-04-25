@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlx73nrjcb3km"
-path="res://.godot/imported/kiwi-walking-Sheet.png-54cf6f06f39912664815b1aad5675e94.ctex"
+uid="uid://df680j0pvvbne"
+path="res://.godot/imported/kiwi-walking-Sheet.png-32852998341c82ff4fdafacac730b101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/kiwi-walking-Sheet.png"
-dest_files=["res://.godot/imported/kiwi-walking-Sheet.png-54cf6f06f39912664815b1aad5675e94.ctex"]
+source_file="res://art/animals/kiwi/kiwi-walking-Sheet.png"
+dest_files=["res://.godot/imported/kiwi-walking-Sheet.png-32852998341c82ff4fdafacac730b101.ctex"]
 
 [params]
 

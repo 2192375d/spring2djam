@@ -1,6 +1,6 @@
 extends Animal
 
-class_name LowFlyingAnimal
+class_name FlyingAnimal
 
 @export var speed: float
 
