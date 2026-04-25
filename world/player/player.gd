@@ -3,6 +3,8 @@ extends Node2D
 class_name Player
 
 var animal: Animal
+var PLAYABLE_CHARACTER = Constants.EntityID.CROW
+
 @export var ui: GameUI
 @export var camera: Camera2D
 
@@ -31,7 +33,7 @@ var exp_max: float = 50:
 			ui.update_exp_bar_max(exp_max)
 
 func _ready() -> void:
-	var animal_scene: PackedScene = Constants.entity_dict.get(Constants.EntityID.KIWI)
+	var animal_scene: PackedScene = Constants.entity_dict.get(PLAYABLE_CHARACTER)
 	animal = animal_scene.instantiate()
 	add_child(animal)
 	

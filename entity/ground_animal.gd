@@ -76,14 +76,14 @@ func player_movement(_delta: float) -> void:
 	var x_direction: float = sign(Input.get_axis("left", "right"))
 	if x_direction < 0.0:
 		animation.play("walk")
-		animation.flip_h = false
+		animation.flip_h = true
 	elif x_direction > 0.0:
 		animation.play("walk")
-		animation.flip_h = true
+		animation.flip_h = false
 	else:
 		animation.play("idle")
-	
 	velocity.x = x_direction * speed
+	
 
 func _on_eating_area_body_entered(body: Node2D) -> void:
 	if body is Animal:

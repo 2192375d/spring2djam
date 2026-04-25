@@ -38,10 +38,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
 size = Vector2(17, 16)
 
-[node name="Pigeon" type="CharacterBody2D" unique_id=936244655]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3ujl"]
+radius = 12.539936
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmuns"]
+radius = 80.52484
+
+[node name="Pigeon" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_j3ujl")
 speed = 100.0
+animation = NodePath("AnimatedSprite2D")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
@@ -59,3 +68,15 @@ offset_top = -14.0
 offset_right = 26.5
 offset_bottom = 9.0
 text = "pigeon"
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=560403562]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=441247340]
+shape = SubResource("CircleShape2D_j3ujl")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=183522008]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1102807127]
+shape = SubResource("CircleShape2D_wmuns")
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)

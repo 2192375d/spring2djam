@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3c06xmeu51n0"]
+[gd_scene format=3 uid="uid://byv78g02t3584"]
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_0kf1m"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_p33uf"]
@@ -41,10 +41,18 @@ size = Vector2(17, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sod6"]
 radius = 12.539936
 
-[node name="Butterfly" type="CharacterBody2D" unique_id=936244655]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kf1m"]
+radius = 136.00827
+
+[node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
 speed = 100.0
+animation = NodePath("AnimatedSprite2D")
+domain_radius = null
+domain_point = null
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
@@ -69,4 +77,8 @@ text = "butterfly"
 shape = SubResource("CircleShape2D_0sod6")
 debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
-[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]
+[node name="VisionArea" type="Area2D" parent="." unique_id=729057460]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=779019025]
+shape = SubResource("CircleShape2D_0kf1m")
+debug_color = Color(3.85046e-07, 0.64647317, 0.27174348, 0.41960785)

@@ -8,7 +8,7 @@ const TARGET_TYPE := 1
 const TYPE_TO_SCRIPT := {
 	0: "res://entity/plant.gd",
 	1: "res://entity/ground_animal.gd",
-	2: "res://entity/low_flying_animal.gd",
+	2: "res://entity/flying_animal.gd",
 }
 
 func _run() -> void:

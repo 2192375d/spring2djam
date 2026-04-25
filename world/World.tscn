@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6ngnf01jash3" path="res://entity/scenes/seed.tscn" id="9_crsqw"]
 [ext_resource type="PackedScene" uid="uid://b20swbnjy7tpn" path="res://entity/scenes/pigeon.tscn" id="10_8mymi"]
 [ext_resource type="PackedScene" uid="uid://bijg1ulfxx0wp" path="res://entity/scenes/duck.tscn" id="11_0n6y5"]
-[ext_resource type="PackedScene" path="res://entity/scenes/crow.tscn" id="12_gqh78"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
+[ext_resource type="PackedScene" uid="uid://cxb7ymqcrgll7" path="res://entity/scenes/crow.tscn" id="12_gqh78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txrfu"]
 texture = ExtResource("6_dodpj")
@@ -121,42 +119,61 @@ texture_region_size = Vector2i(50, 50)
 texture = ExtResource("6_0wlj7")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
+0:0/0/z_index = -1
 1:0/0 = 0
+1:0/0/z_index = -1
 2:0/0 = 0
+2:0/0/z_index = -1
 3:0/0 = 0
+3:0/0/z_index = -1
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 3:0/0/physics_layer_0/polygon_0/one_way = true
 4:0/0 = 0
+4:0/0/z_index = -1
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 4:0/0/physics_layer_0/polygon_0/one_way = true
 5:0/0 = 0
+5:0/0/z_index = -1
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 5:0/0/physics_layer_0/polygon_0/one_way = true
 6:0/0 = 0
+6:0/0/z_index = -1
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 6:0/0/physics_layer_0/polygon_0/one_way = true
 7:0/0 = 0
+7:0/0/z_index = -1
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 7:0/0/physics_layer_0/polygon_0/one_way = true
 0:1/0 = 0
+0:1/0/z_index = -1
 1:1/0 = 0
+1:1/0/z_index = -1
 2:1/0 = 0
+2:1/0/z_index = -1
 3:1/0 = 0
+3:1/0/z_index = -1
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 3:1/0/physics_layer_0/polygon_0/one_way = true
 4:1/0 = 0
+4:1/0/z_index = -1
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 4:1/0/physics_layer_0/polygon_0/one_way = true
 5:1/0 = 0
+5:1/0/z_index = -1
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 5:1/0/physics_layer_0/polygon_0/one_way = true
 6:1/0 = 0
+6:1/0/z_index = -1
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -4.6763268, 25, -5.2159023, 25, 5.215904, -25, 5.215904)
 6:1/0/physics_layer_0/polygon_0/one_way = true
 0:2/0 = 0
+0:2/0/z_index = -1
 1:2/0 = 0
+1:2/0/z_index = -1
 2:2/0 = 0
+2:2/0/z_index = -1
 3:2/0 = 0
+3:2/0/z_index = -1
 
 [sub_resource type="TileSet" id="TileSet_txrfu"]
 tile_size = Vector2i(50, 50)
@@ -171,17 +188,12 @@ metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_qcaji")]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=257559454]
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("CanvasTexture_gv5m4")
-metadata/_edit_use_anchors_ = true
-
 [node name="Icon" type="Sprite2D" parent="." unique_id=1001805182]
 position = Vector2(544, 157)
 texture = ExtResource("4_5hvw7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=536565872]
+z_index = -100
 offset_top = -2055.0
 offset_right = 5760.0
 offset_bottom = 1185.0
@@ -205,6 +217,8 @@ tile_set = SubResource("TileSet_txrfu")
 
 [node name="Worm" parent="." unique_id=1498860485 instance=ExtResource("8_txrfu")]
 position = Vector2(727, 983.00006)
+domain_radius = null
+domain_point = null
 
 [node name="Seed" parent="." unique_id=936244655 instance=ExtResource("9_crsqw")]
 position = Vector2(673, 890)
@@ -217,6 +231,8 @@ position = Vector2(596, 790)
 
 [node name="Duck" parent="." unique_id=1763314182 instance=ExtResource("11_0n6y5")]
 position = Vector2(101, 967)
+domain_radius = null
+domain_point = null
 
 [node name="Crow" parent="." unique_id=1761793004 instance=ExtResource("12_gqh78")]
 position = Vector2(293.99997, 959)

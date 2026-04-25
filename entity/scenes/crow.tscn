@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_yny8u"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_v068a"]
+[ext_resource type="Texture2D" uid="uid://nox2jxqbgkab" path="res://art/animals/crow/crow-flying.png" id="3_d1ypr"]
 [ext_resource type="Texture2D" uid="uid://bqlduvaiwyff5" path="res://art/animals/crow/crow-standing.png" id="3_v068a"]
 [ext_resource type="Texture2D" uid="uid://ddq080b62upbd" path="res://art/animals/crow/crow-walking-Sheet.png" id="4_d1ypr"]
 
@@ -14,6 +15,14 @@ exp_max = 30
 hunger_gain = 15
 hunger_max = 40
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71wpw"]
+atlas = ExtResource("3_d1ypr")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbosr"]
+atlas = ExtResource("3_d1ypr")
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcn5m"]
 atlas = ExtResource("4_d1ypr")
@@ -36,6 +45,17 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71wpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbosr")
+}],
+"loop": true,
+"name": &"fly",
 "speed": 5.0
 }, {
 "frames": [{
@@ -70,17 +90,23 @@ size = Vector2(17, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0sod6"]
 radius = 12.539936
 
-[node name="Crow" type="CharacterBody2D" unique_id=936244655]
+[sub_resource type="CircleShape2D" id="CircleShape2D_v068a"]
+radius = 160.01799
+
+[node name="Crow" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
 script = ExtResource("1_yny8u")
 speed = 100.0
+animation = NodePath("AnimatedSprite2D")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
 scale = Vector2(0.1328125, 0.12500001)
 sprite_frames = SubResource("SpriteFrames_252sp")
-animation = &"idle"
+animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
@@ -91,4 +117,8 @@ shape = SubResource("RectangleShape2D_6k04w")
 shape = SubResource("CircleShape2D_0sod6")
 debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
-[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]
+[node name="VisionArea" type="Area2D" parent="." unique_id=970738283]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1822918762]
+shape = SubResource("CircleShape2D_v068a")
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)
