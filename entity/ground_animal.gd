@@ -8,10 +8,10 @@ class_name GroundAnimal
 func _ready() -> void:
 	animation.play("idle")
 
-func _physics_process(_delta: float) -> void:
-	if !get_parent() is Player:
-		# do all the AI movement stuffs
-		pass
+func _physics_process(delta: float) -> void:
+	if get_parent() is not Player:
+		if !is_on_floor():
+			velocity.y += Constants.GRAVITY * delta
 	
 	move_and_slide()
 

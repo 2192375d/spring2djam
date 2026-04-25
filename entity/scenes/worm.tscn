@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d2kw626g1cvh2"]
+
+[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_oixa4"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_c3q6h"]
+[ext_resource type="Texture2D" uid="uid://bci8iorrnj8pp" path="res://art/worm.png" id="3_cr74x"]
+[ext_resource type="Texture2D" uid="uid://ftkp86cxduan" path="res://art/worm-Sheet.png" id="4_c3q6h"]
+
+[sub_resource type="Resource" id="Resource_ernl4"]
+script = ExtResource("2_c3q6h")
+exp_gain = 1
+exp_max = 10
+hunger_gain = 1
+hunger_max = 10
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr74x"]
+atlas = ExtResource("4_c3q6h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b312i"]
+atlas = ExtResource("4_c3q6h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k58r"]
+atlas = ExtResource("4_c3q6h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqg4n"]
+atlas = ExtResource("4_c3q6h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8guuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cr74x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr74x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b312i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k58r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqg4n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm4l"]
+size = Vector2(16, 4)
+
+[node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation")]
+script = ExtResource("1_oixa4")
+speed = 30.0
+animation = NodePath("AnimatedSprite2D")
+entity_resource = SubResource("Resource_ernl4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_8guuy")
+animation = &"idle"
+frame_progress = 0.06908285
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387006371]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_wrm4l")
