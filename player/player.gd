@@ -4,6 +4,7 @@ class_name Player
 
 var animal: Animal
 @export var ui: GameUI
+@export var camera: Camera2D
 
 var hunger_value: float = 100:
 	set(value):
@@ -45,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	
 	if !animal:
 		return
+	camera.position = animal.position
 	if hunger_value < 0.0:
 		animal.die()
 		animal = null
