@@ -38,9 +38,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="exp bar" type="ProgressBar" parent="HBoxContainer/bars" unique_id=952911101]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="hunger bar" type="ProgressBar" parent="HBoxContainer/bars" unique_id=490975786]
+modulate = Color(0.23000002, 0.96150005, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1862457573]
+anchors_preset = -1
+anchor_left = 0.3159722
+anchor_top = 0.25925925
+anchor_right = 0.6267361
+anchor_bottom = 0.80401236
+metadata/_edit_use_anchors_ = true
