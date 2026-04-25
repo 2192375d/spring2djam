@@ -183,9 +183,10 @@ offset_right = 5760.0
 offset_bottom = 1185.0
 texture = ExtResource("5_ahhnx")
 
-[node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("ui")]
+[node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("ui", "camera")]
 script = ExtResource("7_txrfu")
 ui = NodePath("../game_ui")
+camera = NodePath("Camera2D")
 metadata/_custom_type_script = "uid://dpue3jvb1jwsd"
 
 [node name="HungerDrainTimer" type="Timer" parent="Player" unique_id=988556076]
