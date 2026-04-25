@@ -16,13 +16,19 @@ var predatorlist : Array
 
 func _ready() -> void:
 	animation.play("idle")
-	# connect signals
+	
 	if (!vision_area):
 		push_error("no vision area for", self)
 	if (!eating_area):
 		push_error("no eating area for", self)
 	if (!state_machine):
 		push_error("no state machine for", self)
+	# default domain, not assigned
+	if (domain_point == Vector2(0,0)): 
+		domain_point = self.global_position
+	if (!domain_radius):
+		domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
+	# connect signals	
 	vision_area.body_entered.connect(_on_vision_area_entered)
 	#if (eating_area):
 	eating_area.body_entered.connect(_on_eating_area_body_entered)
