@@ -28,9 +28,7 @@ func _ready() -> void:
 			push_error("no vision area for", self)
 		vision_area.body_entered.connect(_on_vision_body_entered)
 		vision_area.body_exited.connect(_on_vision_body_exited)
-		# default domain unassigned
-		if (domain_point == Vector2(0,0)): 
-			domain_point = self.global_position
+
 		if (!domain_radius):
 			domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
 		if (!state_machine):
@@ -64,6 +62,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y += grav_accel 
 		else:
 			grav_accel = 0
+			# default domain unassigned
+			if (domain_point == Vector2(0,0)): 
+				domain_point = self.global_position
 	move_and_slide()
 
 func player_movement(_delta: float) -> void:

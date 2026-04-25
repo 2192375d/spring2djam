@@ -228,7 +228,7 @@ position = Vector2(486, 931)
 position = Vector2(535, 695)
 
 [node name="Duck" parent="." unique_id=1763314182 instance=ExtResource("11_0n6y5")]
-position = Vector2(101, 967)
+position = Vector2(134, 816)
 
 [node name="Crow" parent="." unique_id=1761793004 instance=ExtResource("12_gqh78")]
 position = Vector2(1136.0004, 190.00002)

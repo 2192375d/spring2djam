@@ -5,9 +5,10 @@ var dirvec : Vector2
 
 func enter() -> void:
 	print("idle")
-	var rvalx = [-1,1][randi_range(0, 1)] # random -1 or 1
-	var rvaly = [-1,1][randi_range(0, 1)] # random -1 or 1
-	dirvec = Vector2(rvalx, rvaly) * actor.speed
+	dirvec = (self.actor.domain_point - self.actor.global_position)
+	dirvec.x *= [0.5,1.5][randi_range(0, 1)]
+	dirvec.y *= [0.5,1.5][randi_range(0, 1)]
+	dirvec = dirvec.normalized() * self.actor.speed
 	
 	
 func exit() -> void:

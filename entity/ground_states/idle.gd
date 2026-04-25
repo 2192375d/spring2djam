@@ -4,9 +4,9 @@ class_name GroundIdleState
 var dirvec : Vector2
 
 func enter() -> void:
-	var rval = [-1,1][randi_range(0, 1)] # random -1 or 1
-	dirvec = Vector2(rval * actor.speed, 0)
-	
+	dirvec = (self.actor.domain_point - self.actor.global_position)
+	dirvec.x *= [0.7,1.3][randi_range(0, 1)]
+	dirvec.y *= [0.7,1.3][randi_range(0, 1)]
 	
 func exit() -> void:
 	pass
