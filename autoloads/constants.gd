@@ -41,6 +41,10 @@ enum EntityID {
 	
 	# tier 3
 	HERON = 301,
+	
+	# tier 4
+	
+	# dominant
 } 
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {

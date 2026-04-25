@@ -182,8 +182,24 @@ physics_layer_0/collision_mask = 3
 sources/2 = SubResource("TileSetAtlasSource_0wlj7")
 sources/0 = SubResource("TileSetAtlasSource_txrfu")
 
-[node name="World" type="Node2D" unique_id=301270681]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqh78"]
+size = Vector2(5771, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpjny"]
+size = Vector2(5755, 1354)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3yhk"]
+size = Vector2(5737, 1290)
+
+[node name="World" type="Node2D" unique_id=301270681 node_paths=PackedStringArray("plant_timer", "tier0_timer", "tier1_timer", "tier2_timer", "tier3_timer", "tier4_timer", "dominant_timer")]
 script = ExtResource("1_1tnoa")
+plant_timer = NodePath("PLANTSpawn")
+tier0_timer = NodePath("TIER0Spawn")
+tier1_timer = NodePath("TIER1Spawn")
+tier2_timer = NodePath("TIER2Spawn")
+tier3_timer = NodePath("TIER3Spawn")
+tier4_timer = NodePath("TIER4Spawn")
+dominant_timer = NodePath("DOMINANTSpawn")
 metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_qcaji")]
@@ -235,5 +251,50 @@ position = Vector2(1136.0004, 190.00002)
 
 [node name="Crow2" parent="." unique_id=774160982 instance=ExtResource("12_gqh78")]
 position = Vector2(293.99997, 959)
+
+[node name="PLANTSpawn" type="Timer" parent="." unique_id=1719342631]
+autostart = true
+
+[node name="TIER0Spawn" type="Timer" parent="." unique_id=1948582129]
+wait_time = 2.0
+autostart = true
+
+[node name="TIER1Spawn" type="Timer" parent="." unique_id=2042988700]
+wait_time = 4.0
+autostart = true
+
+[node name="TIER2Spawn" type="Timer" parent="." unique_id=412800971]
+wait_time = 8.0
+autostart = true
+
+[node name="TIER3Spawn" type="Timer" parent="." unique_id=1516735391]
+wait_time = 16.0
+autostart = true
+
+[node name="TIER4Spawn" type="Timer" parent="." unique_id=1596484155]
+wait_time = 32.0
+autostart = true
+
+[node name="DOMINANTSpawn" type="Timer" parent="." unique_id=1884320293]
+wait_time = 64.0
+autostart = true
+
+[node name="LowSpawn" type="Area2D" parent="." unique_id=607894066]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowSpawn" unique_id=1932424323]
+position = Vector2(2875.5, 823)
+shape = SubResource("RectangleShape2D_gqh78")
+
+[node name="MedSpawn" type="Area2D" parent="." unique_id=447877374]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MedSpawn" unique_id=1610634472]
+position = Vector2(2880.5, -52)
+shape = SubResource("RectangleShape2D_qpjny")
+
+[node name="HighSpawn" type="Area2D" parent="." unique_id=453316758]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighSpawn" unique_id=326029734]
+position = Vector2(2881.5, -1393)
+shape = SubResource("RectangleShape2D_x3yhk")
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
