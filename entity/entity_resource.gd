@@ -7,12 +7,9 @@ extends Resource
 @export var exp_max: int
 @export var hunger_gain: int
 @export var hunger_max: int
-@export var ai_type: Constants.AIType
 
 func _init() -> void:
-	if ai_type == Constants.AIType.NONE:
-		hunger_max = -1
-		exp_max = -1
+	pass
 
 #func _init(id = null, exp_gain = 0, hp_gain = 0, energy_gain = 0, hierarchy=Constants.FoodHierarchy.TIER0):
 	#self.id = id

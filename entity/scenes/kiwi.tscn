@@ -8,6 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
+id = 100
 hierarchy = 1
 exp_gain = 3
 exp_max = 30
@@ -70,7 +71,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
 size = Vector2(17, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_af2pw"]
+radius = 12.539936
+
 [node name="Kiwi" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation")]
+scale = Vector2(2, 2)
 script = ExtResource("1_7kg4r")
 speed = 100.0
 animation = NodePath("AnimatedSprite2D")
@@ -82,3 +87,11 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=358522200]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=1224894647]
+shape = SubResource("CircleShape2D_af2pw")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]
