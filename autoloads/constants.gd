@@ -1,6 +1,6 @@
 extends Node
 
-var GRAVITY: float = 20.0
+var GRAVITY: float = 30.0
 var JUMP_SPEED: float = 100.0
 var CONSTANT_DOMAIN_RADIUS : float = 50.0
 

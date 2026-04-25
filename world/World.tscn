@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dl1yglg8oo5px" path="res://art/forestground.png" id="6_dodpj"]
 [ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player/player.gd" id="7_txrfu"]
 [ext_resource type="PackedScene" uid="uid://d2kw626g1cvh2" path="res://entity/scenes/worm.tscn" id="8_txrfu"]
-[ext_resource type="PackedScene" uid="uid://bi425yc0h3pqt" path="res://entity/scenes/seed.tscn" id="9_crsqw"]
-[ext_resource type="PackedScene" uid="uid://c68plsy2aoxpn" path="res://entity/scenes/pigeon.tscn" id="10_8mymi"]
-[ext_resource type="PackedScene" uid="uid://dlwfvhsm8ocu0" path="res://entity/scenes/duck.tscn" id="11_0n6y5"]
+[ext_resource type="PackedScene" uid="uid://6ngnf01jash3" path="res://entity/scenes/seed.tscn" id="9_crsqw"]
+[ext_resource type="PackedScene" uid="uid://b20swbnjy7tpn" path="res://entity/scenes/pigeon.tscn" id="10_8mymi"]
+[ext_resource type="PackedScene" uid="uid://bijg1ulfxx0wp" path="res://entity/scenes/duck.tscn" id="11_0n6y5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gv5m4"]
 

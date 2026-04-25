@@ -22,4 +22,5 @@ func process_physics_frame(delta : float) -> GroundState.Name:
 	if ((len(self.actor.preylist) >= 1 and self.actor.preylist[0] != target) or len(self.actor.preylist) == 0):
 		return GroundState.Name.HEAD_BACK
 	self.actor.velocity = (target.global_position - self.actor.global_position).normalized() * self.actor.speed
+	self.actor.velocity.y -= 20 # to go up platforms
 	return GroundState.Name.CHASE
