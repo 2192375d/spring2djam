@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://b20swbnjy7tpn"]
+
+[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_j3ujl"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_wmuns"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_v32gu"]
+[ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="4_q2pjv"]
+[ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="5_kddgq"]
+[ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="6_g72an"]
+[ext_resource type="Script" uid="uid://bvdvawgk7ksyv" path="res://entity/ground_states/run_away.gd" id="7_te6o7"]
+[ext_resource type="Script" uid="uid://d4hp3738p0634" path="res://entity/ground_states/head_back.gd" id="8_jp6wy"]
+
+[sub_resource type="Resource" id="Resource_leakp"]
+script = ExtResource("2_wmuns")
+id = 102
+hierarchy = 1
+exp_gain = 5
+exp_max = 30
+hunger_gain = 10
+hunger_max = 35
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v32gu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(17, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3ujl"]
+radius = 12.539936
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qm3i"]
+radius = 33.68234
+
+[node name="Pigeon" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
+scale = Vector2(2, 2)
+script = ExtResource("1_j3ujl")
+speed = 100.0
+animation = NodePath("AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
+entity_resource = SubResource("Resource_leakp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+position = Vector2(-1.4901161e-08, 1.1622906e-06)
+scale = Vector2(0.1328125, 0.12500001)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")
+
+[node name="Label" type="Label" parent="." unique_id=1647516719]
+offset_left = -26.5
+offset_top = -14.0
+offset_right = 26.5
+offset_bottom = 9.0
+text = "pigeon"
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=1728361084]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=66624704]
+shape = SubResource("CircleShape2D_j3ujl")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=1327841733]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1068458199]
+shape = SubResource("CircleShape2D_6qm3i")
+debug_color = Color(0.1821481, 0.6385072, 0.2549099, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="." unique_id=808587858 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("4_q2pjv")
+actor = NodePath("..")
+starting_state = NodePath("IDLE")
+state_dictionary = {
+0: NodePath("IDLE"),
+1: NodePath("CHASE"),
+2: NodePath("RUN_AWAY"),
+3: NodePath("HEAD_BACK")
+}
+
+[node name="IDLE" type="Node" parent="StateMachine" unique_id=1751632946]
+script = ExtResource("5_kddgq")
+
+[node name="CHASE" type="Node" parent="StateMachine" unique_id=1324650231]
+script = ExtResource("6_g72an")
+
+[node name="RUN_AWAY" type="Node" parent="StateMachine" unique_id=1300585551]
+script = ExtResource("7_te6o7")
+
+[node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=175859048]
+script = ExtResource("8_jp6wy")

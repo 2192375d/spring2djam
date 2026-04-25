@@ -69,7 +69,7 @@ radius = 12.539936
 radius = 33.359993
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
-scale = Vector2(3, 3)
+scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
 speed = 30.0
 animation = NodePath("AnimatedSprite2D")

@@ -15,25 +15,26 @@ var predatorlist : Array
 
 
 func _ready() -> void:
+	print("SELF:", self)
 	animation.play("idle")
 	
-	if (!vision_area):
-		push_error("no vision area for", self)
 	if (!eating_area):
 		push_error("no eating area for", self)
-	if (!state_machine):
-		push_error("no state machine for", self)
-	# default domain, not assigned
-	if (domain_point == Vector2(0,0)): 
-		domain_point = self.global_position
-	if (!domain_radius):
-		domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
-	# connect signals	
-	vision_area.body_entered.connect(_on_vision_body_entered)
-	vision_area.body_exited.connect(_on_vision_body_exited)
-	#if (eating_area):
 	eating_area.body_entered.connect(_on_eating_area_body_entered)
+	
+	# AI specific configurations
 	if get_parent() is not Player:
+		if (!vision_area):
+			push_error("no vision area for", self)
+		vision_area.body_entered.connect(_on_vision_body_entered)
+		vision_area.body_exited.connect(_on_vision_body_exited)
+		# default domain unassigned
+		if (domain_point == Vector2(0,0)): 
+			domain_point = self.global_position
+		if (!domain_radius):
+			domain_radius = Constants.CONSTANT_DOMAIN_RADIUS
+		if (!state_machine):
+			push_error("no state machine for", self)
 		self.state_machine.setup()
 
 func _on_vision_body_entered(body: Node2D) -> void:
