@@ -5,15 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://bci8iorrnj8pp" path="res://art/worm.png" id="3_cr74x"]
 [ext_resource type="Texture2D" uid="uid://ftkp86cxduan" path="res://art/worm-Sheet.png" id="4_c3q6h"]
 
-[sub_resource type="Resource" id="Resource_ernl4"]
+[sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
 id = null
 hierarchy = null
-exp_gain = 1
-exp_max = 10
-hunger_gain = 1
+exp_gain = 3
+exp_max = 3
+hunger_gain = 2
 hunger_max = 10
-ai_type = null
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr74x"]
@@ -58,18 +57,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm4l"]
 size = Vector2(16, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr74x"]
-size = Vector2(86, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3q6h"]
+radius = 12.539936
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr74x"]
+radius = 18.150604
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "vision_area", "eating_area")]
+scale = Vector2(3, 3)
 script = ExtResource("1_oixa4")
 speed = 30.0
 animation = NodePath("AnimatedSprite2D")
-domain_radius = null
-domain_point = null
-vision_area = NodePath("ViewArea")
-eating_area = NodePath("")
-entity_resource = SubResource("Resource_ernl4")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
+entity_resource = SubResource("Resource_c3q6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
 position = Vector2(0, -4)
@@ -81,9 +82,16 @@ frame_progress = 0.06908285
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_wrm4l")
 
-[node name="ViewArea" type="Area2D" parent="." unique_id=1141754944]
+[node name="EatingArea" type="Area2D" parent="." unique_id=1492574343]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea" unique_id=2064973443]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_cr74x")
-debug_color = Color(1.92523e-06, 0.62076735, 0.5623828, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=1454393222]
+shape = SubResource("CircleShape2D_c3q6h")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=753519038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=187976476]
+shape = SubResource("CircleShape2D_cr74x")
+debug_color = Color(0, 0.63963425, 0.38425085, 0.41960785)
+
+[connection signal="body_entered" from="EatingArea" to="." method="_on_eating_area_body_entered"]

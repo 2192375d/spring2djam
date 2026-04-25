@@ -17,7 +17,6 @@ enum AIType {
 	LOW = 1, 
 	HIGH = 1,
 }
-
 enum EntityID {
 	WORM = 0,
 	KIWI = 100,

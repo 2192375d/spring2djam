@@ -5,11 +5,12 @@ func enter() -> void:
 	# logic
 	pass
 func exit() -> void:
-	# logic
 	pass
+	
 func setup(actor : GroundAnimal) -> void:
-	# logic
-	pass
+	self.actor = actor
+	self.state_name = GroundState.Name.RUN_AWAY
+
 func process_physics_frame(delta : float) -> GroundState.Name:
 	# logic
 	return GroundState.Name.RUN_AWAY
