@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://n17g23ay3e7i"]
 
-[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/kiwi.gd" id="1_dyha7"]
+[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_dyha7"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_av3wk"]
 [ext_resource type="Texture2D" uid="uid://dlx73nrjcb3km" path="res://art/kiwi-walking-Sheet.png" id="3_av3wk"]
 [ext_resource type="Texture2D" uid="uid://diggjk3mk244m" path="res://art/kiwi-eating.png" id="3_iv2qb"]
@@ -8,11 +8,13 @@
 
 [sub_resource type="Resource" id="Resource_iv2qb"]
 script = ExtResource("2_av3wk")
+id = null
 hierarchy = 1
 exp_gain = 3
 exp_max = 30
 hunger_gain = 2
 hunger_max = 20
+ai_type = null
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kg4r"]

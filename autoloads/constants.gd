@@ -25,3 +25,5 @@ enum EntityID {
 var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.KIWI: load("uid://n17g23ay3e7i")
 }
+
+var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")

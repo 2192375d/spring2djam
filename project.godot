@@ -25,6 +25,7 @@ GameSession="*uid://c3kndpx3bs0e6"
 folder_colors={
 "res://art/": "red",
 "res://autoloads/": "yellow",
+"res://effects/": "blue",
 "res://entity/": "orange",
 "res://objects/": "orange",
 "res://player/": "teal",
@@ -67,4 +68,5 @@ space={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
