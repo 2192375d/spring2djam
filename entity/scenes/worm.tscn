@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_oixa4"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_c3q6h"]
-[ext_resource type="Texture2D" uid="uid://bci8iorrnj8pp" path="res://art/worm.png" id="3_cr74x"]
-[ext_resource type="Texture2D" uid="uid://ftkp86cxduan" path="res://art/worm-Sheet.png" id="4_c3q6h"]
+[ext_resource type="Texture2D" uid="uid://d0hm24tu7qini" path="res://art/animals/worm-Sheet.png" id="3_oixa4"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="5_alvju"]
 [ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="6_fxco0"]
 [ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="7_uwi2s"]
@@ -12,35 +11,35 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
-id = null
-hierarchy = null
+id = 0
+hierarchy = 0
 exp_gain = 3
 exp_max = 3
 hunger_gain = 2
 hunger_max = 10
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cr74x"]
-atlas = ExtResource("4_c3q6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3q6h"]
+atlas = ExtResource("3_oixa4")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b312i"]
-atlas = ExtResource("4_c3q6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr74x"]
+atlas = ExtResource("3_oixa4")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4k58r"]
-atlas = ExtResource("4_c3q6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b312i"]
+atlas = ExtResource("3_oixa4")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqg4n"]
-atlas = ExtResource("4_c3q6h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k58r"]
+atlas = ExtResource("3_oixa4")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8guuy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_cr74x")
+"texture": SubResource("AtlasTexture_c3q6h")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cr74x")
@@ -50,9 +49,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4k58r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dqg4n")
 }],
 "loop": true,
 "name": &"idle",
