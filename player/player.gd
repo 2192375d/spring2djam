@@ -32,10 +32,6 @@ var exp_max: float = 50:
 func _ready() -> void:
 	var animal_scene: PackedScene = Constants.entity_dict.get(Constants.EntityID.KIWI)
 	animal = animal_scene.instantiate()
-	var camera: Camera2D = Camera2D.new()
-	#camera.zoom = Vector2(3, 3)
-	camera.zoom = Vector2(2, 2)
-	animal.add_child(camera)
 	add_child(animal)
 	
 	animal.position = Vector2(200, 30)
@@ -44,6 +40,19 @@ func _ready() -> void:
 	hunger_value = float(hunger_max) / 2
 	exp_max = animal.entity_resource.exp_max
 	exp_value = 0.0
+
+func _physics_process(delta: float) -> void:
+	
+	if !animal:
+		return
+	if hunger_value < 0.0:
+		animal.die()
+		animal = null
+		return
+	if exp_value > exp_max:
+		# do level up
+		pass
+	animal.player_movement(delta)
 
 func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	# change player as the correct animal
@@ -62,16 +71,6 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	animal.position = spawnpoint
 	
 	add_child(animal)
-
-func _physics_process(delta: float) -> void:
-	
-	if !animal:
-		return
-	if hunger_value < 0.0:
-		animal.die()
-		animal = null
-		return
-	animal.player_movement(delta)
 
 func eat(experience: float, hunger: float) -> void:
 	exp_value = min(exp_max, exp_value + experience)

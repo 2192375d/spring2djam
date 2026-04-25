@@ -4,6 +4,7 @@ var GRAVITY: float = 20.0
 var JUMP_SPEED: float = 100.0
 
 enum FoodHierarchy { 
+	SEED = -1,
 	TIER0 = 0,
 	TIER1 = 1, 
 	TIER2 = 2, 
@@ -18,12 +19,32 @@ enum AIType {
 	HIGH = 1,
 }
 enum EntityID {
+	SEEDS = -100,
+	BERRIES = -99,
+	EGGS = -98,
+	
+	# tier 0
 	WORM = 0,
+	BUTTERFLY = 1,
+	
+	# tier 1
 	KIWI = 100,
-} # TODO: finish entities
+	DOVE = 101,
+	PIGEON = 102,
+	CROW = 103,
+	
+	# tier 2
+	LOON = 201,
+	DUCK = 202,
+	GOOSE = 203,
+	
+	# tier 3
+	HERON = 301,
+} 
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.WORM: load("uid://d2kw626g1cvh2"),
+	
 	EntityID.KIWI: load("uid://n17g23ay3e7i"),
 }
 
