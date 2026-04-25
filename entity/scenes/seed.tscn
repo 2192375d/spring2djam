@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bi425yc0h3pqt"]
+
+[ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_lob4k"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_0gwcn"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_leakp"]
+
+[sub_resource type="Resource" id="Resource_leakp"]
+script = ExtResource("2_0gwcn")
+id = -100
+hierarchy = -1
+exp_gain = 1
+exp_max = 1
+hunger_gain = -1
+hunger_max = -1
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_leakp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(17, 16)
+
+[node name="Seed" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation")]
+scale = Vector2(2, 2)
+script = ExtResource("1_lob4k")
+speed = 100.0
+animation = NodePath("AnimatedSprite2D")
+entity_resource = SubResource("Resource_leakp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+position = Vector2(-1.4901161e-08, 1.1622906e-06)
+scale = Vector2(0.1328125, 0.12500001)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")
+
+[node name="Label" type="Label" parent="." unique_id=1647516719]
+offset_left = -19.0
+offset_top = -13.0
+offset_right = 21.0
+offset_bottom = 10.0
+text = "seed"
