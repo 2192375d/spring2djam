@@ -33,7 +33,8 @@ func _ready() -> void:
 	var animal_scene: PackedScene = Constants.entity_dict.get(Constants.EntityID.KIWI)
 	animal = animal_scene.instantiate()
 	var camera: Camera2D = Camera2D.new()
-	camera.zoom = Vector2(3, 3)
+	#camera.zoom = Vector2(3, 3)
+	camera.zoom = Vector2(2, 2)
 	animal.add_child(camera)
 	add_child(animal)
 	

@@ -9,7 +9,6 @@ class_name GroundStateMachine
 var current_state : GroundState
 
 func setup() -> void:
-
 	for key: GroundState.Name in state_dictionary:
 		state_dictionary[key].setup(self.actor)
 	change_state(starting_state)
@@ -24,5 +23,4 @@ func process_physics_frame(delta: float) -> void:
 	var new_state: GroundState = state_dictionary[current_state.process_physics_frame(delta)]
 	if new_state != current_state:
 		change_state(new_state)
-	
-	actor.move_and_slide()
+	#actor.move_and_slide()

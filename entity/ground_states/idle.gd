@@ -2,10 +2,12 @@ extends GroundState
 class_name GroundIdleState
 
 func enter() -> void:
+	print("entered Idle")
 	var rval = [-1,1][randi_range(0, 1)] # random -1 or 1
 	actor.velocity.x = rval * 100
 	
 func exit() -> void:
+	print("exited Idle")
 	pass
 
 func setup(actor : GroundAnimal) -> void:
@@ -15,11 +17,11 @@ func setup(actor : GroundAnimal) -> void:
 func process_physics_frame(delta : float) -> GroundState.Name:
 	
 	# check if predators exist
-	if (len(actor.preylist) > 0):
+	if (len(self.actor.predatorlist) > 0):
 		return GroundState.Name.RUN_AWAY
 		
 	# check if prey exists
-	if (len(actor.preylist) > 0):
+	if (len(self.actor.preylist) > 0):
 		return GroundState.Name.CHASE
 		
 	# check if outside of domain
