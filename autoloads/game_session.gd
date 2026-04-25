@@ -47,9 +47,8 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	
 	animal.position = new_position
 	
-	
 	var camera: Camera2D = Camera2D.new()
-	camera.scale = Vector2(30, 30)
+	camera.zoom = Vector2(5, 5)
 	animal.add_child(camera)
 	world.add_child(animal)
 

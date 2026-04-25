@@ -1,30 +1,19 @@
 extends Animal
 
-class_name Kiwi
+class_name GroundAnimal
 
 @export var speed: float
-
 @export var animation: AnimatedSprite2D
-
-var is_player: bool = true
 
 func _ready() -> void:
 	animation.play("idle")
 
-func _physics_process(delta: float) -> void:
-	if is_player:
-		player_movement(delta)
-	else:
-		# do the ai stuffs
+func _physics_process(_delta: float) -> void:
+	if !get_parent() is Player:
+		# do all the AI movement stuffs
 		pass
 	
 	move_and_slide()
-
-#func player_fly_movement(_delta: float) -> void:
-	#velocity = Vector2.ZERO
-	#
-	#var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
-	#velocity = direction_vector * speed
 
 func player_movement(_delta: float) -> void:
 	velocity.x = 0.0

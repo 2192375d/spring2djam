@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdage3p7lypba"]
 
-[ext_resource type="Material" uid="uid://cax5ngbqlvi7l" path="res://world/blood_particle.tres" id="1_pucf0"]
+[ext_resource type="Material" uid="uid://cax5ngbqlvi7l" path="res://effects/blood_particle.tres" id="1_emdme"]
 
 [node name="Bloodparticle" type="Node2D" unique_id=1430481892]
 
@@ -10,4 +10,4 @@ amount = 30
 lifetime = 0.45
 one_shot = true
 explosiveness = 1.0
-process_material = ExtResource("1_pucf0")
+process_material = ExtResource("1_emdme")

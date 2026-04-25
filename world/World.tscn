@@ -10,8 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hvw7"]
 size = Vector2(512, 20)
 
-[node name="World" type="Node2D" unique_id=1550517037]
+[node name="World" type="Node2D" unique_id=301270681]
 script = ExtResource("1_1tnoa")
+metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_qcaji")]
 
@@ -31,6 +32,7 @@ offset_right = 14637.0
 offset_bottom = 3240.0
 texture = ExtResource("5_ahhnx")
 stretch_mode = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1114965296]
 position = Vector2(392, 279)
 
@@ -39,5 +41,7 @@ shape = SubResource("RectangleShape2D_5hvw7")
 
 [node name="HungerDrainTimer" type="Timer" parent="." unique_id=988556076]
 autostart = true
+
+[node name="Player" type="Node2D" parent="." unique_id=1262927291]
 
 [connection signal="timeout" from="HungerDrainTimer" to="." method="_on_hunger_drain_timer_timeout"]
