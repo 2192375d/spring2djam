@@ -19,11 +19,13 @@ enum AIType {
 }
 
 enum EntityID {
-	KIWI = 0
+	WORM = 0,
+	KIWI = 100,
 } # TODO: finish entities
 
 var entity_dict: Dictionary[EntityID, PackedScene] = {
-	EntityID.KIWI: load("uid://n17g23ay3e7i")
+	EntityID.WORM: load("uid://d2kw626g1cvh2"),
+	EntityID.KIWI: load("uid://n17g23ay3e7i"),
 }
 
 var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")
