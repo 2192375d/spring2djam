@@ -19,7 +19,7 @@ func exit() -> void:
 func setup(actor : GroundAnimal) -> void:
 	self.actor = actor
 	self.state_name = GroundState.Name.IDLE	
-	
+
 func process_physics_frame(delta : float) -> GroundState.Name:
 	if (actor.velocity.length() < self.actor.speed/2):
 		self.destvec = generate_dest_vec()

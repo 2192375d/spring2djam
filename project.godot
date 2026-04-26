@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="New Game Project"
-run/main_scene="uid://ckavqb25bdaul"
+run/main_scene="uid://q38qkudbta3h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,7 +28,7 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
-"res://art/": "red",
+"res://asset/": "red",
 "res://autoloads/": "yellow",
 "res://effects/": "blue",
 "res://entity/": "orange",

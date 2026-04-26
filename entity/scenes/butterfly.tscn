@@ -53,13 +53,14 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kf1m"]
-radius = 136.00827
+radius = 53.009434
 
 [node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
-speed = 600.0
+speed = 300.0
 animation = NodePath("AnimatedSprite2D")
+domain_radius = 4
 state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")

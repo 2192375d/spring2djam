@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_ronqj"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_qlkq5"]
-[ext_resource type="Texture2D" uid="uid://djff6xcmt6p2b" path="res://art/animals/duck/duck-eating.png" id="3_qlkq5"]
-[ext_resource type="Texture2D" uid="uid://b37f78gvynpt8" path="res://art/animals/duck/duck-flying.png" id="4_kxjd5"]
-[ext_resource type="Texture2D" uid="uid://d2tf0vp8o614d" path="res://art/animals/duck/duck-standing.png" id="5_tf3w3"]
-[ext_resource type="Texture2D" uid="uid://de7ceb5r8h00o" path="res://art/animals/duck/duck-walking.png" id="6_fohmq"]
+[ext_resource type="Texture2D" uid="uid://djff6xcmt6p2b" path="res://asset/animals/duck/duck-eating.png" id="3_qlkq5"]
+[ext_resource type="Texture2D" uid="uid://b37f78gvynpt8" path="res://asset/animals/duck/duck-flying.png" id="4_kxjd5"]
+[ext_resource type="Texture2D" uid="uid://d2tf0vp8o614d" path="res://asset/animals/duck/duck-standing.png" id="5_tf3w3"]
+[ext_resource type="Texture2D" uid="uid://de7ceb5r8h00o" path="res://asset/animals/duck/duck-walking.png" id="6_fohmq"]
 [ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="6_qlkq5"]
 [ext_resource type="Script" uid="uid://b7owura0ml3t7" path="res://entity/flying_states/chase.gd" id="7_kxjd5"]
 [ext_resource type="Script" uid="uid://do8kdix62e608" path="res://entity/flying_states/head_back.gd" id="8_tf3w3"]
@@ -129,13 +129,6 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
-
-[node name="Label" type="Label" parent="." unique_id=1647516719]
-offset_left = -19.0
-offset_top = -13.5
-offset_right = 19.0
-offset_bottom = 9.5
-text = "duck"
 
 [node name="EatingArea" type="Area2D" parent="." unique_id=562133539]
 

@@ -3,11 +3,11 @@
 [ext_resource type="Material" uid="uid://cax5ngbqlvi7l" path="res://effects/blood_particle.tres" id="1_emdme"]
 
 [node name="Bloodparticle" type="Node2D" unique_id=1430481892]
-scale = Vector2(5, 5)
+scale = Vector2(20, 20)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=917649454]
 emitting = false
-amount = 30
+amount = 4000
 lifetime = 0.45
 one_shot = true
 explosiveness = 1.0
