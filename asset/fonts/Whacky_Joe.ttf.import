@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b3hbmcbbkl3dd"
-path="res://.godot/imported/Whacky_Joe.ttf-530b52426d707fb082ece9f496eac35e.fontdata"
+path="res://.godot/imported/Whacky_Joe.ttf-7404705eafa2a09add4c49d91a62b660.fontdata"
 
 [deps]
 
-source_file="res://art/fonts/Whacky_Joe.ttf"
-dest_files=["res://.godot/imported/Whacky_Joe.ttf-530b52426d707fb082ece9f496eac35e.fontdata"]
+source_file="res://asset/fonts/Whacky_Joe.ttf"
+dest_files=["res://.godot/imported/Whacky_Joe.ttf-7404705eafa2a09add4c49d91a62b660.fontdata"]
 
 [params]
 

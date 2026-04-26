@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://c4xfc8ea26rbk"]
+
+[ext_resource type="Script" uid="uid://bcvo8nvvwoj31" path="res://entity/plant.gd" id="1_wau1l"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_geds1"]
+[ext_resource type="Texture2D" uid="uid://ccd5p2sqdtd3x" path="res://asset/animals/egg/egg-animation-Sheet.png" id="3_wau1l"]
+
+[sub_resource type="Resource" id="Resource_leakp"]
+script = ExtResource("2_geds1")
+id = -98
+spawn_height = 1
+exp_gain = 7
+exp_max = -1
+hunger_gain = 7
+hunger_max = -1
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geds1"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpjx0"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ass2o"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tra4"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wuei"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx76p"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixvi1"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8xec"]
+atlas = ExtResource("3_wau1l")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geds1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpjx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ass2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tra4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wuei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx76p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixvi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8xec")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(18, 16)
+
+[node name="Berrybush" type="CharacterBody2D" unique_id=936244655]
+scale = Vector2(2, 2)
+script = ExtResource("1_wau1l")
+entity_resource = SubResource("Resource_leakp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(1.0625, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"idle"
+frame_progress = 0.15238057
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")
