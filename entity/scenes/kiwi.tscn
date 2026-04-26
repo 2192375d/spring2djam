@@ -81,7 +81,7 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aunm4"]
-radius = 39.028835
+radius = 99.5
 
 [node name="Kiwi" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
@@ -134,3 +134,9 @@ script = ExtResource("9_02w1o")
 
 [node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=1737987249]
 script = ExtResource("10_esqq4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1574286758]
+debug_enabled = true
+
+[node name="MindTimeOut" type="Timer" parent="." unique_id=1939383576]
+wait_time = 10.0

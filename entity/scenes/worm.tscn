@@ -78,7 +78,7 @@ size = Vector2(16, 4)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr74x"]
-radius = 33.359993
+radius = 153.95139
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 modulate = Color(1, 0.6117647, 0.7176471, 1)
@@ -135,3 +135,9 @@ script = ExtResource("8_ranbx")
 
 [node name="HEAD_BACK" type="Node" parent="StateMachine" unique_id=1900716332]
 script = ExtResource("9_m8udw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=974970108]
+debug_enabled = true
+
+[node name="MindTimeOut" type="Timer" parent="." unique_id=1324583778]
+wait_time = 10.0

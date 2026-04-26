@@ -165,3 +165,9 @@ script = ExtResource("9_fohmq")
 
 [node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=1134994629]
 script = ExtResource("10_xeoxt")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1926987202]
+debug_enabled = true
+
+[node name="MindTimeOut" type="Timer" parent="." unique_id=1265954127]
+wait_time = 10.0

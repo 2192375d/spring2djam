@@ -40,6 +40,10 @@ folder_colors={
 "res://sound/": "pink"
 }
 
+[global_group]
+
+navigation=""
+
 [input]
 
 up={

@@ -9,9 +9,14 @@ class_name GroundAnimal
 @export var state_machine : GroundStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
+@onready var navagent : NavigationAgent2D = $NavigationAgent2D
+@onready var mind_timeout : Timer = $MindTimeOut
+
 
 var preylist : Array 
 var predatorlist : Array 
+var blacklistprey : Array[Animal]
+
 var grav_accel : float
 
 func _ready() -> void:
@@ -33,12 +38,15 @@ func _ready() -> void:
 		if (!state_machine):
 			push_error("no state machine for", self)
 		self.state_machine.setup()
+		mind_timeout.timeout.connect(func(): blacklistprey.clear())
+
 
 func _on_vision_body_entered(body: Node2D) -> void:
 	# check predator or prey
 	if body is Animal:
 		if body.entity_resource.hierarchy < entity_resource.hierarchy:
-			preylist.push_back(body)
+			if (not body in blacklistprey):
+				preylist.push_back(body)
 		elif body.entity_resource.hierarchy > entity_resource.hierarchy:
 			predatorlist.push_back(body)
 	
@@ -64,6 +72,14 @@ func _physics_process(delta: float) -> void:
 			# default domain unassigned
 			if (domain_point == Vector2(0,0)): 
 				domain_point = self.global_position
+	if self.velocity.x < 0.0:
+		animation.play("walk")
+		animation.flip_h = true
+	elif self.velocity.x > 0.0:
+		animation.play("walk")
+		animation.flip_h = false
+	else:
+		animation.play("idle")
 	move_and_slide()
 
 func player_movement(_delta: float) -> void:
@@ -74,14 +90,7 @@ func player_movement(_delta: float) -> void:
 	elif Input.is_action_just_pressed("space"):
 			velocity.y = -500.0
 	var x_direction: float = sign(Input.get_axis("left", "right"))
-	if x_direction < 0.0:
-		animation.play("walk")
-		animation.flip_h = true
-	elif x_direction > 0.0:
-		animation.play("walk")
-		animation.flip_h = false
-	else:
-		animation.play("idle")
+
 	velocity.x = x_direction * speed
 	
 

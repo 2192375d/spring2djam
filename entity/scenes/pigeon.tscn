@@ -109,7 +109,7 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmuns"]
-radius = 80.52484
+radius = 141.5
 
 [node name="Pigeon" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
@@ -172,3 +172,9 @@ script = ExtResource("7_te6o7")
 
 [node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=878130162]
 script = ExtResource("8_jp6wy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1433299935]
+debug_enabled = true
+
+[node name="MindTimeOut" type="Timer" parent="." unique_id=583580222]
+wait_time = 10.0

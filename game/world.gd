@@ -69,6 +69,7 @@ func random_position(spawn_enum : int) -> Vector2:
 	return Vector2(0,0) # NEVER LET THIS FUCKING HAPPEN, PUT IN YOUR AREAS
 
 func spawn_entity(entityenum : int):
+	return
 	var animal_scene: PackedScene = Constants.entity_dict.get(entityenum)
 	if (animal_scene):
 		var animal : Animal = animal_scene.instantiate()
