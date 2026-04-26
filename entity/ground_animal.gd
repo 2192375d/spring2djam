@@ -5,7 +5,7 @@ class_name GroundAnimal
 @export var speed: float
 @export var animation: AnimatedSprite2D
 @export var domain_radius : int
-@export var domain_point : Vector2
+# @export var domain_point : Vector2
 @export var state_machine : GroundStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
@@ -15,7 +15,6 @@ var predatorlist : Array
 var grav_accel : float
 
 func _ready() -> void:
-	print("SELF:", self)
 	animation.play("idle")
 	
 	if (!eating_area):

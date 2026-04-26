@@ -3,7 +3,6 @@ class_name FlyingHeadBackState
 
 func enter() -> void:
 	# logic
-	print("enter head_back")
 	pass
 func exit() -> void:
 	# logic

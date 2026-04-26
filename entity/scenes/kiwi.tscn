@@ -14,6 +14,7 @@
 [sub_resource type="Resource" id="Resource_iwrvm"]
 script = ExtResource("2_iv2qb")
 id = 100
+spawn_height = 1
 hierarchy = 1
 exp_gain = 3
 exp_max = 30

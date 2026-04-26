@@ -3,7 +3,7 @@
 extends CharacterBody2D
 
 @export var entity_resource: EntityResource
-
+@export var domain_point: Vector2
 @abstract func player_movement(delta: float) -> void
 
 func die() -> void:

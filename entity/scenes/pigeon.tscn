@@ -15,6 +15,7 @@
 [sub_resource type="Resource" id="Resource_leakp"]
 script = ExtResource("2_wmuns")
 id = 102
+spawn_height = 3
 hierarchy = 1
 exp_gain = 5
 exp_max = 30

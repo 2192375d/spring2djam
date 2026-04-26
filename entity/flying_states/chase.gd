@@ -4,7 +4,6 @@ class_name FlyingChaseState
 var target : Animal
 
 func enter() -> void:
-	print("enter chase")
 	if (len(self.actor.preylist) >= 1):
 		self.target = self.actor.preylist[0]
 
