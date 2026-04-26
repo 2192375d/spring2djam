@@ -3,6 +3,7 @@ extends Node
 var GRAVITY: float = 30.0
 var JUMP_SPEED: float = 100.0
 var CONSTANT_DOMAIN_RADIUS : float = 50.0
+var MAX_ENTITIES : int = 100
 
 enum SpawnHeight { # This is a bitmap enum (special special)
 	LOW = 1, 
