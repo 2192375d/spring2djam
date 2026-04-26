@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_oixa4"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_c3q6h"]
-[ext_resource type="Texture2D" uid="uid://d0hm24tu7qini" path="res://art/animals/worm-Sheet.png" id="3_oixa4"]
+[ext_resource type="Texture2D" uid="uid://d0hm24tu7qini" path="res://asset/animals/worm-Sheet.png" id="3_oixa4"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="5_alvju"]
 [ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="6_fxco0"]
 [ext_resource type="Script" uid="uid://dorlbfx71n05y" path="res://entity/ground_states/chase.gd" id="7_uwi2s"]
@@ -66,8 +66,9 @@ radius = 33.359993
 modulate = Color(1, 0.6117647, 0.7176471, 1)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("1_oixa4")
-speed = 300.0
+speed = 100.0
 animation = NodePath("AnimatedSprite2D")
+domain_radius = 3
 state_machine = NodePath("StateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")

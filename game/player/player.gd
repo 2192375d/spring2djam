@@ -74,7 +74,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	_update_camera_zoom()
 
 func eat(experience: float, hunger: float) -> void:
-	exp_value += exp_value + experience
+	exp_value += experience
 	hunger_value = min(hunger_max, hunger_value + hunger)
 	
 	if exp_value > exp_max:
