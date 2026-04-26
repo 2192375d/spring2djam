@@ -4,8 +4,6 @@ class_name FlyingRunAwayState
 var predator : Animal
 
 func enter() -> void:
-	print("enter run away")
-
 	if (len(self.actor.predatorlist) >= 1):
 		self.predator = self.actor.predatorlist[0]
 	

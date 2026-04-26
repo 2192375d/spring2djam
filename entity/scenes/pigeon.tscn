@@ -114,7 +114,7 @@ radius = 141.5
 [node name="Pigeon" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_j3ujl")
-speed = 100.0
+speed = 300.0
 animation = NodePath("AnimatedSprite2D")
 state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")
@@ -174,7 +174,6 @@ script = ExtResource("7_te6o7")
 script = ExtResource("8_jp6wy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1433299935]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=583580222]
 wait_time = 10.0

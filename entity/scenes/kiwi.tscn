@@ -136,7 +136,6 @@ script = ExtResource("9_02w1o")
 script = ExtResource("10_esqq4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1574286758]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=1939383576]
 wait_time = 10.0
