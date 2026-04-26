@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpdu4wpxd001b"
-path="res://.godot/imported/bigleaf.png-d75724ec8959dccee8f499f4b41af4f6.ctex"
+uid="uid://dgx103gvjamq8"
+path="res://.godot/imported/berrybush.png-1721822a577ec927ef6b8b4ce64619e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bigleaf.png"
-dest_files=["res://.godot/imported/bigleaf.png-d75724ec8959dccee8f499f4b41af4f6.ctex"]
+source_file="res://asset/berrybush.png"
+dest_files=["res://.godot/imported/berrybush.png-1721822a577ec927ef6b8b4ce64619e1.ctex"]
 
 [params]
 
