@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float glow_width : hint_range(0.001, 10) = 10;
+uniform float glow_width : hint_range(0.001, 2000) = 30;
 uniform float glow_intensity : hint_range(0.0, 10.0) = 1.0;
 uniform vec4 glow_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float inner_glow : hint_range(0.0, 1.0) = 0;
