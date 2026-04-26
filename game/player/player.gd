@@ -117,7 +117,7 @@ func _update_camera_zoom() -> void:
 		CAMERA_ZOOM_MIN,
 		CAMERA_ZOOM_MAX
 	)
-	camera.zoom = Vector2.ONE * zoom_amount
+	camera.zoom = 3 * Vector2.ONE * zoom_amount
 
 
 func _on_evolution_animation_animation_finished() -> void:

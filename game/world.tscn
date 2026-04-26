@@ -505,7 +505,7 @@ trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_mad0u")
 
 [node name="EvolutionAnimation" type="AnimatedSprite2D" parent="Player" unique_id=591540501]
-scale = Vector2(20, 20)
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_8w43l")
 frame = 9
 frame_progress = 1.0
