@@ -13,12 +13,113 @@
 [ext_resource type="Texture2D" uid="uid://4x63p1tvh1mc" path="res://art/UI/kiwi-standing.png" id="11_htvqh"]
 [ext_resource type="Texture2D" uid="uid://byhikgpou51c7" path="res://art/UI/rock.png" id="11_y5nw0"]
 [ext_resource type="Texture2D" uid="uid://cpu8u1dy5dwto" path="res://art/UI/pigeon-standing.png" id="12_er4ch"]
+[ext_resource type="Texture2D" uid="uid://d0hm24tu7qini" path="res://asset/animals/worm-Sheet.png" id="14_r3os6"]
+[ext_resource type="Script" uid="uid://b3682yd8v3fab" path="res://game/animated_sprite_2d.gd" id="15_a4q7a"]
+[ext_resource type="Texture2D" uid="uid://cxg8d2vay2wg1" path="res://asset/butterfly-flying-Sheet.png" id="16_3iykd"]
+[ext_resource type="Script" uid="uid://dhkjtae6pjx1t" path="res://game/node_2d.gd" id="16_4708v"]
+[ext_resource type="Script" uid="uid://c4eu2knnp8ffp" path="res://game/butterfly.gd" id="17_g83lc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd33t"]
 texture = ExtResource("2_y5nw0")
 modulate_color = Color(0.7141888, 0.7141888, 0.7141888, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y0i6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po2ot"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8dpd"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhtxf"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htvqh"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er4ch"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd33t"]
+atlas = ExtResource("16_3iykd")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y0i6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po2ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8dpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhtxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htvqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er4ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd33t")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4q7a"]
+atlas = ExtResource("14_r3os6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iykd"]
+atlas = ExtResource("14_r3os6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g83lc"]
+atlas = ExtResource("14_r3os6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4708v"]
+atlas = ExtResource("14_r3os6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_po2ot"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4q7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iykd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g83lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4708v")
+}],
+"loop": true,
+"name": &"wiggle",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control" unique_id=959232440]
 layout_mode = 3
@@ -43,10 +144,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -417.0
-offset_top = 170.0
-offset_right = 408.0
-offset_bottom = 293.0
+offset_left = -485.5
+offset_top = 163.0
+offset_right = 476.5
+offset_bottom = 307.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
 theme_override_constants/shadow_offset_y = 5
@@ -63,9 +164,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -274.875
-offset_top = -153.0
+offset_top = -170.0
 offset_right = 274.875
-offset_bottom = 439.0
+offset_bottom = 422.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -4
@@ -138,22 +239,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Rock" type="Sprite2D" parent="." unique_id=346240132]
-position = Vector2(281, 982.00006)
+position = Vector2(204, 982)
 texture = ExtResource("11_y5nw0")
 
 [node name="KiwiStanding" type="Sprite2D" parent="." unique_id=1531062504]
-position = Vector2(295, 870.99994)
+position = Vector2(449.99997, 954.99994)
 scale = Vector2(0.69178087, 0.6917808)
 texture = ExtResource("11_htvqh")
 
 [node name="PigeonStanding" type="Sprite2D" parent="." unique_id=2140567577]
-position = Vector2(828, 130)
+position = Vector2(172, 868)
 texture = ExtResource("12_er4ch")
 
 [node name="EagleStanding" type="Sprite2D" parent="." unique_id=1907358371]
 position = Vector2(1569.9999, 854)
 scale = Vector2(1.8293413, 1.8293413)
 texture = ExtResource("10_yhtxf")
+
+[node name="Butterfly" type="AnimatedSprite2D" parent="." unique_id=568078342]
+position = Vector2(330, 467.99997)
+scale = Vector2(1.4133333, 1.4133333)
+sprite_frames = SubResource("SpriteFrames_3y0i6")
+animation = &"fly"
+script = ExtResource("17_g83lc")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1338163764]
+script = ExtResource("16_4708v")
+
+[node name="Worm" type="AnimatedSprite2D" parent="Node2D" unique_id=1471382129]
+position = Vector2(941, 970.99994)
+scale = Vector2(7.75, 7.75)
+sprite_frames = SubResource("SpriteFrames_po2ot")
+animation = &"wiggle"
+script = ExtResource("15_a4q7a")
 
 [connection signal="pressed" from="VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]
