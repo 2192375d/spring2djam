@@ -4,7 +4,6 @@ class_name FlyingIdleState
 var destvec : Vector2
 
 func enter() -> void:
-	print("enter idle")
 
 	#dirvec = (self.actor.domain_point - self.actor.global_position)
 	#dirvec.x *= [0.5,1.5][randi_range(0, 1)]
@@ -30,7 +29,6 @@ func process_physics_frame(delta : float) -> FlyingState.Name:
 	self.actor.navagent.target_position = destvec
 	self.actor.velocity = self.actor.global_position.direction_to(self.actor.navagent.get_next_path_position()).normalized() * self.actor.speed
 	#self.actor.velocity = self.actor.navagent.get_next_path_position().normalized() * self.actor.speed
-	print(self.actor.velocity)	
 
 	# check if predators exist
 	if (len(self.actor.predatorlist) > 0):

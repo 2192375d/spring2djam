@@ -1,10 +1,7 @@
 class_name FlyingAnimal
 extends SentientAnimal
 
-
 var accel_scale = 1
-
-
 
 func player_movement(_delta: float) -> void:
 	velocity = Vector2.ZERO
@@ -16,6 +13,8 @@ func player_movement(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if get_parent() is not Player:
 		state_machine.process_physics_frame(_delta)
+		if (domain_point == Vector2(0,0)): 
+				domain_point = self.global_position
 
 	if !is_on_floor():
 		animation.play("fly")	

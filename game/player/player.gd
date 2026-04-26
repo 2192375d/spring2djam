@@ -50,7 +50,6 @@ func on_animal_died() -> void:
 		ui.show_death_screen()
 
 func _physics_process(delta: float) -> void:
-	#print(self.animal.global_position)
 	if !animal:
 		return
 	camera.position = animal.position
