@@ -690,7 +690,7 @@ position = Vector2(2208, 960)
 position = Vector2(1576, 961)
 
 [node name="Crow" parent="." unique_id=1761793004 instance=ExtResource("12_3ljsx")]
-position = Vector2(1815.0001, -124.99999)
+position = Vector2(2004.9999, 139.00002)
 
 [node name="Spawnpoint Marker" type="Marker2D" parent="." unique_id=1828503632]
 position = Vector2(1970, 953)
@@ -744,6 +744,7 @@ position = Vector2(2881.5, -1393)
 shape = SubResource("RectangleShape2D_s7c85")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1749116905]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_j15d7")
 
 [node name="Pigeon" parent="." unique_id=740827731 instance=ExtResource("14_s7c85")]

@@ -66,6 +66,14 @@ func _physics_process(delta: float) -> void:
 			# default domain unassigned
 			if (domain_point == Vector2(0,0)): 
 				domain_point = self.global_position
+	if self.velocity.x < 0.0:
+		animation.play("walk")
+		animation.flip_h = true
+	elif self.velocity.x > 0.0:
+		animation.play("walk")
+		animation.flip_h = false
+	else:
+		animation.play("idle")
 	move_and_slide()
 
 func player_movement(_delta: float) -> void:
@@ -76,14 +84,7 @@ func player_movement(_delta: float) -> void:
 	elif Input.is_action_just_pressed("space"):
 			velocity.y = -500.0
 	var x_direction: float = sign(Input.get_axis("left", "right"))
-	if x_direction < 0.0:
-		animation.play("walk")
-		animation.flip_h = true
-	elif x_direction > 0.0:
-		animation.play("walk")
-		animation.flip_h = false
-	else:
-		animation.play("idle")
+
 	velocity.x = x_direction * speed
 	
 
