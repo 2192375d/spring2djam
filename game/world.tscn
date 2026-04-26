@@ -796,8 +796,7 @@ metadata/_custom_type_script = "uid://dpue3jvb1jwsd"
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=712486323]
-offset = Vector2(-500, -1000)
-zoom = Vector2(0.05, 0.05)
+zoom = Vector2(2, 2)
 
 [node name="RainParticle" type="GPUParticles2D" parent="Player" unique_id=1933084900]
 modulate = Color(1, 1, 1, 0.5921569)
@@ -843,7 +842,7 @@ position = Vector2(1667, 975)
 position = Vector2(-1747, 760)
 
 [node name="Crow" parent="animals" unique_id=1761793004 instance=ExtResource("12_3ljsx")]
-position = Vector2(1744, -3523)
+position = Vector2(1239, -1235.0001)
 
 [node name="Worm2" parent="animals" unique_id=455173402 instance=ExtResource("8_j34ew")]
 position = Vector2(1986, 981)
