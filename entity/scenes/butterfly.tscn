@@ -177,12 +177,12 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kf1m"]
-radius = 53.009434
+radius = 100.0
 
 [node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
-speed = 300.0
+speed = 100.0
 animation = NodePath("AnimatedSprite2D")
 domain_radius = 4
 state_machine = NodePath("FlyingStateMachine")
@@ -237,7 +237,6 @@ script = ExtResource("7_a7fu5")
 script = ExtResource("8_bmtlu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2046640288]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=1378948752]
 wait_time = 10.0

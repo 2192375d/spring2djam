@@ -96,7 +96,7 @@ func eat(experience: float, hunger: float) -> void:
 		change_playing_animal(get_next_entity_id(animal.entity_resource.id))
 
 func _on_hunger_drain_timer_timeout() -> void:
-	hunger_value -= hunger_max / 50.0
+	hunger_value -= hunger_max / 100.0
 
 func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
 	var ids: Array = Constants.EntityID.values()
@@ -106,23 +106,38 @@ func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
 	
 	for i in range(index + 1, ids.size()):
 		var candidate = ids[i]
+		if candidate == Constants.EntityID.KIWI:
+			continue
 		if Constants.entity_dict.has(candidate):
 			return candidate
 	
 	return Constants.EntityID.NONE
 
+func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> float:
+	match hierarchy:
+		Constants.FoodHierarchy.SEED:
+			return CAMERA_ZOOM_MAX
+		Constants.FoodHierarchy.TIER0:
+			return 1.4
+		Constants.FoodHierarchy.TIER1:
+			return 1.0
+		Constants.FoodHierarchy.TIER2:
+			return 0.75
+		Constants.FoodHierarchy.TIER3:
+			return 0.55
+		Constants.FoodHierarchy.TIER4:
+			return 0.45
+		Constants.FoodHierarchy.DOMINANT:
+			return CAMERA_ZOOM_MIN
+		_:
+			return 1.0
+
 func _update_camera_zoom() -> void:
-	var vision_shape: CollisionShape2D = animal.get_node_or_null("VisionArea/CollisionShape2D")
-	if !vision_shape or !(vision_shape.shape is CircleShape2D):
+	if !animal or !animal.entity_resource:
 		return
 
-	var vision_radius: float = (vision_shape.shape as CircleShape2D).radius
-	var zoom_amount: float = clamp(
-		CAMERA_REFERENCE_VISION_RADIUS / vision_radius * CAMERA_ZOOM_MAX,
-		CAMERA_ZOOM_MIN,
-		CAMERA_ZOOM_MAX
-	)
-	camera.zoom = 1.5 * Vector2.ONE * zoom_amount
+	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
+	camera.zoom = Vector2.ONE * zoom_amount
 
 
 func _on_evolution_animation_animation_finished() -> void:
