@@ -30,6 +30,10 @@ func random_position(spawn_enum : int) -> Vector2:
 	)
 
 func spawn_entity(entityenum : int):
+	#  check if we exceeded max number of entities
+	if len(get_tree().get_nodes_in_group("animals")) >= Constants.MAX_ENTITIES:
+		return
+	
 	var animal_scene: PackedScene = Constants.entity_dict.get(entityenum)
 	if animal_scene == null:
 		return
