@@ -43,16 +43,19 @@ func _ready() -> void:
 	change_playing_animal(STARTING_CHARACTER)
 	evolution_animation.hide()
 
+func on_animal_died() -> void:
+	if animal:
+		animal = null
+	if ui:
+		ui.show_death_screen()
+
 func _physics_process(delta: float) -> void:
 	#print(self.animal.global_position)
 	if !animal:
 		return
 	camera.position = animal.position
 	if hunger_value < 0.0:
-		animal.die()
-		animal = null
-		if ui != null:
-			ui.show_death_screen()
+		on_animal_died()
 		return
 	if exp_value > exp_max:
 		# do level up
