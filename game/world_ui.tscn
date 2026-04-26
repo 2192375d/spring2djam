@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://87sevvw8jmnd" path="res://game/world_ui.gd" id="1_apb6g"]
 [ext_resource type="PackedScene" uid="uid://dfpd5mnnceve4" path="res://game/death_screen.tscn" id="2_r63uo"]
+[ext_resource type="PackedScene" uid="uid://1x6jbnkqmi7s" path="res://game/pause_menu.tscn" id="3_5dlng"]
 
 [node name="game_ui" type="CanvasLayer" unique_id=686514258 node_paths=PackedStringArray("exp_bar", "hunger_bar")]
 script = ExtResource("1_apb6g")
@@ -57,3 +58,5 @@ anchor_bottom = 0.80401236
 metadata/_edit_use_anchors_ = true
 
 [node name="DeathScreen" parent="." unique_id=1492072331 instance=ExtResource("2_r63uo")]
+
+[node name="PauseMenu" parent="." unique_id=557608149 instance=ExtResource("3_5dlng")]
