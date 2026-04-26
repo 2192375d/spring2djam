@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cltwi3mka2sdu"]
+
+[ext_resource type="Texture2D" path="res://asset/water-Sheet.png" id="1_4p8v4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr0lj"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbqw"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6eso"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2f3g"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajogs"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brdmd"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ges5n"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jn6l"]
+atlas = ExtResource("1_4p8v4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ajbp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr0lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6eso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2f3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajogs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brdmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ges5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jn6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Water" type="Node2D" unique_id=286425263]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=489702808]
+sprite_frames = SubResource("SpriteFrames_4ajbp")
+frame_progress = 0.9638872
