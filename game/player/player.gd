@@ -5,8 +5,10 @@ class_name Player
 const CAMERA_ZOOM_MAX := 2.0
 const CAMERA_ZOOM_MIN := 0.35
 const CAMERA_REFERENCE_VISION_RADIUS := 33.359993
+const EVOLUTION_PROTECTION_MS := 750
 
 var animal: Animal
+var _evolution_protection_until_msec: int = 0
 @export var STARTING_CHARACTER : Constants.EntityID
 
 @export var spawnpoint_marker: Marker2D
@@ -49,6 +51,9 @@ func on_animal_died() -> void:
 	if ui:
 		ui.show_death_screen()
 
+func is_evolution_protected() -> bool:
+	return Time.get_ticks_msec() < _evolution_protection_until_msec
+
 func _physics_process(delta: float) -> void:
 	#print(self.animal.global_position)
 	if !animal:
@@ -68,11 +73,11 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		var previous_animal := animal
 		spawnpoint = previous_animal.global_position
 		animal = null
-
+	
 		previous_animal.set_physics_process(false)
 		previous_animal.collision_layer = 0
 		previous_animal.collision_mask = 0
-
+	
 		if previous_animal is SentientAnimal:
 			var sentient_previous := previous_animal as SentientAnimal
 			if sentient_previous.eating_area:
@@ -81,10 +86,10 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 			if sentient_previous.vision_area:
 				sentient_previous.vision_area.monitoring = false
 				sentient_previous.vision_area.monitorable = false
-
+	
 		remove_child(previous_animal)
 		previous_animal.queue_free()
-
+	
 	evolution_animation.global_position = spawnpoint
 	evolution_animation.z_index = 200
 	evolution_animation.stop()
@@ -103,6 +108,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	
 	add_child(animal)
 	animal.global_position = spawnpoint
+	_evolution_protection_until_msec = Time.get_ticks_msec() + EVOLUTION_PROTECTION_MS
 	_update_camera_zoom()
 
 func eat(experience: float, hunger: float) -> void:
