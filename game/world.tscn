@@ -813,7 +813,7 @@ offset_left = 287.0
 offset_top = 1242.0
 offset_right = 439.0
 offset_bottom = 1271.0
-text = "birdaria!!!- - -"
+text = "BIRTOPIA!!!- - -"
 horizontal_alignment = 1
 
 [node name="guide2" type="Label" parent="guides" unique_id=1156097925]
@@ -858,18 +858,18 @@ autowrap_mode = 2
 [node name="guide7" type="Label" parent="guides" unique_id=240943158]
 material = SubResource("ShaderMaterial_u8v3k")
 offset_left = 695.0
-offset_top = 1258.0
+offset_top = 1284.0
 offset_right = 786.0
-offset_bottom = 1359.0
+offset_bottom = 1385.0
 text = "butterfly"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="guide8" type="Label" parent="guides" unique_id=1610469150]
 material = SubResource("ShaderMaterial_u8v3k")
-offset_left = 637.0
+offset_left = 639.0
 offset_top = 1206.0
-offset_right = 728.0
+offset_right = 730.0
 offset_bottom = 1307.0
 text = "berrybush"
 horizontal_alignment = 1
