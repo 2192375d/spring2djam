@@ -16,7 +16,7 @@
 script = ExtResource("2_v068a")
 id = 103
 spawn_height = 2
-hierarchy = 2
+hierarchy = 1
 exp_gain = 7
 exp_max = 30
 hunger_gain = 15

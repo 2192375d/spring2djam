@@ -11,13 +11,13 @@ enum SpawnHeight { # This is a bitmap enum (special special)
 }
 
 enum FoodHierarchy { 
-	SEED = -1,
+	SEED = -2,
+	PREYS = -1,
 	TIER0 = 0,
 	TIER1 = 1,
 	TIER2 = 2,
 	TIER3 = 3,
-	TIER4 = 4,
-	DOMINANT = 5,
+	DOMINANT = 4,
 }
 
 enum AIType {

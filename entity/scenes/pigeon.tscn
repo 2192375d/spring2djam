@@ -115,7 +115,7 @@ radius = 141.5
 [node name="Pigeon" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_j3ujl")
-speed = 300.0
+speed = 230.0
 animation = NodePath("AnimatedSprite2D")
 state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")

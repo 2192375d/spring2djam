@@ -11,7 +11,7 @@ const PREY_LIGHT_COLOR := Color(0.05, 1.0, 0.15, 1.0)
 var plants_enums : Array[int]
 var tier0_enums : Array[int]
 var tier1_enums : Array[int]
-var tier2_enums : Array[int]pointlight2d
+var tier2_enums : Array[int]
 var tier3_enums : Array[int]
 var tier4_enums : Array[int]
 var dominant_enums : Array[int]
@@ -49,24 +49,30 @@ func _ready() -> void:
 			tier4_enums.push_back(entityid)
 		elif (500 <= entityid): 
 			dominant_enums.push_back(entityid)
-	plant_timer.timeout.connect(func(): timeout_spawn(plants_enums))
-	tier0_timer.timeout.connect(func(): timeout_spawn(tier0_enums))
-	tier1_timer.timeout.connect(func(): timeout_spawn(tier1_enums))
-	tier2_timer.timeout.connect(func(): timeout_spawn(tier2_enums))
-	tier3_timer.timeout.connect(func(): timeout_spawn(tier3_enums))
-	tier4_timer.timeout.connect(func(): timeout_spawn(tier4_enums))
-	dominant_timer.timeout.connect(func(): timeout_spawn(dominant_enums))
+	_connect_legacy_spawn_timer(plant_timer, plants_enums)
+	_connect_legacy_spawn_timer(tier0_timer, tier0_enums)
+	_connect_legacy_spawn_timer(tier1_timer, tier1_enums)
+	_connect_legacy_spawn_timer(tier2_timer, tier2_enums)
+	_connect_legacy_spawn_timer(tier3_timer, tier3_enums)
+	_connect_legacy_spawn_timer(tier4_timer, tier4_enums)
+	_connect_legacy_spawn_timer(dominant_timer, dominant_enums)
 
 func _process(_delta: float) -> void:
 	_update_relation_lights()
+
+func _connect_legacy_spawn_timer(timer: Timer, targetlist: Array[int]) -> void:
+	if timer == null:
+		return
+	if !timer.timeout.is_connected(timeout_spawn.bind(targetlist)):
+		timer.timeout.connect(timeout_spawn.bind(targetlist))
 	
 func random_position(spawn_enum : int) -> Vector2:
 	var ranges : Array
-	if (spawn_enum & Constants.SpawnHeight.LOW):
+	if low_spawn and (spawn_enum & Constants.SpawnHeight.LOW):
 		ranges.append(low_spawn)
-	if (spawn_enum & Constants.SpawnHeight.MEDIUM):
+	if med_spawn and (spawn_enum & Constants.SpawnHeight.MEDIUM):
 		ranges.append(med_spawn)
-	if (spawn_enum & Constants.SpawnHeight.HIGH):
+	if high_spawn and (spawn_enum & Constants.SpawnHeight.HIGH):
 		ranges.append(high_spawn)
 	if (len(ranges) != 0):
 		var target_area : Area2D = ranges[randi_range(0, len(ranges)-1)]
@@ -103,11 +109,7 @@ func _update_relation_lights() -> void:
 		return
 
 	var player_hierarchy: Constants.FoodHierarchy = player.animal.entity_resource.hierarchy
-	for child: Node in animals_root.get_children():
-		var animal := child as Animal
-		if animal == null:
-			continue
-
+	for animal: Animal in _get_tracked_animals():
 		if animal.entity_resource == null:
 			_set_relation_light_visible(animal, false)
 			continue
@@ -121,11 +123,26 @@ func _update_relation_lights() -> void:
 			_configure_relation_light(animal, PREY_LIGHT_COLOR)
 
 func _hide_relation_lights() -> void:
-	for child: Node in animals_root.get_children():
-		var animal := child as Animal
-		if animal == null:
-			continue
+	for animal: Animal in _get_tracked_animals():
 		_set_relation_light_visible(animal, false)
+
+func _get_tracked_animals() -> Array[Animal]:
+	var tracked_animals: Array[Animal] = []
+
+	if animals_root:
+		for child: Node in animals_root.get_children():
+			var animal := child as Animal
+			if animal:
+				tracked_animals.append(animal)
+
+	for child: Node in get_children():
+		if child is Spawner:
+			for spawned_child: Node in child.get_children():
+				var spawned_animal := spawned_child as Animal
+				if spawned_animal:
+					tracked_animals.append(spawned_animal)
+
+	return tracked_animals
 
 func _configure_relation_light(animal: Animal, color: Color) -> void:
 	var relation_light := animal.get_node_or_null(RELATION_LIGHT_NAME) as PointLight2D

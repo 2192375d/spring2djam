@@ -14,7 +14,7 @@
 script = ExtResource("2_p33uf")
 id = 1
 spawn_height = 5
-hierarchy = 1
+hierarchy = 0
 exp_gain = 5
 exp_max = 12
 hunger_gain = 2
