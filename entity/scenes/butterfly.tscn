@@ -116,3 +116,6 @@ script = ExtResource("7_a7fu5")
 
 [node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=914110797]
 script = ExtResource("8_bmtlu")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2046640288]
+debug_enabled = true

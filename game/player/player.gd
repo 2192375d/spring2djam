@@ -7,7 +7,7 @@ const CAMERA_ZOOM_MIN := 0.35
 const CAMERA_REFERENCE_VISION_RADIUS := 33.359993
 
 var animal: Animal
-@export var STARTING_CHARACTER = Constants.EntityID.CROW
+@export var STARTING_CHARACTER : Constants.EntityID
 
 @export var spawnpoint_marker: Marker2D
 
@@ -42,7 +42,7 @@ func _ready() -> void:
 	change_playing_animal(STARTING_CHARACTER)
 
 func _physics_process(delta: float) -> void:
-	
+	#print(self.animal.global_position)
 	if !animal:
 		return
 	camera.position = animal.position

@@ -101,7 +101,7 @@ radius = 160.01799
 [node name="Crow" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
 script = ExtResource("1_yny8u")
-speed = 100.0
+speed = 250.0
 animation = NodePath("AnimatedSprite2D")
 domain_radius = 300
 state_machine = NodePath("FlyingStateMachine")
@@ -153,3 +153,9 @@ script = ExtResource("9_4jf0u")
 
 [node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=525818282]
 script = ExtResource("10_bjmkn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1518083017]
+path_desired_distance = 100.0
+target_desired_distance = 100.0
+path_max_distance = 494.0
+debug_enabled = true

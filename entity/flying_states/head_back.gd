@@ -2,6 +2,7 @@ extends FlyingState
 class_name FlyingHeadBackState
 
 func enter() -> void:
+	print("enter head back")
 	# logic
 	pass
 func exit() -> void:
@@ -14,7 +15,12 @@ func setup(actor : FlyingAnimal) -> void:
 	
 func process_physics_frame(delta : float) -> FlyingState.Name:
 	# go back to domain
-	actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
+	self.actor.navagent.target_position = self.actor.domain_point
+	self.actor.velocity = self.actor.global_position.direction_to(self.actor.navagent.get_next_path_position()).normalized() * self.actor.speed
+	#self.actor.velocity = self.actor.navagent.get_next_path_position().normalized() * self.actor.speed * delta
+	print(self.actor.velocity)	
+
+	#actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
 
 	# check if predators exist
 	if (len(self.actor.predatorlist) > 0):

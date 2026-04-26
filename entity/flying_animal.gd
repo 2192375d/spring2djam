@@ -9,6 +9,7 @@ class_name FlyingAnimal
 @export var state_machine : FlyingStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
+@onready var navagent : NavigationAgent2D = $NavigationAgent2D
 
 var preylist : Array[Animal]
 var predatorlist : Array[Animal]
@@ -37,8 +38,9 @@ func _ready() -> void:
 		self.state_machine.setup()
 	pass
 
-func player_movement(_delta: float) -> void:
 
+
+func player_movement(_delta: float) -> void:
 	velocity = Vector2.ZERO
 	
 	var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -78,6 +80,7 @@ func _physics_process(_delta: float) -> void:
 			animation.flip_h = true
 		elif velocity.x > 0:
 			animation.flip_h = false
+	
 	
 	
 
