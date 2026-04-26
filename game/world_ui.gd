@@ -33,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			pause_menu.show_pause_menu()
 
 func _on_texture_button_pressed() -> void:
+	AudioManager.play_ui_click()
 	if get_tree().paused:
 		pause_menu.hide_pause_menu()
 	else:

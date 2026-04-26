@@ -32,6 +32,7 @@ var dominant_enums : Array[int]
 @onready var player: Player = $Player
 
 func _ready() -> void:
+	AudioManager.play_game_music()
 	GameSession.world = self
 	for key in Constants.EntityID:
 		var entityid = Constants.EntityID[key]
