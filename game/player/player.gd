@@ -13,6 +13,7 @@ var animal: Animal
 
 @export var ui: GameUI
 @export var camera: Camera2D
+@export var evolution_animation: AnimatedSprite2D
 
 var hunger_value: float = 100:
 	set(value):
@@ -40,6 +41,7 @@ var exp_max: float = 50:
 
 func _ready() -> void:
 	change_playing_animal(STARTING_CHARACTER)
+	evolution_animation.hide()
 
 func _physics_process(delta: float) -> void:
 	
@@ -60,6 +62,14 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	if animal:
 		spawnpoint = animal.global_position
 		animal.queue_free()
+
+	evolution_animation.global_position = spawnpoint
+	evolution_animation.z_index = 200
+	evolution_animation.stop()
+	evolution_animation.frame = 0
+	evolution_animation.frame_progress = 0.0
+	evolution_animation.show()
+	evolution_animation.play("default")
 	
 	var animal_scene: PackedScene = Constants.entity_dict.get(animal_id)
 	animal = animal_scene.instantiate()
@@ -74,10 +84,10 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	_update_camera_zoom()
 
 func eat(experience: float, hunger: float) -> void:
-	exp_value += exp_value + experience
+	exp_value += experience
 	hunger_value = min(hunger_max, hunger_value + hunger)
 	
-	if exp_value > exp_max:
+	if exp_value >= exp_max:
 		change_playing_animal(get_next_entity_id(animal.entity_resource.id))
 
 func _on_hunger_drain_timer_timeout() -> void:
@@ -108,3 +118,7 @@ func _update_camera_zoom() -> void:
 		CAMERA_ZOOM_MAX
 	)
 	camera.zoom = Vector2.ONE * zoom_amount
+
+
+func _on_evolution_animation_animation_finished() -> void:
+	evolution_animation.hide()

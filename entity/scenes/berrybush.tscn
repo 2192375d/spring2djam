@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b73nostf7a1jq"]
+
+[ext_resource type="Script" uid="uid://bcvo8nvvwoj31" path="res://entity/plant.gd" id="1_e28ew"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_kuko1"]
+[ext_resource type="Texture2D" uid="uid://dgx103gvjamq8" path="res://asset/berrybush.png" id="3_e28ew"]
+
+[sub_resource type="Resource" id="Resource_leakp"]
+script = ExtResource("2_kuko1")
+id = -99
+spawn_height = 1
+exp_gain = 3
+exp_max = 2
+hunger_gain = 1
+hunger_max = -1
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuko1"]
+atlas = ExtResource("3_e28ew")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521hw"]
+atlas = ExtResource("3_e28ew")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efppv"]
+atlas = ExtResource("3_e28ew")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q3af"]
+atlas = ExtResource("3_e28ew")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuko1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efppv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q3af")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(26, 16)
+
+[node name="Berrybush" type="CharacterBody2D" unique_id=936244655]
+scale = Vector2(2, 2)
+script = ExtResource("1_e28ew")
+entity_resource = SubResource("Resource_leakp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(1.0625, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"idle"
+frame = 2
+frame_progress = 0.8401048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")

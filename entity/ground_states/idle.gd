@@ -14,7 +14,7 @@ func exit() -> void:
 func setup(actor : GroundAnimal) -> void:
 	self.actor = actor
 	self.state_name = GroundState.Name.IDLE	
-	
+
 func process_physics_frame(delta : float) -> GroundState.Name:
 	self.actor.velocity = self.dirvec 
 	# check if predators exist
