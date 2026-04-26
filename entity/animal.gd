@@ -60,4 +60,9 @@ func die() -> void:
 	blood_particles.emitting = true
 	await blood_particles.finished
 	blood_effect.queue_free()
+	
+	var parent = get_parent()
+	if parent is Player:
+		parent.on_animal_died()
+	
 	queue_free()
