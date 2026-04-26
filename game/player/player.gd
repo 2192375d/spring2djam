@@ -140,6 +140,8 @@ func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> flo
 	match hierarchy:
 		Constants.FoodHierarchy.SEED:
 			return CAMERA_ZOOM_MAX
+		Constants.FoodHierarchy.PREYS:
+			return 1.7
 		Constants.FoodHierarchy.TIER0:
 			return 1.4
 		Constants.FoodHierarchy.TIER1:
@@ -148,8 +150,6 @@ func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> flo
 			return 0.75
 		Constants.FoodHierarchy.TIER3:
 			return 0.55
-		Constants.FoodHierarchy.TIER4:
-			return 0.45
 		Constants.FoodHierarchy.DOMINANT:
 			return CAMERA_ZOOM_MIN
 		_:

@@ -9,7 +9,7 @@
 script = ExtResource("2_0gwcn")
 id = -100
 spawn_height = 1
-hierarchy = -1
+hierarchy = -2
 exp_gain = 1
 exp_max = -1
 hunger_gain = 1

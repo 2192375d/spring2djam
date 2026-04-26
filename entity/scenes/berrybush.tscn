@@ -9,6 +9,7 @@
 script = ExtResource("2_kuko1")
 id = -99
 spawn_height = 1
+hierarchy = -1
 exp_gain = 3
 exp_max = 2
 hunger_gain = 1

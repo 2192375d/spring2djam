@@ -21,7 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://6bgjf565gouc" path="res://asset/rain.png" id="13_ocfjn"]
 [ext_resource type="PackedScene" uid="uid://n17g23ay3e7i" path="res://entity/scenes/kiwi.tscn" id="14_s7c85"]
 [ext_resource type="PackedScene" uid="uid://b2y3eytux4657" path="res://entity/scenes/berrybush.tscn" id="20_y4mp7"]
-[ext_resource type="Script" uid="uid://cj74hw1k0pxpm" path="res://game/spawner.gd" id="23_u8v3k"]
+[ext_resource type="Script" path="res://game/spawner.gd" id="23_u8v3k"]
+[ext_resource type="PackedScene" uid="uid://b20swbnjy7tpn" path="res://entity/scenes/pigeon.tscn" id="23_ygw6s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o6il"]
 shader = ExtResource("3_0o6il")
@@ -659,7 +660,7 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygw6s"]
-size = Vector2(217, 694.6875)
+size = Vector2(981.75, 144)
 
 [node name="World" type="Node2D" unique_id=301270681]
 script = ExtResource("1_mad0u")
@@ -678,11 +679,11 @@ horizontal_alignment = 1
 
 [node name="guide3" type="Label" parent="guides" unique_id=52866060]
 material = SubResource("ShaderMaterial_0o6il")
-offset_left = 285.0
+offset_left = 287.0
 offset_top = 1242.0
-offset_right = 437.0
+offset_right = 439.0
 offset_bottom = 1271.0
-text = "bird world"
+text = "birdaria!!!- - -"
 horizontal_alignment = 1
 
 [node name="guide2" type="Label" parent="guides" unique_id=1156097925]
@@ -763,23 +764,102 @@ text = "watchout your hunger bar, it drains every second!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="guide11" type="Label" parent="guides" unique_id=807689824]
+offset_left = 1150.0
+offset_top = 1086.0
+offset_right = 1297.0
+offset_bottom = 1187.0
+text = "everything glowing green is eatable, glowing red is dangerous"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide12" type="Label" parent="guides" unique_id=1918154125]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1003.0
+offset_top = 1217.0
+offset_right = 1094.0
+offset_bottom = 1318.0
+text = "hunger bar"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide13" type="Label" parent="guides" unique_id=1226416836]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1063.0
+offset_top = 1243.0
+offset_right = 1105.0
+offset_bottom = 1344.0
+text = "every"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide14" type="Label" parent="guides" unique_id=1625768159]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1034.0
+offset_top = 1269.0
+offset_right = 1076.0
+offset_bottom = 1370.0
+text = "second"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide15" type="Label" parent="guides" unique_id=887939902]
+modulate = Color(0.12835406, 1, 0, 1)
+offset_left = 1226.0
+offset_top = 1112.0
+offset_right = 1268.0pointlight2d
+offset_bottom = 1213.0
+text = "green"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide16" type="Label" parent="guides" unique_id=1989373534]
+modulate = Color(0.96, 0, 0.015999755, 1)
+offset_left = 1152.0
+offset_top = 1164.0
+offset_right = 1194.0
+offset_bottom = 1265.0
+text = "red"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide17" type="Label" parent="guides" unique_id=558231678]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1168.0
+offset_top = 1138.0
+offset_right = 1210.0
+offset_bottom = 1239.0
+text = "eatable"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide18" type="Label" parent="guides" unique_id=1005364129]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1226.0
+offset_top = 1164.0
+offset_right = 1268.0
+offset_bottom = 1265.0
+text = "dangerous"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_ocfjn")]
 
 [node name="ground_background" type="TextureRect" parent="." unique_id=536565872]
 z_index = -99
-offset_left = -11381.0
-offset_top = -2055.0
-offset_right = 16538.0
-offset_bottom = 1185.0
+offset_left = -11404.0
+offset_top = -1772.0
+offset_right = 16515.0
+offset_bottom = 1468.0
 texture = ExtResource("4_b2suy")
 stretch_mode = 1
 
 [node name="sky_background" type="TextureRect" parent="." unique_id=1388596747]
 z_index = -99
-offset_left = -11376.0
-offset_top = -5294.0
-offset_right = 16537.0
-offset_bottom = -2054.0
+offset_left = -11308.0
+offset_top = -4978.0
+offset_right = 16605.0
+offset_bottom = -1738.0
 texture = ExtResource("13_j15d7")
 stretch_mode = 1
 
@@ -826,7 +906,7 @@ interpolate = false
 visibility_rect = Rect2(-1000, 0, 20000, 2000)
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_mad0u")
-
+pointlight2d
 [node name="EvolutionAnimation" type="AnimatedSprite2D" parent="Player" unique_id=591540501]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_8w43l")
@@ -915,16 +995,18 @@ tile_set = SubResource("TileSet_txrfu")
 position = Vector2(198, 1303)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=600399272]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_usg7j")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=158954862 node_paths=PackedStringArray("rect", "timer")]
-position = Vector2(1464, 746)
+position = Vector2(2044, 924)
 script = ExtResource("23_u8v3k")
-allowed_enemies = Array[int]([0])
+allowed_enemies = Array[int]([0, -99])
 rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=924214394]
+wait_time = 10.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="Spawner" unique_id=694819266]
@@ -932,6 +1014,12 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D" unique_id=1192285438]
 position = Vector2(-804.5, -106.65625)
 shape = SubResource("RectangleShape2D_ygw6s")
+
+[node name="Pigeon" parent="." unique_id=1715385683 instance=ExtResource("23_ygw6s")]
+position = Vector2(1503, 493)
+
+[node name="Pigeon2" parent="." unique_id=249569572 instance=ExtResource("23_ygw6s")]
+position = Vector2(687, 297)
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
 [connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]
