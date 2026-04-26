@@ -9,7 +9,6 @@
 script = ExtResource("2_geds1")
 id = -98
 spawn_height = 1
-hierarchy = 0
 exp_gain = 7
 exp_max = -1
 hunger_gain = 7

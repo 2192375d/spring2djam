@@ -4,7 +4,7 @@ class_name World
 
 const RELATION_LIGHT_NAME := "RelationLight"
 const RELATION_GLOW_NAME := "RelationGlow"
-const RELATION_LIGHT_TEXTURE := preload("res://asset/huge-light.png")
+const RELATION_LIGHT_TEXTURE := preload("res://asset/circle-light.png")
 const PREDATOR_LIGHT_COLOR := Color(1.0, 0.05, 0.05, 1.0)
 const PREY_LIGHT_COLOR := Color(0.05, 1.0, 0.15, 1.0)
 
@@ -151,7 +151,7 @@ func _configure_relation_light(animal: Animal, color: Color) -> void:
 		relation_light = PointLight2D.new()
 		relation_light.name = RELATION_LIGHT_NAME
 		relation_light.texture = RELATION_LIGHT_TEXTURE
-		relation_light.texture_scale = 4.0
+		relation_light.texture_scale = 1.0
 		relation_light.energy = 0.85
 		relation_light.position = Vector2.ZERO
 		animal.add_child(relation_light)
@@ -165,7 +165,7 @@ func _configure_relation_light(animal: Animal, color: Color) -> void:
 		relation_glow.name = RELATION_GLOW_NAME
 		relation_glow.texture = RELATION_LIGHT_TEXTURE
 		relation_glow.centered = true
-		relation_glow.scale = Vector2.ONE * 0.18
+		relation_glow.scale = Vector2.ONE * 0.06
 		relation_glow.show_behind_parent = true
 		relation_glow.z_index = -1
 		animal.add_child(relation_glow)
