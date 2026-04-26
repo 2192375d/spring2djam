@@ -52,7 +52,7 @@ enum EntityID {
 	HERON = 301,
 	
 	# tier 4
-	
+	EAGLE = 401,
 	# dominant
 } 
 
