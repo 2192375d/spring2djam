@@ -799,6 +799,7 @@ color = Color(0, 0, 0, 0.5137255)
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
+STARTING_CHARACTER = 401
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -833,7 +834,6 @@ frame = 9
 frame_progress = 1.0
 
 [node name="RepauseTimer" type="Timer" parent="Player" unique_id=800910682]
-wait_time = 5.0
 autostart = true
 
 [node name="animals" type="Node2D" parent="." unique_id=884090246]

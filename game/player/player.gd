@@ -160,16 +160,15 @@ func _on_evolution_animation_animation_finished() -> void:
 	evolution_animation.hide()
 
 func get_camera_rect() -> Rect2:
-	return get_viewport_rect() * get_canvas_transform()
-	var pos = camera.get_screen_center_position() # Camera's center
-	var half_size = get_viewport_rect().size * 0.5
-	return Rect2(pos - half_size, pos + half_size)
+	var viewport_size := get_viewport().get_visible_rect().size
+	var center := camera.get_screen_center_position()
+	# Camera2D zoom scales screen pixels per world unit; world-space visible size is viewport / zoom.
+	var size := (viewport_size / camera.zoom) * 1.5
+	return Rect2(center - size * 0.5, size)
 	
 func _on_repause_timer_timeout() -> void:
 	# iterate through all animals
-	print("triggered")
 	CAMERA_RECT = get_camera_rect()
-	print(CAMERA_RECT)
 	for animal : Animal in get_tree().get_nodes_in_group("animals"):
 		if CAMERA_RECT.has_point(animal.global_position):
 			animal.process_mode = PROCESS_MODE_INHERIT
