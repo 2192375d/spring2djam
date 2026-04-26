@@ -79,8 +79,7 @@ func spawn_entity(entityenum : int):
 		animal.global_position = pos
 		animal.position = pos
 		animal.domain_point = pos
-		
-		
+
 
 func timeout_spawn(targetlist : Array) -> void:
 	if (targetlist):

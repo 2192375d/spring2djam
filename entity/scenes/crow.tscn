@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_yny8u"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_v068a"]
 [ext_resource type="Texture2D" uid="uid://ctnrks8s02ykc" path="res://asset/animals/crow/crow-flying.png" id="3_d1ypr"]
+[ext_resource type="Shader" uid="uid://bvvpgtuo6gu1c" path="res://effects/glow_shader.gdshader" id="3_mbosr"]
 [ext_resource type="Texture2D" uid="uid://bqlduvaiwyff5" path="res://asset/animals/crow/crow-standing.png" id="3_v068a"]
 [ext_resource type="Texture2D" uid="uid://ddq080b62upbd" path="res://asset/animals/crow/crow-walking-Sheet.png" id="4_d1ypr"]
 [ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="6_71wpw"]
@@ -13,13 +14,23 @@
 
 [sub_resource type="Resource" id="Resource_71wpw"]
 script = ExtResource("2_v068a")
-spawn_height = 3
+id = 103
+spawn_height = 2
 hierarchy = 2
 exp_gain = 7
 exp_max = 30
 hunger_gain = 15
 hunger_max = 40
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6pqk"]
+shader = ExtResource("3_mbosr")
+shader_parameter/glow_width = 10.0
+shader_parameter/glow_intensity = 10.0
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/inner_glow = 0.0
+shader_parameter/pulse = false
+shader_parameter/pulse_speed = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71wpw"]
 atlas = ExtResource("3_d1ypr")
@@ -110,6 +121,7 @@ eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_71wpw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = SubResource("ShaderMaterial_k6pqk")
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
 scale = Vector2(0.1328125, 0.12500001)
 sprite_frames = SubResource("SpriteFrames_252sp")

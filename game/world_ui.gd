@@ -6,6 +6,7 @@ class_name GameUI
 @export var hunger_bar: ProgressBar
 
 @onready var death_screen: CanvasLayer = $DeathScreen
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
 func update_exp_bar_max(new_max: float) -> void:
 	exp_bar.max_value = new_max
@@ -23,3 +24,16 @@ func update_hunger_bar(value: float) -> void:
 	
 func show_death_screen() -> void:
 	death_screen.show_death_screen()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if get_tree().paused:
+			pause_menu.hide_pause_menu()
+		else:
+			pause_menu.show_pause_menu()
+
+func _on_texture_button_pressed() -> void:
+	if get_tree().paused:
+		pause_menu.hide_pause_menu()
+	else:
+		pause_menu.show_pause_menu()

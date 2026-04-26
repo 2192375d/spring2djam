@@ -52,7 +52,7 @@ enum EntityID {
 	HERON = 301,
 	
 	# tier 4
-	
+	EAGLE = 401,
 	# dominant
 } 
 
@@ -63,6 +63,11 @@ var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.PIGEON: load("uid://b20swbnjy7tpn"),
 	EntityID.CROW: load("uid://cxb7ymqcrgll7"),
 	EntityID.DUCK: load("uid://bijg1ulfxx0wp"),
+	EntityID.HERON : load("uid://c27fagqnux74k"),
+	EntityID.EAGLE : load("uid://dskpnxifl4dna"),
+	EntityID.BERRIES : load("uid://b2y3eytux4657"),
+	EntityID.EGGS : load("uid://c4xfc8ea26rbk"),
+	EntityID.SEEDS : load("uid://6ngnf01jash3"),
 }
 
 var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")
