@@ -21,7 +21,7 @@ func _on_btn_options_pressed() -> void:
 	AudioManager.play_ui_click()
 	print("Options pressed")
 	# the rest is to be implemented once pause/settings menu is made
-
+	pass
 
 func _on_btn_exit_pressed() -> void:
 	AudioManager.play_ui_click()

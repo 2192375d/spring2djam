@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_oixa4"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_c3q6h"]
+[ext_resource type="Material" uid="uid://ccvmdrb0ys7rj" path="res://effects/glow_shader_material.tres" id="3_alvju"]
 [ext_resource type="Texture2D" uid="uid://d0hm24tu7qini" path="res://asset/animals/worm-Sheet.png" id="3_oixa4"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="5_alvju"]
 [ext_resource type="Script" uid="uid://brj3y8d6om3tj" path="res://entity/ground_states/idle.gd" id="6_fxco0"]
@@ -11,7 +12,9 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
+id = 0
 spawn_height = 1
+hierarchy = -1
 exp_gain = 3
 exp_max = 3
 hunger_gain = 2
@@ -78,7 +81,7 @@ size = Vector2(16, 4)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr74x"]
-radius = 153.95139
+radius = 97.905754
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 modulate = Color(1, 0.6117647, 0.7176471, 1)
@@ -93,9 +96,10 @@ eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_c3q6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826029692]
+material = ExtResource("3_alvju")
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_8guuy")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=387006371]
 position = Vector2(0, 2)
@@ -137,7 +141,6 @@ script = ExtResource("8_ranbx")
 script = ExtResource("9_m8udw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=974970108]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=1324583778]
 wait_time = 10.0

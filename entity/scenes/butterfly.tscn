@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_0kf1m"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_p33uf"]
 [ext_resource type="Texture2D" uid="uid://cxg8d2vay2wg1" path="res://asset/butterfly-flying-Sheet.png" id="3_6vhfy"]
+[ext_resource type="Material" uid="uid://ccvmdrb0ys7rj" path="res://effects/glow_shader_material.tres" id="3_o2x23"]
 [ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="4_bu7ff"]
 [ext_resource type="Script" uid="uid://b7owura0ml3t7" path="res://entity/flying_states/chase.gd" id="5_6vhfy"]
 [ext_resource type="Script" uid="uid://do8kdix62e608" path="res://entity/flying_states/head_back.gd" id="6_o2x23"]
@@ -13,7 +14,7 @@
 script = ExtResource("2_p33uf")
 id = 1
 spawn_height = 5
-hierarchy = 1
+hierarchy = 0
 exp_gain = 5
 exp_max = 12
 hunger_gain = 2
@@ -176,12 +177,12 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kf1m"]
-radius = 53.009434
+radius = 100.0
 
 [node name="Butterfly" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(2, 2)
 script = ExtResource("1_0kf1m")
-speed = 300.0
+speed = 100.0
 animation = NodePath("AnimatedSprite2D")
 domain_radius = 4
 state_machine = NodePath("FlyingStateMachine")
@@ -190,6 +191,7 @@ eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = ExtResource("3_o2x23")
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
 scale = Vector2(0.1328125, 0.12500001)
 sprite_frames = SubResource("SpriteFrames_252sp")
@@ -235,7 +237,6 @@ script = ExtResource("7_a7fu5")
 script = ExtResource("8_bmtlu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2046640288]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=1378948752]
 wait_time = 10.0

@@ -3,12 +3,13 @@
 extends CharacterBody2D
 
 @export var entity_resource: EntityResource
-@export var domain_point: Vector2
 @abstract func player_movement(delta: float) -> void
 
 func _get_blood_effect_scale_multiplier() -> float:
 	match entity_resource.hierarchy:
 		Constants.FoodHierarchy.SEED:
+			return 0.35
+		Constants.FoodHierarchy.PREYS:
 			return 0.5
 		Constants.FoodHierarchy.TIER0:
 			return 0.8
@@ -18,8 +19,6 @@ func _get_blood_effect_scale_multiplier() -> float:
 			return 1.25
 		Constants.FoodHierarchy.TIER3:
 			return 1.5
-		Constants.FoodHierarchy.TIER4:
-			return 1.8
 		Constants.FoodHierarchy.DOMINANT:
 			return 2.2
 		_:
@@ -28,6 +27,8 @@ func _get_blood_effect_scale_multiplier() -> float:
 func _get_blood_particle_amount_multiplier() -> float:
 	match entity_resource.hierarchy:
 		Constants.FoodHierarchy.SEED:
+			return 0.2
+		Constants.FoodHierarchy.PREYS:
 			return 0.35
 		Constants.FoodHierarchy.TIER0:
 			return 0.7
@@ -37,8 +38,6 @@ func _get_blood_particle_amount_multiplier() -> float:
 			return 1.35
 		Constants.FoodHierarchy.TIER3:
 			return 1.75
-		Constants.FoodHierarchy.TIER4:
-			return 2.2
 		Constants.FoodHierarchy.DOMINANT:
 			return 3.0
 		_:
@@ -63,6 +62,7 @@ func die() -> void:
 	
 	var parent = get_parent()
 	if parent is Player:
-		parent.on_animal_died()
+		if parent.animal == self:
+			parent.on_animal_died()
 	
 	queue_free()

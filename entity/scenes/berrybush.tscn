@@ -1,13 +1,15 @@
-[gd_scene format=3 uid="uid://b73nostf7a1jq"]
+[gd_scene format=3 uid="uid://b2y3eytux4657"]
 
 [ext_resource type="Script" uid="uid://bcvo8nvvwoj31" path="res://entity/plant.gd" id="1_e28ew"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_kuko1"]
 [ext_resource type="Texture2D" uid="uid://dgx103gvjamq8" path="res://asset/berrybush.png" id="3_e28ew"]
+[ext_resource type="Material" uid="uid://ccvmdrb0ys7rj" path="res://effects/glow_shader_material.tres" id="3_kuko1"]
 
 [sub_resource type="Resource" id="Resource_leakp"]
 script = ExtResource("2_kuko1")
 id = -99
 spawn_height = 1
+hierarchy = -1
 exp_gain = 3
 exp_max = 2
 hunger_gain = 1
@@ -69,6 +71,7 @@ script = ExtResource("1_e28ew")
 entity_resource = SubResource("Resource_leakp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = ExtResource("3_kuko1")
 position = Vector2(0, 4.7683716e-07)
 scale = Vector2(1.0625, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_252sp")

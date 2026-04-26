@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://dskpnxifl4dna"]
+
+[ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_fatr8"]
+[ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_31kre"]
+[ext_resource type="Shader" uid="uid://bvvpgtuo6gu1c" path="res://effects/glow_shader.gdshader" id="3_twkyv"]
+[ext_resource type="Texture2D" uid="uid://cfnc0xisl281u" path="res://asset/animals/eagle/eagle-eating.png" id="4_31kre"]
+[ext_resource type="Texture2D" uid="uid://dteh2yu1r874k" path="res://asset/animals/eagle/eagle-flying.png" id="5_twkyv"]
+[ext_resource type="Texture2D" uid="uid://c6twehsyb5bb6" path="res://asset/animals/eagle/eagle-standing.png" id="6_gs3by"]
+[ext_resource type="Texture2D" uid="uid://dw2qejmutgb0l" path="res://asset/animals/eagle/eagle-walking.png" id="7_6fh0o"]
+[ext_resource type="Script" uid="uid://cxckhend6obel" path="res://entity/flying_state_machine.gd" id="7_xve6m"]
+[ext_resource type="Script" uid="uid://b7owura0ml3t7" path="res://entity/flying_states/chase.gd" id="8_xh6v4"]
+[ext_resource type="Script" uid="uid://do8kdix62e608" path="res://entity/flying_states/head_back.gd" id="9_jtr3b"]
+[ext_resource type="Script" uid="uid://x0hsslsv2mco" path="res://entity/flying_states/idle.gd" id="10_2oigv"]
+[ext_resource type="Script" uid="uid://drj6xqlq1cvve" path="res://entity/flying_states/run_away.gd" id="11_rqoqb"]
+
+[sub_resource type="Resource" id="Resource_71wpw"]
+script = ExtResource("2_31kre")
+id = 401
+spawn_height = 4
+hierarchy = 4
+exp_gain = 30
+exp_max = 30
+hunger_gain = 40
+hunger_max = 40
+metadata/_custom_type_script = "uid://nd7o5mrcn55k"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6pqk"]
+shader = ExtResource("3_twkyv")
+shader_parameter/glow_width = 10.0
+shader_parameter/glow_intensity = 10.0
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/inner_glow = 0.0
+shader_parameter/pulse = false
+shader_parameter/pulse_speed = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmpk6"]
+atlas = ExtResource("4_31kre")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xve6m"]
+atlas = ExtResource("5_twkyv")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh6v4"]
+atlas = ExtResource("5_twkyv")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtr3b"]
+atlas = ExtResource("6_gs3by")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oigv"]
+atlas = ExtResource("7_6fh0o")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqoqb"]
+atlas = ExtResource("7_6fh0o")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frlbm"]
+atlas = ExtResource("7_6fh0o")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tie65"]
+atlas = ExtResource("7_6fh0o")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_252sp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmpk6")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xve6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh6v4")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtr3b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oigv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqoqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frlbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tie65")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
+size = Vector2(17, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0sod6"]
+radius = 12.539936
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v068a"]
+radius = 280.22574
+
+[node name="Eagle" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
+scale = Vector2(5, 5)
+script = ExtResource("1_fatr8")
+speed = 400.0
+animation = NodePath("AnimatedSprite2D")
+domain_radius = 300
+state_machine = NodePath("FlyingStateMachine")
+vision_area = NodePath("VisionArea")
+eating_area = NodePath("EatingArea")
+entity_resource = SubResource("Resource_71wpw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = SubResource("ShaderMaterial_k6pqk")
+position = Vector2(-1.4901161e-08, 1.1622906e-06)
+scale = Vector2(0.1328125, 0.12500001)
+sprite_frames = SubResource("SpriteFrames_252sp")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
+shape = SubResource("RectangleShape2D_6k04w")
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=562133539]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=774710001]
+shape = SubResource("CircleShape2D_0sod6")
+debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=970738283]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1822918762]
+shape = SubResource("CircleShape2D_v068a")
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)
+
+[node name="FlyingStateMachine" type="Node" parent="." unique_id=517371438 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("7_xve6m")
+actor = NodePath("..")
+starting_state = NodePath("IDLE")
+state_dictionary = {
+0: NodePath("IDLE"),
+1: NodePath("CHASE"),
+2: NodePath("RUN_AWAY"),
+3: NodePath("HEAD_BACK")
+}
+metadata/_custom_type_script = "uid://cxckhend6obel"
+
+[node name="CHASE" type="Node" parent="FlyingStateMachine" unique_id=871014022]
+script = ExtResource("8_xh6v4")
+
+[node name="HEAD_BACK" type="Node" parent="FlyingStateMachine" unique_id=1887253664]
+script = ExtResource("9_jtr3b")
+
+[node name="IDLE" type="Node" parent="FlyingStateMachine" unique_id=1194537569]
+script = ExtResource("10_2oigv")
+
+[node name="RUN_AWAY" type="Node" parent="FlyingStateMachine" unique_id=525818282]
+script = ExtResource("11_rqoqb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1518083017]
+target_desired_distance = 20.0
+
+[node name="MindTimeOut" type="Timer" parent="." unique_id=453542126]
+wait_time = 10.0

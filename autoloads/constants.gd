@@ -11,13 +11,13 @@ enum SpawnHeight { # This is a bitmap enum (special special)
 }
 
 enum FoodHierarchy { 
-	SEED = -1,
+	SEED = -2,
+	PREYS = -1,
 	TIER0 = 0,
-	TIER1 = 1, 
-	TIER2 = 2, 
-	TIER3 = 3, 
-	TIER4 = 4, 
-	DOMINANT = 5,
+	TIER1 = 1,
+	TIER2 = 2,
+	TIER3 = 3,
+	DOMINANT = 4,
 }
 
 enum AIType {
@@ -26,6 +26,7 @@ enum AIType {
 	LOW = 1, 
 	HIGH = 1,
 }
+
 enum EntityID {
 	NONE = -999,
 	
@@ -39,12 +40,12 @@ enum EntityID {
 	
 	# tier 1
 	KIWI = 100,
-	DOVE = 101,
+	#DOVE = 101,
 	PIGEON = 102,
 	CROW = 103,
 	
 	# tier 2
-	LOON = 201,
+	#LOON = 201,
 	DUCK = 202,
 	GOOSE = 203,
 	
@@ -52,7 +53,7 @@ enum EntityID {
 	HERON = 301,
 	
 	# tier 4
-	
+	EAGLE = 401,
 	# dominant
 } 
 
@@ -63,6 +64,12 @@ var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.PIGEON: load("uid://b20swbnjy7tpn"),
 	EntityID.CROW: load("uid://cxb7ymqcrgll7"),
 	EntityID.DUCK: load("uid://bijg1ulfxx0wp"),
+	EntityID.HERON : load("uid://c27fagqnux74k"),
+	EntityID.EAGLE : load("uid://dskpnxifl4dna"),
+	EntityID.BERRIES : load("uid://b2y3eytux4657"),
+	EntityID.EGGS : load("uid://c4xfc8ea26rbk"),
+	EntityID.SEEDS : load("uid://6ngnf01jash3"),
+	EntityID.GOOSE : load("uid://bpgs6qx88ul1q"),
 }
 
 var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")

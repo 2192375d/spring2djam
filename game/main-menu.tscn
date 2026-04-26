@@ -74,6 +74,7 @@ theme_override_constants/separation = -4
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_a4q7a")
+texture_pressed = ExtResource("4_a4q7a")
 texture_hover = ExtResource("5_3iykd")
 ignore_texture_size = true
 stretch_mode = 5

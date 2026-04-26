@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drf1x0qxbdj52" path="res://entity/ground_animal.gd" id="1_7kg4r"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_iv2qb"]
 [ext_resource type="Texture2D" uid="uid://bcun6eokdcg1q" path="res://asset/animals/kiwi/kiwi-eating.png" id="3_af2pw"]
+[ext_resource type="Material" uid="uid://ccvmdrb0ys7rj" path="res://effects/glow_shader_material.tres" id="3_yh4cs"]
 [ext_resource type="Texture2D" uid="uid://n5uvqbygdk43" path="res://asset/animals/kiwi/kiwi-standing.png" id="4_aunm4"]
 [ext_resource type="Texture2D" uid="uid://df680j0pvvbne" path="res://asset/animals/kiwi/kiwi-walking-Sheet.png" id="5_rw33j"]
 [ext_resource type="Script" uid="uid://bemthoajt5vbm" path="res://entity/ground_state_machine.gd" id="6_w0s2l"]
@@ -94,6 +95,7 @@ eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_iwrvm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = ExtResource("3_yh4cs")
 sprite_frames = SubResource("SpriteFrames_252sp")
 animation = &"idle"
 
@@ -136,7 +138,6 @@ script = ExtResource("9_02w1o")
 script = ExtResource("10_esqq4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1574286758]
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=1939383576]
 wait_time = 10.0
