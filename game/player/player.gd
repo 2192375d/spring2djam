@@ -55,7 +55,6 @@ func is_evolution_protected() -> bool:
 	return Time.get_ticks_msec() < _evolution_protection_until_msec
 
 func _physics_process(delta: float) -> void:
-	#print(self.animal.global_position)
 	if !animal:
 		return
 	camera.position = animal.position

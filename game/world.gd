@@ -11,7 +11,7 @@ const PREY_LIGHT_COLOR := Color(0.05, 1.0, 0.15, 1.0)
 var plants_enums : Array[int]
 var tier0_enums : Array[int]
 var tier1_enums : Array[int]
-var tier2_enums : Array[int]
+var tier2_enums : Array[int]pointlight2d
 var tier3_enums : Array[int]
 var tier4_enums : Array[int]
 var dominant_enums : Array[int]

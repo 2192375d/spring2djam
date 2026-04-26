@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://6bgjf565gouc" path="res://asset/rain.png" id="13_ocfjn"]
 [ext_resource type="PackedScene" uid="uid://n17g23ay3e7i" path="res://entity/scenes/kiwi.tscn" id="14_s7c85"]
 [ext_resource type="PackedScene" uid="uid://b2y3eytux4657" path="res://entity/scenes/berrybush.tscn" id="20_y4mp7"]
+[ext_resource type="Script" uid="uid://cj74hw1k0pxpm" path="res://game/spawner.gd" id="23_u8v3k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o6il"]
 shader = ExtResource("3_0o6il")
@@ -650,15 +651,6 @@ sources/1 = SubResource("TileSetAtlasSource_b3c55")
 sources/3 = SubResource("TileSetAtlasSource_vcrwj")
 sources/4 = SubResource("TileSetAtlasSource_naw2d")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rddb8"]
-size = Vector2(5771, 344)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j15d7"]
-size = Vector2(5755, 1354)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7c85"]
-size = Vector2(5737, 1290)
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_usg7j"]
 vertices = PackedVector2Array(5990, 990, 5760, 990, 5760, 960, 5990, 960, 16510, -5310, 12394.07, -5310, 16515.906, -5329.953, 16510, -4639.8438, 2210, 250.02344, 16440, 940, 2160, 451.90625, 1560, 300.02344, 2140, 251.60156, 2160, 500.02344, 2160, 701.90625, 1110, 660, 2090, 501.60156, 2410, 910, 2410, 740, 4416.2188, 914.47656, 4392.9063, 942.8672, 4366.2188, 964.47656, 560, 910, 740, 910, 966.21875, 914.47656, 942.90625, 942.8672, 916.21875, 964.47656, 4345.2734, 990, 2600.6328, 936.6328, 895.27344, 990, -3290, 990, 390, 910, 2160, 750.02344, 2240, 740, 2240, 910, 1560, 251.90625, 2090, 251.60156, 16440, -5240, 2210, 201.90625, -2054.6094, -5240, 2160, 201.90625, 1790, 251.60156, 1840, 250.46875, 1840, 251.60156, 1890, 250.46875, 1890, 251.60156, 1940, 250.46875, 1940, 251.60156, 1990, 250.46875, 1990, 251.60156, 2040, 250.46875, 2040, 251.60156, 2090, 250.46875, 2140, 250.46875, 1190, 301.60156, 1240, 300.46875, 1240, 301.60156, 1110, 490, 940, 490, 1290, 300.46875, 1290, 301.60156, 1340, 300.46875, 1340, 301.60156, 1390, 300.46875, 1390, 301.60156, 1440, 300.46875, 1440, 301.60156, 1490, 300.46875, 1490, 301.60156, 1790, 501.60156, 1840, 500.46875, 1840, 501.60156, 1890, 500.46875, 1890, 501.60156, 1940, 500.46875, 1940, 501.60156, 1990, 500.46875, 1990, 501.60156, 2040, 500.46875, 2040, 501.60156, 2090, 500.46875, 1790, 452.6875, 1310, 910, 1310, 840, 1790, 751.60156, 1840, 750.46875, 1840, 751.60156, 1546.4609, 990, 1516.2188, 1014.47656, 1890, 750.46875, 1890, 751.60156, 1940, 750.46875, 1940, 751.60156, 1990, 750.46875, 1990, 751.60156, 2040, 750.46875, 2040, 751.60156, 2090, 750.46875, 2090, 751.60156, -3290, 140, 390, 740, 2160, 202.46094, 2110, 202.46094, 2110, 201.90625, 2060, 202.46094, 2060, 201.90625, 2010, 202.46094, 2010, 201.90625, 1960, 202.46094, 1960, 201.90625, 1910, 202.46094, 1910, 201.90625, 1860, 202.46094, 1860, 201.90625, 1790, 202.6875, 1510, 252.46094, 1510, 251.90625, 1460, 252.46094, 1460, 251.90625, 1410, 252.46094, 1410, 251.90625, 1360, 252.46094, 1360, 251.90625, 1310, 252.46094, 1310, 251.90625, 1260, 252.46094, 1260, 251.90625, 2110, 452.46094, 2110, 451.90625, 2060, 452.46094, 2060, 451.90625, 2010, 452.46094, 2010, 451.90625, 1960, 452.46094, 1960, 451.90625, 1910, 452.46094, 1910, 451.90625, 1860, 452.46094, 1860, 451.90625, 2110, 702.46094, 2110, 701.90625, 2060, 702.46094, 2060, 701.90625, 2010, 702.46094, 2010, 701.90625, 1960, 702.46094, 1960, 701.90625, 1910, 702.46094, 1910, 701.90625, 1860, 702.46094, 1860, 701.90625, 6010, 940, 6010, 890, 1195.2734, 1340, 60, 1340, 60, 1160, 1060, 1160, 1216.2188, 1314.4766, 1242.9063, 1292.8672, 1060, 1110, 1110, 1110, 1266.2188, 1264.4766, 1292.9063, 1242.8672, 1110, 1060, 1160, 1060, 1316.2188, 1214.4766, 1342.9063, 1192.8672, 1160, 1010, 1210, 1010, 1366.2188, 1164.4766, 1392.9063, 1142.8672, 1210, 960, 1260, 960, 1416.2188, 1114.4766, 1442.9063, 1092.8672, 1260, 910, 1466.2188, 1064.4766, -3890, 140, -3890, -1310, -4940, -1310, -4940, -2260, -6840, -2260, -6840, -3410, -11340, -3410, -11340, -4613.953, -11335.078, -5195.039, 1190, 252.6875, 560, 740, 992.90625, 892.8672, 910, 910, 910, 740, 1016.21875, 864.47656, 1046.4609, 840, 1492.9063, 1042.8672, 940, 660, 2566.2188, 964.47656, 2545.2734, 990, 2654.211, 990, 2632.6328, 967.9297, 4446.461, 890, 1790, 702.6875, 740, 740, -60, 1460, 3627.4297, 1460, -11391.906, 1521.9531, -3590, 1460, -3660, 1460, -3910, 210, -3660, 1040, -11350.781, -3340, -3960, 160, -6910, -2240, -6860, -2240, -6860, -2190, -5010, -2190, -5010, -1290, -4960, -1290, -4960, -1240, -3960, -1240, -3910, 160, -3360, 210, -3360, 1010, -3590, 1040, -3310, 1010, -3310, 1060, -460, 1060, -460, 1110, -60, 1110, -6910, -3340)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(6, 7, 4), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 9, 14, 15, 16), PackedInt32Array(17, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25, 26), PackedInt32Array(17, 21, 27, 28), PackedInt32Array(22, 26, 29, 30, 31), PackedInt32Array(32, 14, 33, 34), PackedInt32Array(12, 11, 35, 36), PackedInt32Array(37, 9, 8, 38), PackedInt32Array(39, 37, 38, 40), PackedInt32Array(41, 42, 43), PackedInt32Array(43, 44, 45), PackedInt32Array(45, 46, 47), PackedInt32Array(47, 48, 49), PackedInt32Array(49, 50, 51), PackedInt32Array(51, 52, 36), PackedInt32Array(36, 53, 12), PackedInt32Array(51, 36, 35), PackedInt32Array(49, 51, 35), PackedInt32Array(47, 49, 35), PackedInt32Array(45, 47, 35), PackedInt32Array(43, 45, 35), PackedInt32Array(41, 43, 35), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(56, 59, 60, 57), PackedInt32Array(60, 61, 62, 57), PackedInt32Array(62, 63, 64, 57), PackedInt32Array(64, 65, 66, 57), PackedInt32Array(66, 67, 68, 57), PackedInt32Array(69, 70, 71, 15), PackedInt32Array(71, 72, 73, 15), PackedInt32Array(73, 74, 75, 15), PackedInt32Array(75, 76, 77, 15), PackedInt32Array(77, 78, 79, 15), PackedInt32Array(79, 80, 16, 15), PackedInt32Array(11, 81, 69, 15, 57, 68), PackedInt32Array(82, 83, 84, 85, 86, 87, 88), PackedInt32Array(86, 89, 90, 87), PackedInt32Array(90, 91, 92, 87), PackedInt32Array(92, 93, 94, 87), PackedInt32Array(94, 95, 96, 87), PackedInt32Array(96, 97, 98), PackedInt32Array(31, 30, 99, 100), PackedInt32Array(38, 101, 40), PackedInt32Array(40, 102, 103), PackedInt32Array(39, 40, 103), PackedInt32Array(103, 104, 105), PackedInt32Array(39, 103, 105), PackedInt32Array(105, 106, 107), PackedInt32Array(39, 105, 107), PackedInt32Array(107, 108, 109), PackedInt32Array(39, 107, 109), PackedInt32Array(109, 110, 111), PackedInt32Array(39, 109, 111), PackedInt32Array(111, 112, 113), PackedInt32Array(39, 111, 113), PackedInt32Array(39, 113, 114), PackedInt32Array(35, 115, 116), PackedInt32Array(116, 117, 118), PackedInt32Array(118, 119, 120), PackedInt32Array(120, 121, 122), PackedInt32Array(122, 123, 124), PackedInt32Array(124, 125, 126), PackedInt32Array(10, 127, 128), PackedInt32Array(128, 129, 130), PackedInt32Array(130, 131, 132), PackedInt32Array(132, 133, 134), PackedInt32Array(134, 135, 136), PackedInt32Array(136, 137, 138), PackedInt32Array(14, 139, 140), PackedInt32Array(140, 141, 142), PackedInt32Array(142, 143, 144), PackedInt32Array(144, 145, 146), PackedInt32Array(146, 147, 148), PackedInt32Array(148, 149, 150), PackedInt32Array(9, 151, 152), PackedInt32Array(153, 154, 155, 156, 157), PackedInt32Array(158, 157, 156, 159, 160, 161), PackedInt32Array(162, 161, 160, 163, 164, 165), PackedInt32Array(166, 165, 164, 167, 168, 169), PackedInt32Array(170, 169, 168, 171, 172, 173), PackedInt32Array(174, 173, 172, 175, 82, 176), PackedInt32Array(99, 177, 178), PackedInt32Array(178, 179, 180), PackedInt32Array(180, 181, 182, 39), PackedInt32Array(39, 182, 183, 184, 185), PackedInt32Array(39, 114, 41, 35, 116), PackedInt32Array(39, 116, 118), PackedInt32Array(39, 118, 120), PackedInt32Array(39, 120, 122), PackedInt32Array(39, 122, 124), PackedInt32Array(39, 124, 126), PackedInt32Array(180, 39, 126, 186, 178), PackedInt32Array(187, 100, 99, 178, 186, 54, 58), PackedInt32Array(9, 13, 10), PackedInt32Array(11, 10, 128), PackedInt32Array(11, 128, 130), PackedInt32Array(11, 130, 132), PackedInt32Array(11, 132, 134), PackedInt32Array(11, 134, 136), PackedInt32Array(11, 136, 138), PackedInt32Array(11, 138, 81), PackedInt32Array(188, 24, 189, 190, 191), PackedInt32Array(192, 191, 190), PackedInt32Array(193, 176, 82, 88), PackedInt32Array(187, 58, 194), PackedInt32Array(98, 32, 34), PackedInt32Array(17, 195, 196, 87, 34), PackedInt32Array(96, 98, 34, 87), PackedInt32Array(27, 197, 198), PackedInt32Array(199, 19, 18, 14), PackedInt32Array(27, 198, 28), PackedInt32Array(17, 28, 195), PackedInt32Array(200, 84, 83, 192, 190, 15), PackedInt32Array(18, 33, 14), PackedInt32Array(187, 194, 15, 201), PackedInt32Array(23, 189, 24), PackedInt32Array(201, 23, 22, 187), PackedInt32Array(190, 201, 15), PackedInt32Array(152, 199, 14), PackedInt32Array(150, 200, 15), PackedInt32Array(148, 150, 15), PackedInt32Array(146, 148, 15), PackedInt32Array(144, 146, 15), PackedInt32Array(142, 144, 15), PackedInt32Array(140, 142, 15), PackedInt32Array(9, 152, 14), PackedInt32Array(140, 15, 14), PackedInt32Array(202, 203, 204), PackedInt32Array(205, 202, 204), PackedInt32Array(206, 205, 204), PackedInt32Array(207, 208, 206, 204, 209, 210), PackedInt32Array(211, 212, 213), PackedInt32Array(213, 214, 215), PackedInt32Array(215, 216, 217), PackedInt32Array(217, 218, 210), PackedInt32Array(210, 219, 207), PackedInt32Array(207, 220, 221, 222, 208), PackedInt32Array(222, 221, 223, 224, 205), PackedInt32Array(224, 225, 226, 205), PackedInt32Array(226, 227, 202, 205), PackedInt32Array(215, 217, 210, 209, 213), PackedInt32Array(211, 213, 209), PackedInt32Array(228, 211, 209)])
@@ -666,18 +658,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-11345, -5205, -11402, 
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
-[node name="World" type="Node2D" unique_id=301270681 node_paths=PackedStringArray("plant_timer", "tier0_timer", "tier1_timer", "tier2_timer", "tier3_timer", "tier4_timer", "dominant_timer", "low_spawn", "med_spawn", "high_spawn")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygw6s"]
+size = Vector2(260, 694.6875)
+
+[node name="World" type="Node2D" unique_id=301270681]
 script = ExtResource("1_mad0u")
-plant_timer = NodePath("PLANTSpawn")
-tier0_timer = NodePath("TIER0Spawn")
-tier1_timer = NodePath("TIER1Spawn")
-tier2_timer = NodePath("TIER2Spawn")
-tier3_timer = NodePath("TIER3Spawn")
-tier4_timer = NodePath("TIER4Spawn")
-dominant_timer = NodePath("DOMINANTSpawn")
-low_spawn = NodePath("LowSpawn")
-med_spawn = NodePath("MedSpawn")
-high_spawn = NodePath("HighSpawn")
 metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
 [node name="guides" type="Node" parent="." unique_id=1288094891]
@@ -799,7 +784,7 @@ texture = ExtResource("13_j15d7")
 stretch_mode = 1
 
 [node name="biome1_effect" type="PointLight2D" parent="." unique_id=322917135]
-position = Vector2(3665.0002, -1580)
+position = Vector2(2515.0002, -1559)
 scale = Vector2(18.620966, 16.40398)
 energy = 0.27
 texture = ExtResource("6_mj0fl")
@@ -868,7 +853,7 @@ position = Vector2(1036, 1330)
 position = Vector2(1667, 975)
 
 [node name="Duck" parent="animals" unique_id=1763314182 instance=ExtResource("11_o1net")]
-position = Vector2(-696, 793)
+position = Vector2(-1747, 760)
 
 [node name="Crow" parent="animals" unique_id=1761793004 instance=ExtResource("12_3ljsx")]
 position = Vector2(1387, -3221)
@@ -925,59 +910,23 @@ tile_set = SubResource("TileSet_txrfu")
 [node name="Spawnpoint Marker" type="Marker2D" parent="." unique_id=1828503632]
 position = Vector2(198, 1303)
 
-[node name="PLANTSpawn" type="Timer" parent="." unique_id=726503740]
-autostart = true
-
-[node name="TIER0Spawn" type="Timer" parent="." unique_id=1030787106]
-wait_time = 2.0
-autostart = true
-
-[node name="TIER1Spawn" type="Timer" parent="." unique_id=2035423059]
-wait_time = 4.0
-autostart = true
-
-[node name="TIER2Spawn" type="Timer" parent="." unique_id=198827794]
-wait_time = 8.0
-autostart = true
-
-[node name="TIER3Spawn" type="Timer" parent="." unique_id=1995018344]
-wait_time = 16.0
-autostart = true
-
-[node name="TIER4Spawn" type="Timer" parent="." unique_id=305974011]
-wait_time = 32.0
-autostart = true
-
-[node name="DOMINANTSpawn" type="Timer" parent="." unique_id=1963412973]
-wait_time = 64.0
-autostart = true
-
-[node name="LowSpawn" type="Area2D" parent="." unique_id=1314809745]
-visible = false
-position = Vector2(-1015, -127)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowSpawn" unique_id=1957365366]
-position = Vector2(2875.5, 823)
-shape = SubResource("RectangleShape2D_rddb8")
-debug_color = Color(0.88805586, 0.23456785, 0.5842534, 0.41960785)
-
-[node name="MedSpawn" type="Area2D" parent="." unique_id=1712456438]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MedSpawn" unique_id=574840164]
-position = Vector2(2880.5, -52)
-shape = SubResource("RectangleShape2D_j15d7")
-
-[node name="HighSpawn" type="Area2D" parent="." unique_id=414967930]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HighSpawn" unique_id=407375017]
-position = Vector2(2881.5, -1393)
-shape = SubResource("RectangleShape2D_s7c85")
-debug_color = Color(0.92284477, 0.2545758, 0.29282868, 0.41960785)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=600399272]
 navigation_polygon = SubResource("NavigationPolygon_usg7j")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=158954862 node_paths=PackedStringArray("rect", "timer")]
+position = Vector2(1464, 746)
+script = ExtResource("23_u8v3k")
+allowed_enemies = Array[int]([0])
+rect = NodePath("Area2D")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=924214394]
+
+[node name="Area2D" type="Area2D" parent="Spawner" unique_id=694819266]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D" unique_id=1192285438]
+position = Vector2(-826, -106.65625)
+shape = SubResource("RectangleShape2D_ygw6s")
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
 [connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]
