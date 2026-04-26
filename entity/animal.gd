@@ -3,6 +3,7 @@
 extends CharacterBody2D
 
 @export var entity_resource: EntityResource
+@export var animation: AnimatedSprite2D
 @abstract func player_movement(delta: float) -> void
 
 func _enter_tree() -> void:

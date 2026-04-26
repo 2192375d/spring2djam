@@ -2,7 +2,6 @@
 extends Animal
 
 @export var speed: float
-@export var animation: AnimatedSprite2D
 @export var domain_radius : int
 @export var domain_point : Vector2
 @export var state_machine : Node
