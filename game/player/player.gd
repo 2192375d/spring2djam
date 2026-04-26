@@ -10,7 +10,7 @@ const EVOLUTION_PROTECTION_MS := 750
 
 var animal: Animal
 var _evolution_protection_until_msec: int = 0
-@export var STARTING_CHARACTER : Constants.EntityID
+@export var CURRENT_CHARACTER : Constants.EntityID
 
 @export var spawnpoint_marker: Marker2D
 
@@ -46,7 +46,7 @@ var exp_max: float = 50:
 
 func _ready() -> void:
 	_resolve_scene_refs()
-	change_playing_animal(STARTING_CHARACTER)
+	change_playing_animal(CURRENT_CHARACTER)
 	if evolution_animation:
 		evolution_animation.hide()
 	GameSession.player = self 
@@ -152,16 +152,17 @@ func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
 	var ids: Array = Constants.EntityID.values()
 	var index := ids.find(current_id)
 	if index == -1:
-		return Constants.EntityID.NONE
+		return CURRENT_CHARACTER
 	
 	for i in range(index + 1, ids.size()):
 		var candidate = ids[i]
 		if candidate == Constants.EntityID.KIWI:
 			continue
 		if Constants.entity_dict.has(candidate):
-			return candidate
-	
-	return Constants.EntityID.NONE
+			CURRENT_CHARACTER=candidate
+			break
+	return CURRENT_CHARACTER
+	#return Constants.EntityID.NONE
 
 func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> float:
 	match hierarchy:
