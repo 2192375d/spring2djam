@@ -78,7 +78,7 @@ size = Vector2(16, 4)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr74x"]
-radius = 153.95139
+radius = 97.905754
 
 [node name="Worm" type="CharacterBody2D" unique_id=1498860485 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 modulate = Color(1, 0.6117647, 0.7176471, 1)

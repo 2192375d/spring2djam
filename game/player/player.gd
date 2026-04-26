@@ -103,6 +103,8 @@ func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
 	
 	for i in range(index + 1, ids.size()):
 		var candidate = ids[i]
+		if candidate == Constants.EntityID.KIWI:
+			continue
 		if Constants.entity_dict.has(candidate):
 			return candidate
 	
@@ -119,7 +121,7 @@ func _update_camera_zoom() -> void:
 		CAMERA_ZOOM_MIN,
 		CAMERA_ZOOM_MAX
 	)
-	camera.zoom = 1.5 * Vector2.ONE * zoom_amount
+	camera.zoom = 5 * Vector2.ONE * zoom_amount
 
 
 func _on_evolution_animation_animation_finished() -> void:
