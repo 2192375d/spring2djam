@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dskpnxifl4dna" path="res://entity/scenes/eagle.tscn" id="27_bkhbo"]
 [ext_resource type="PackedScene" uid="uid://c27fagqnux74k" path="res://entity/scenes/heron.tscn" id="27_pgfmj"]
 [ext_resource type="Texture2D" uid="uid://8tk0kmehsj8k" path="res://asset/water_surface-Sheet.png" id="29_duk74"]
-[ext_resource type="Script" uid="uid://c7781yawxpu2f" path="res://game/trophy.gd" id="30_b0wfb"]
+[ext_resource type="Script" path="res://game/trophy.gd" id="30_b0wfb"]
 [ext_resource type="Texture2D" uid="uid://dand2cl5j23j7" path="res://asset/water-Sheet.png" id="30_xoic7"]
 [ext_resource type="Texture2D" uid="uid://c4iwbsiq4tapk" path="res://asset/trophy-animation-Sheet.png" id="30_y7dkx"]
 [ext_resource type="Texture2D" uid="uid://cbwmlkvckxo1x" path="res://asset/mountain-dirt.png" id="32_45vxl"]

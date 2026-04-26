@@ -16,7 +16,7 @@ id = 1
 spawn_height = 5
 exp_gain = 5
 exp_max = 20
-hunger_gain = 2
+hunger_gain = 3
 hunger_max = 20
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 

@@ -12,12 +12,11 @@
 
 [sub_resource type="Resource" id="Resource_c3q6h"]
 script = ExtResource("2_c3q6h")
-id = 0
 spawn_height = 1
 hierarchy = -1
 exp_gain = 3
 exp_max = 3
-hunger_gain = 2
+hunger_gain = 5
 hunger_max = 10
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
