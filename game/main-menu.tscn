@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://brnsoc45pnq0n" path="res://game/main_menu.gd" id="1_y5nw0"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://asset/forestbg.jpg" id="2_y5nw0"]
 [ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://asset/fonts/Whacky_Joe.ttf" id="3_r3os6"]
+[ext_resource type="Texture2D" uid="uid://bsopuw4iudicw" path="res://art/UI/btn1.png" id="4_a4q7a"]
+[ext_resource type="Texture2D" uid="uid://g8maxmx4fi2f" path="res://art/UI/btn1-hover.png" id="5_3iykd"]
+[ext_resource type="Texture2D" uid="uid://djrskvkhoi744" path="res://art/UI/btn2.png" id="6_g83lc"]
+[ext_resource type="Texture2D" uid="uid://bbn3i80ikvv0n" path="res://art/UI/btn2-hover.png" id="7_4708v"]
+[ext_resource type="Texture2D" uid="uid://dys0bqvthhulu" path="res://art/UI/btn3.png" id="8_po2ot"]
+[ext_resource type="Texture2D" uid="uid://cnjp04l3yjdo3" path="res://art/UI/btn3-hover.png" id="9_c8dpd"]
+[ext_resource type="Texture2D" uid="uid://mx35iama1awt" path="res://art/UI/eagle-standing.png" id="10_yhtxf"]
+[ext_resource type="Texture2D" uid="uid://4x63p1tvh1mc" path="res://art/UI/kiwi-standing.png" id="11_htvqh"]
+[ext_resource type="Texture2D" uid="uid://byhikgpou51c7" path="res://art/UI/rock.png" id="11_y5nw0"]
+[ext_resource type="Texture2D" uid="uid://cpu8u1dy5dwto" path="res://art/UI/pigeon-standing.png" id="12_er4ch"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd33t"]
 texture = ExtResource("2_y5nw0")
@@ -63,6 +73,9 @@ theme_override_constants/separation = -4
 [node name="BtnPlay" type="TextureButton" parent="VBoxContainer" unique_id=1105409664]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
+texture_normal = ExtResource("4_a4q7a")
+texture_pressed = ExtResource("4_a4q7a")
+texture_hover = ExtResource("5_3iykd")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -73,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.65980196, 0.55841106, 0.43817222, 1)
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
 theme_override_fonts/font = ExtResource("3_r3os6")
 theme_override_font_sizes/font_size = 48
 text = "Play"
@@ -83,6 +96,8 @@ vertical_alignment = 1
 [node name="BtnOptions" type="TextureButton" parent="VBoxContainer" unique_id=1820326412]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
+texture_normal = ExtResource("6_g83lc")
+texture_hover = ExtResource("7_4708v")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -93,7 +108,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.65980196, 0.55841106, 0.43817222, 1)
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
 theme_override_fonts/font = ExtResource("3_r3os6")
 theme_override_font_sizes/font_size = 48
 text = "Options"
@@ -103,6 +118,8 @@ vertical_alignment = 1
 [node name="BtnExit" type="TextureButton" parent="VBoxContainer" unique_id=359952568]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
+texture_normal = ExtResource("8_po2ot")
+texture_hover = ExtResource("9_c8dpd")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -113,7 +130,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.65980196, 0.55841106, 0.43817222, 1)
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
 theme_override_fonts/font = ExtResource("3_r3os6")
 theme_override_font_sizes/font_size = 48
 text = "Exit"
@@ -122,17 +139,21 @@ vertical_alignment = 1
 
 [node name="Rock" type="Sprite2D" parent="." unique_id=346240132]
 position = Vector2(281, 982.00006)
+texture = ExtResource("11_y5nw0")
 
 [node name="KiwiStanding" type="Sprite2D" parent="." unique_id=1531062504]
 position = Vector2(295, 870.99994)
 scale = Vector2(0.69178087, 0.6917808)
+texture = ExtResource("11_htvqh")
 
 [node name="PigeonStanding" type="Sprite2D" parent="." unique_id=2140567577]
 position = Vector2(828, 130)
+texture = ExtResource("12_er4ch")
 
 [node name="EagleStanding" type="Sprite2D" parent="." unique_id=1907358371]
 position = Vector2(1569.9999, 854)
 scale = Vector2(1.8293413, 1.8293413)
+texture = ExtResource("10_yhtxf")
 
 [connection signal="pressed" from="VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]

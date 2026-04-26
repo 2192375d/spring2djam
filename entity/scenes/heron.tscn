@@ -180,7 +180,6 @@ script = ExtResource("12_suxet")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1518083017]
 target_desired_distance = 20.0
-debug_enabled = true
 
 [node name="MindTimeOut" type="Timer" parent="." unique_id=453542126]
 wait_time = 10.0
