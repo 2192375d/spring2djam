@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://q38qkudbta3h"]
 
-[ext_resource type="Script" path="res://game/main_menu.gd" id="1_y5nw0"]
+[ext_resource type="Script" uid="uid://brnsoc45pnq0n" path="res://game/main_menu.gd" id="1_y5nw0"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://asset/forestbg.jpg" id="2_y5nw0"]
 [ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://asset/fonts/Whacky_Joe.ttf" id="3_r3os6"]
 [ext_resource type="Texture2D" uid="uid://bsopuw4iudicw" path="res://art/UI/btn1.png" id="4_a4q7a"]
