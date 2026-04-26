@@ -14,9 +14,13 @@ func setup(actor : GroundAnimal) -> void:
 	
 func process_physics_frame(delta : float) -> GroundState.Name:
 	# go back to domain
-	self.actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
-	self.actor.velocity.y -= 20 # to go up platforms
-	self.actor.velocity 
+	self.actor.navagent.target_position = self.actor.domain_point
+	self.actor.velocity = self.actor.global_position.direction_to(self.actor.navagent.get_next_path_position()).normalized() * self.actor.speed
+
+	
+	#self.actor.velocity = (actor.domain_point - actor.global_position).normalized() * actor.speed
+	#self.actor.velocity.y -= 20 # to go up platforms
+	#self.actor.velocity 
 
 	# check if predators exist
 	if (len(self.actor.predatorlist) > 0):

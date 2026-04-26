@@ -9,6 +9,8 @@ class_name GroundAnimal
 @export var state_machine : GroundStateMachine
 @export var vision_area : Area2D
 @export var eating_area : Area2D
+@onready var navagent : NavigationAgent2D = $NavigationAgent2D
+
 
 var preylist : Array 
 var predatorlist : Array 

@@ -21,8 +21,6 @@ func process_physics_frame(delta : float) -> FlyingState.Name:
 	if ((len(self.actor.preylist) >= 1 and self.actor.preylist[0] != target) or len(self.actor.preylist) == 0):
 		return FlyingState.Name.HEAD_BACK
 	#self.actor.velocity = (target.global_position - self.actor.global_position).normalized() * self.actor.speed
-	self.actor.navagent.target_position = target.global_position
-	print(self.actor.velocity)
-			
+	self.actor.navagent.target_position = target.global_position			
 	self.actor.velocity = self.actor.global_position.direction_to(self.actor.navagent.get_next_path_position()).normalized() * self.actor.speed
 	return FlyingState.Name.CHASE
