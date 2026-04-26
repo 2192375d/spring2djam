@@ -4,11 +4,15 @@ extends Node2D
 @export var allowed_enemies : Array[Constants.EntityID]
 @export var rect : Area2D
 @export var timer : Timer
+var num_entities_inside : int = 0
 
 func _ready() -> void:
 	if timer == null or allowed_enemies.is_empty():
-		return
-
+		return 
+	
+	self.rect.body_entered.connect(func() : num_entities_inside+=1)
+	self.rect.body_exited.connect(func() : num_entities_inside-=1)
+	
 	timer.timeout.connect(func() : spawn_entity(allowed_enemies[randi_range(0, len(allowed_enemies)-1)]))
 	if timer.is_stopped():
 		timer.start()
@@ -30,15 +34,23 @@ func random_position(spawn_enum : int) -> Vector2:
 	)
 
 func spawn_entity(entityenum : int):
-	#  check if we exceeded max number of entities
-	if len(get_tree().get_nodes_in_group("animals")) >= Constants.MAX_ENTITIES:
+	#  check if we exceeded global max number of entities
+	if len(get_tree().get_nodes_in_group("animals")) >= Constants.GLOBAL_MAX_ENTITIES:
 		return
 	
+	# check if we exceed the local max number of entities
+	if (num_entities_inside) >= Constants.LOCAL_MAX_ENTITIES:
+		return
+	num_entities_inside+=1
+	
+	#print("entities inside: ", num_entities_inside)
 	var animal_scene: PackedScene = Constants.entity_dict.get(entityenum)
+	
 	if animal_scene == null:
 		return
 
 	var animal := animal_scene.instantiate() as Animal
+	animal.tree_exited.connect(func(): num_entities_inside-=1)
 	if animal == null:
 		return
 

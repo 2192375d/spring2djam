@@ -977,6 +977,7 @@ process_material = SubResource("ParticleProcessMaterial_mad0u")
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
+STARTING_CHARACTER = 401
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -1140,6 +1141,7 @@ position = Vector2(9375.001, -1640)
 
 [node name="Eagle2" parent="animals" unique_id=1810771045 instance=ExtResource("27_bkhbo")]
 position = Vector2(-5887, -3954)
+domain_radius = 500
 
 [node name="Heron8" parent="animals" unique_id=5298536 instance=ExtResource("27_pgfmj")]
 position = Vector2(11303, 168)

@@ -183,8 +183,8 @@ func _update_camera_zoom() -> void:
 		return
 
 	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
-	camera.zoom = Vector2.ONE * zoom_amount
-
+	#camera.zoom = Vector2.ONE * zoom_amount 
+	camera.zoom = Vector2.ONE * zoom_amount 
 func _on_evolution_animation_animation_finished() -> void:
 	if evolution_animation:
 		evolution_animation.hide()
@@ -206,5 +206,4 @@ func _on_repause_timer_timeout() -> void:
 			animal.process_mode = PROCESS_MODE_INHERIT
 		else:
 			animal.process_mode = PROCESS_MODE_DISABLED
-			print("paused this", animal)
 		
