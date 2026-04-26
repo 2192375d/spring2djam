@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://dpfent115hf8c"]
+
+[ext_resource type="Script" uid="uid://b8i34ex2duhmn" path="res://game/options_menu.gd" id="1_cqh3g"]
+[ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://asset/fonts/Whacky_Joe.ttf" id="3_rqi7q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd33t"]
+modulate_color = Color(0.7141888, 0.7141888, 0.7141888, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y0i6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqimo"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.23529412, 0.34901962, 0.23921569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 0.6392157)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra1la"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.15294118, 0.14901961, 0.17254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdvnc"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.17254902, 0.23529412, 0.21176471, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=2051382010]
+script = ExtResource("1_cqh3g")
+
+[node name="Control" type="Control" parent="." unique_id=1958566088]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=2140126435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xd33t")
+
+[node name="Label" type="Label" parent="Control/Panel" unique_id=18636827]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -954.0
+offset_top = -351.0
+offset_right = 956.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_rqi7q")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y0i6")
+text = "Options"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1511163612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 646.0
+offset_top = 312.0
+offset_right = -681.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="MusicLabel" type="Label" parent="Control/VBoxContainer" unique_id=774529321]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rqi7q")
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=697069683]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="AmbientLabel" type="Label" parent="Control/VBoxContainer" unique_id=4111580]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rqi7q")
+theme_override_font_sizes/font_size = 32
+text = "Ambient Sound"
+
+[node name="AmbientSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=201797037]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="SFXLabel" type="Label" parent="Control/VBoxContainer" unique_id=1691248184]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rqi7q")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=604452985]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="BackBtn" type="Button" parent="Control" unique_id=1714843123]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 744.0
+offset_right = 985.0
+offset_bottom = 827.0
+theme_override_fonts/font = ExtResource("3_rqi7q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqimo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ra1la")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdvnc")
+text = "Back"
+
+[connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/AmbientSlider" to="." method="_on_ambient_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
