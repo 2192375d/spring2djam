@@ -124,7 +124,7 @@ radius = 180.11217
 [node name="Goose" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
 script = ExtResource("1_j80ef")
-speed = 250.0
+speed = 400.0
 animation = NodePath("AnimatedSprite2D")
 domain_radius = 300
 state_machine = NodePath("FlyingStateMachine")
