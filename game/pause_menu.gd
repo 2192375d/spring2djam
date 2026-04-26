@@ -1,15 +1,17 @@
 extends CanvasLayer
 
-@onready var resume_button: TextureButton = $Control/VBoxContainer/BtnResume
-@onready var options_button: TextureButton = $Control/VBoxContainer/BtnOptions
-@onready var menu_button: TextureButton = $Control/VBoxContainer/BtnMainMenu
+@onready var resume_button: TextureButton = $Control/PauseMenuBox/BtnResume
+@onready var options_button: TextureButton = $Control/PauseMenuBox/BtnOptions
+@onready var menu_button: TextureButton = $Control/PauseMenuBox/BtnMainMenu
+@onready var options_menu: CanvasLayer = $Control/OptionsMenu
+@onready var pause_menu_box: VBoxContainer = $Control/PauseMenuBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	hide()
 	$Control/ColorRect.modulate.a = 0.0
-	$Control/VBoxContainer.modulate.a = 0.0
+	$Control/PauseMenuBox.modulate.a = 0.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +20,7 @@ func _process(delta: float) -> void:
 
 func show_pause_menu() -> void:
 	show()
+	pause_menu_box.show()
 	AudioManager.set_music_paused_state(true)
 	get_tree().paused = true
 
@@ -31,7 +34,7 @@ func show_pause_menu() -> void:
 	)
 
 	tween.parallel().tween_property(
-		$Control/VBoxContainer,
+		$Control/PauseMenuBox,
 		"modulate:a",
 		1.0,
 		0.25
@@ -48,7 +51,7 @@ func hide_pause_menu() -> void:
 	)
 
 	tween.parallel().tween_property(
-		$Control/VBoxContainer,
+		$Control/PauseMenuBox,
 		"modulate:a",
 		0.0,
 		0.2
@@ -66,7 +69,8 @@ func _on_btn_resume_pressed() -> void:
 
 func _on_btn_options_pressed() -> void:
 	AudioManager.play_ui_click()
-	pass # Replace with function body.
+	pause_menu_box.hide()
+	options_menu.open_options("pause_menu")
 
 func _on_btn_main_menu_pressed() -> void:
 	AudioManager.play_ui_click()

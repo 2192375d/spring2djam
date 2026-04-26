@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cxg8d2vay2wg1" path="res://asset/butterfly-flying-Sheet.png" id="16_3iykd"]
 [ext_resource type="Script" uid="uid://dhkjtae6pjx1t" path="res://game/node_2d.gd" id="16_4708v"]
 [ext_resource type="Script" uid="uid://c4eu2knnp8ffp" path="res://game/butterfly.gd" id="17_g83lc"]
+[ext_resource type="PackedScene" uid="uid://dpfent115hf8c" path="res://game/options-menu.tscn" id="19_po2ot"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd33t"]
 texture = ExtResource("2_y5nw0")
@@ -156,7 +157,7 @@ theme_override_font_sizes/font_size = 91
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3y0i6")
 text = "Birdopia Evolution"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1511163612]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1511163612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -171,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -4
 
-[node name="BtnPlay" type="TextureButton" parent="VBoxContainer" unique_id=1105409664]
+[node name="BtnPlay" type="TextureButton" parent="Panel/VBoxContainer" unique_id=1105409664]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_a4q7a")
@@ -180,7 +181,7 @@ texture_hover = ExtResource("5_3iykd")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/BtnPlay" unique_id=94256867]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/BtnPlay" unique_id=94256867]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,7 +195,7 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnOptions" type="TextureButton" parent="VBoxContainer" unique_id=1820326412]
+[node name="BtnOptions" type="TextureButton" parent="Panel/VBoxContainer" unique_id=1820326412]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 texture_normal = ExtResource("6_g83lc")
@@ -202,7 +203,7 @@ texture_hover = ExtResource("7_4708v")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/BtnOptions" unique_id=1316506357]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/BtnOptions" unique_id=1316506357]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,7 +217,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnExit" type="TextureButton" parent="VBoxContainer" unique_id=359952568]
+[node name="BtnExit" type="TextureButton" parent="Panel/VBoxContainer" unique_id=359952568]
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 texture_normal = ExtResource("8_po2ot")
@@ -224,7 +225,7 @@ texture_hover = ExtResource("9_c8dpd")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/BtnExit" unique_id=169072532]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/BtnExit" unique_id=169072532]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,6 +274,11 @@ sprite_frames = SubResource("SpriteFrames_po2ot")
 animation = &"wiggle"
 script = ExtResource("15_a4q7a")
 
-[connection signal="pressed" from="VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]
+[node name="OptionsMenu" parent="." unique_id=2051382010 node_paths=PackedStringArray("main_menu_label", "main_menu_box") instance=ExtResource("19_po2ot")]
+visible = false
+main_menu_label = NodePath("../Panel/Label")
+main_menu_box = NodePath("../Panel/VBoxContainer")
+
+[connection signal="pressed" from="Panel/VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]

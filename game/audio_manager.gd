@@ -41,13 +41,18 @@ func _process(delta: float) -> void:
 func play_game_music() -> void:
 	if !music_player.playing:
 		music_player.play()
-		
+	play_ambient()
+
+func play_ambient() -> void:
 	if !ambient_player.playing:
 		ambient_player.play()
 
+func stop_ambient() -> void:
+	ambient_player.stop()
+
 func stop_game_music() -> void:
 	music_player.stop()
-	ambient_player.stop()
+	stop_ambient()
 	
 func play_ui_click() -> void:
 	if ui_click_sound != null:
