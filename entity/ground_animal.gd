@@ -10,10 +10,13 @@ class_name GroundAnimal
 @export var vision_area : Area2D
 @export var eating_area : Area2D
 @onready var navagent : NavigationAgent2D = $NavigationAgent2D
+@onready var mind_timeout : Timer = $MindTimeOut
 
 
 var preylist : Array 
 var predatorlist : Array 
+var blacklistprey : Array[Animal]
+
 var grav_accel : float
 
 func _ready() -> void:
@@ -35,12 +38,15 @@ func _ready() -> void:
 		if (!state_machine):
 			push_error("no state machine for", self)
 		self.state_machine.setup()
+		mind_timeout.timeout.connect(func(): blacklistprey.clear())
+
 
 func _on_vision_body_entered(body: Node2D) -> void:
 	# check predator or prey
 	if body is Animal:
 		if body.entity_resource.hierarchy < entity_resource.hierarchy:
-			preylist.push_back(body)
+			if (not body in blacklistprey):
+				preylist.push_back(body)
 		elif body.entity_resource.hierarchy > entity_resource.hierarchy:
 			predatorlist.push_back(body)
 	
