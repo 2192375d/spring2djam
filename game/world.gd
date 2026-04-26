@@ -8,29 +8,22 @@ const RELATION_LIGHT_TEXTURE := preload("res://asset/circle-light.png")
 const RELATION_GLOW_SHADER_PARAM := "glow_color"
 const PREDATOR_LIGHT_COLOR := Color(1.0, 0.05, 0.05, 1.0)
 const PREY_LIGHT_COLOR := Color(0.05, 1.0, 0.15, 1.0)
-const SAME_LIGHT_COLOR := Color(0.096, 0.096, 0.096, 1.0)
-
-
-var plants_enums : Array[int]
-var tier0_enums : Array[int]
-var tier1_enums : Array[int]
-var tier2_enums : Array[int]
-var tier3_enums : Array[int]
-var tier4_enums : Array[int]
-var dominant_enums : Array[int]
-
+const SAME_LIGHT_COLOR := Color(1.0, 1.0, 1.0, 1.0)
 
 @onready var animals_root: Node2D = $animals
 @onready var player: Player = $Player
+@onready var lightsupdatetimer : Timer = $LightUpdateTimer
 
 func _ready() -> void:
 	AudioManager.play_game_music()
 	GameSession.world = self
-
-
-func _process(_delta: float) -> void:
+	
+	player.evolved.connect(_update_relation_lights)
+	lightsupdatetimer.timeout.connect(_update_relation_lights)
 	_update_relation_lights()
 
+func _process(_delta: float) -> void:
+	pass
 
 func _update_relation_lights() -> void:
 	if !player or !player.animal or !is_instance_valid(player.animal):
@@ -38,6 +31,7 @@ func _update_relation_lights() -> void:
 
 	var player_hierarchy: Constants.FoodHierarchy = player.animal.entity_resource.hierarchy
 	for animal: Animal in get_tree().get_nodes_in_group("animals"):
+
 		if !is_instance_valid(animal) or animal.entity_resource == null:
 			continue
 

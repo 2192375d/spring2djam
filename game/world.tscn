@@ -1303,6 +1303,9 @@ scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_xovv4")
 frame_progress = 0.5741097
 
+[node name="LightUpdateTimer" type="Timer" parent="." unique_id=106237572]
+autostart = true
+
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
 [connection signal="timeout" from="Player/RepauseTimer" to="Player" method="_on_repause_timer_timeout"]
 [connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]

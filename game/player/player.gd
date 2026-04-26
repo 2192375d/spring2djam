@@ -18,6 +18,8 @@ var _evolution_protection_until_msec: int = 0
 @export var camera: Camera2D
 @export var evolution_animation: AnimatedSprite2D
 
+signal evolved
+
 var hunger_value: float = 100:
 	set(value):
 		hunger_value = value
@@ -47,7 +49,8 @@ func _ready() -> void:
 	change_playing_animal(STARTING_CHARACTER)
 	if evolution_animation:
 		evolution_animation.hide()
-
+	GameSession.player = self 
+	
 func _resolve_scene_refs() -> void:
 	if spawnpoint_marker == null:
 		spawnpoint_marker = get_node_or_null("../Spawnpoint Marker") as Marker2D
@@ -108,6 +111,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		previous_animal.queue_free()
 	
 	if evolution_animation:
+		evolved.emit()
 		AudioManager.play_evolution()
 		evolution_animation.global_position = spawnpoint
 		evolution_animation.z_index = 200
@@ -185,6 +189,7 @@ func _update_camera_zoom() -> void:
 	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
 	#camera.zoom = Vector2.ONE * zoom_amount 
 	camera.zoom = Vector2.ONE * zoom_amount 
+	
 func _on_evolution_animation_animation_finished() -> void:
 	if evolution_animation:
 		evolution_animation.hide()
