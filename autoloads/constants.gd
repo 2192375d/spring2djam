@@ -13,10 +13,10 @@ enum SpawnHeight { # This is a bitmap enum (special special)
 enum FoodHierarchy { 
 	SEED = -1,
 	TIER0 = 0,
-	TIER1 = 1, 
-	TIER2 = 2, 
-	TIER3 = 3, 
-	TIER4 = 4, 
+	TIER1 = 1,
+	TIER2 = 2,
+	TIER3 = 3,
+	TIER4 = 4,
 	DOMINANT = 5,
 }
 
@@ -26,6 +26,7 @@ enum AIType {
 	LOW = 1, 
 	HIGH = 1,
 }
+
 enum EntityID {
 	NONE = -999,
 	
@@ -39,12 +40,12 @@ enum EntityID {
 	
 	# tier 1
 	KIWI = 100,
-	DOVE = 101,
+	#DOVE = 101,
 	PIGEON = 102,
 	CROW = 103,
 	
 	# tier 2
-	LOON = 201,
+	#LOON = 201,
 	DUCK = 202,
 	GOOSE = 203,
 	
