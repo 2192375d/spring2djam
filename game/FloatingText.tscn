@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bbw8o0wtm2yv7"]
+
+[ext_resource type="Script" path="res://game/floating_text.gd" id="1_kel2f"]
+
+[node name="FloatingText" type="Node2D" unique_id=1301558936]
+script = ExtResource("1_kel2f")
+
+[node name="Label" type="Label" parent="." unique_id=288721128]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
