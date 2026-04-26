@@ -43,8 +43,20 @@ var exp_max: float = 50:
 			ui.update_exp_bar_max(exp_max)
 
 func _ready() -> void:
+	_resolve_scene_refs()
 	change_playing_animal(STARTING_CHARACTER)
-	evolution_animation.hide()
+	if evolution_animation:
+		evolution_animation.hide()
+
+func _resolve_scene_refs() -> void:
+	if spawnpoint_marker == null:
+		spawnpoint_marker = get_node_or_null("../Spawnpoint Marker") as Marker2D
+	if ui == null:
+		ui = get_node_or_null("../game_ui") as GameUI
+	if camera == null:
+		camera = get_node_or_null("Camera2D") as Camera2D
+	if evolution_animation == null:
+		evolution_animation = get_node_or_null("EvolutionAnimation") as AnimatedSprite2D
 
 func on_animal_died() -> void:
 	if animal:
@@ -58,6 +70,8 @@ func is_evolution_protected() -> bool:
 func _physics_process(delta: float) -> void:
 	if !animal:
 		return
+	if !camera:
+		return
 	camera.position = animal.position
 	if hunger_value < 0.0:
 		on_animal_died()
@@ -68,6 +82,7 @@ func _physics_process(delta: float) -> void:
 	animal.player_movement(delta)
 
 func change_playing_animal(animal_id: Constants.EntityID) -> void:
+	_resolve_scene_refs()
 	var spawnpoint: Vector2 = spawnpoint_marker.global_position
 	if animal:
 		var previous_animal := animal
@@ -90,15 +105,19 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		remove_child(previous_animal)
 		previous_animal.queue_free()
 	
-	evolution_animation.global_position = spawnpoint
-	evolution_animation.z_index = 200
-	evolution_animation.stop()
-	evolution_animation.frame = 0
-	evolution_animation.frame_progress = 0.0
-	evolution_animation.show()
-	evolution_animation.play("default")
+	if evolution_animation:
+		evolution_animation.global_position = spawnpoint
+		evolution_animation.z_index = 200
+		evolution_animation.stop()
+		evolution_animation.frame = 0
+		evolution_animation.frame_progress = 0.0
+		evolution_animation.show()
+		evolution_animation.play("default")
 	
 	var animal_scene: PackedScene = Constants.entity_dict.get(animal_id)
+	if animal_scene == null:
+		push_error("Missing entity scene for id %s" % animal_id)
+		return
 	animal = animal_scene.instantiate()
 	
 	hunger_max = animal.entity_resource.hunger_max
@@ -156,16 +175,19 @@ func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> flo
 			return 1.0
 
 func _update_camera_zoom() -> void:
-	if !animal or !animal.entity_resource:
+	if !animal or !animal.entity_resource or !camera:
 		return
 
 	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
 	camera.zoom = Vector2.ONE * zoom_amount
 
 func _on_evolution_animation_animation_finished() -> void:
-	evolution_animation.hide()
+	if evolution_animation:
+		evolution_animation.hide()
 
 func get_camera_rect() -> Rect2:
+	if !camera:
+		return Rect2()
 	var viewport_size := get_viewport().get_visible_rect().size
 	var center := camera.get_screen_center_position()
 	# Camera2D zoom scales screen pixels per world unit; world-space visible size is viewport / zoom.

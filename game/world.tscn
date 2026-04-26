@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://6bgjf565gouc" path="res://asset/rain.png" id="13_ocfjn"]
 [ext_resource type="PackedScene" uid="uid://n17g23ay3e7i" path="res://entity/scenes/kiwi.tscn" id="14_s7c85"]
 [ext_resource type="PackedScene" uid="uid://b2y3eytux4657" path="res://entity/scenes/berrybush.tscn" id="20_y4mp7"]
-[ext_resource type="Script" path="res://game/spawner.gd" id="23_u8v3k"]
+[ext_resource type="Script" uid="uid://cj74hw1k0pxpm" path="res://game/spawner.gd" id="23_u8v3k"]
 [ext_resource type="PackedScene" uid="uid://b20swbnjy7tpn" path="res://entity/scenes/pigeon.tscn" id="23_ygw6s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o6il"]
@@ -50,61 +50,49 @@ initial_velocity_min = 164.55
 initial_velocity_max = 269.83
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mj0fl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8v3k"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4mp7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygw6s"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_26k6w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcgmg"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o6il"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyo38"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8v3k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhbo"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ygw6s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgfmj"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcgmg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w43l"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kyo38"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7dkx"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkhbo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0wfb"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(256, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pgfmj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_45vxl"]
 atlas = ExtResource("7_naw2d")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8w43l"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_duk74"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mj0fl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y4mp7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_26k6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0o6il")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8v3k")
 }, {
@@ -122,8 +110,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pgfmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w43l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7dkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0wfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45vxl")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -807,8 +807,7 @@ autowrap_mode = 2
 modulate = Color(0.12835406, 1, 0, 1)
 offset_left = 1226.0
 offset_top = 1112.0
-offset_right = 1268.0pointlight2d
-offset_bottom = 1213.0
+offset_right = 1268.0
 text = "green"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -879,7 +878,6 @@ color = Color(0, 0, 0, 0.5137255)
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
-STARTING_CHARACTER = 401
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -906,15 +904,15 @@ interpolate = false
 visibility_rect = Rect2(-1000, 0, 20000, 2000)
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_mad0u")
-pointlight2d
-[node name="EvolutionAnimation" type="AnimatedSprite2D" parent="Player" unique_id=591540501]
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_8w43l")
-frame = 9
-frame_progress = 1.0
 
 [node name="RepauseTimer" type="Timer" parent="Player" unique_id=800910682]
 autostart = true
+
+[node name="EvolutionAnimation" type="AnimatedSprite2D" parent="Player" unique_id=1151534843]
+visible = false
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_duk74")
+frame_progress = 0.6352864
 
 [node name="animals" type="Node2D" parent="." unique_id=884090246]
 
@@ -1022,5 +1020,5 @@ position = Vector2(1503, 493)
 position = Vector2(687, 297)
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
-[connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]
 [connection signal="timeout" from="Player/RepauseTimer" to="Player" method="_on_repause_timer_timeout"]
+[connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]
