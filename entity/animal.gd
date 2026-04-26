@@ -62,6 +62,7 @@ func die() -> void:
 	
 	var parent = get_parent()
 	if parent is Player:
-		parent.on_animal_died()
+		if parent.animal == self:
+			parent.on_animal_died()
 	
 	queue_free()
