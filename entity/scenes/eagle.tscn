@@ -124,9 +124,9 @@ radius = 280.22574
 [node name="Eagle" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
 script = ExtResource("1_fatr8")
-speed = 400.0
+speed = 2000.0
 animation = NodePath("AnimatedSprite2D")
-domain_radius = 300
+domain_radius = 99999
 state_machine = NodePath("FlyingStateMachine")
 vision_area = NodePath("VisionArea")
 eating_area = NodePath("EatingArea")
