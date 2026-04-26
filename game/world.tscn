@@ -26,7 +26,9 @@
 [ext_resource type="TileSet" uid="uid://byj0u6t3nbeco" path="res://water.tres" id="26_b0wfb"]
 [ext_resource type="PackedScene" uid="uid://dskpnxifl4dna" path="res://entity/scenes/eagle.tscn" id="27_bkhbo"]
 [ext_resource type="PackedScene" uid="uid://c27fagqnux74k" path="res://entity/scenes/heron.tscn" id="27_pgfmj"]
+[ext_resource type="Texture2D" uid="uid://8tk0kmehsj8k" path="res://asset/water_surface-Sheet.png" id="29_duk74"]
 [ext_resource type="Script" path="res://game/trophy.gd" id="30_b0wfb"]
+[ext_resource type="Texture2D" uid="uid://dand2cl5j23j7" path="res://asset/water-Sheet.png" id="30_xoic7"]
 [ext_resource type="Texture2D" uid="uid://c4iwbsiq4tapk" path="res://asset/trophy-animation-Sheet.png" id="30_y7dkx"]
 [ext_resource type="PackedScene" uid="uid://i4qbhifx0g34" path="res://game/eagle_statue.tscn" id="31_b0wfb"]
 [ext_resource type="Texture2D" uid="uid://cbwmlkvckxo1x" path="res://asset/mountain-dirt.png" id="32_45vxl"]
@@ -254,7 +256,7 @@ offset_left = 287.0
 offset_top = 1242.0
 offset_right = 439.0
 offset_bottom = 1271.0
-text = "birdaria!!!- - -"
+text = "BIRTOPIA!!!- - -"
 horizontal_alignment = 1
 
 [node name="guide2" type="Label" parent="guides" unique_id=1156097925]
@@ -299,18 +301,18 @@ autowrap_mode = 2
 [node name="guide7" type="Label" parent="guides" unique_id=240943158]
 material = SubResource("ShaderMaterial_u8v3k")
 offset_left = 695.0
-offset_top = 1258.0
+offset_top = 1284.0
 offset_right = 786.0
-offset_bottom = 1359.0
+offset_bottom = 1385.0
 text = "butterfly"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="guide8" type="Label" parent="guides" unique_id=1610469150]
 material = SubResource("ShaderMaterial_u8v3k")
-offset_left = 637.0
+offset_left = 639.0
 offset_top = 1206.0
-offset_right = 728.0
+offset_right = 730.0
 offset_bottom = 1307.0
 text = "berrybush"
 horizontal_alignment = 1

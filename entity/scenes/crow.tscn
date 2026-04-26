@@ -17,10 +17,10 @@ script = ExtResource("2_v068a")
 id = 103
 spawn_height = 2
 hierarchy = 1
-exp_gain = 7
-exp_max = 30
-hunger_gain = 15
-hunger_max = 40
+exp_gain = 20
+exp_max = 200
+hunger_gain = 80
+hunger_max = 100
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6pqk"]
