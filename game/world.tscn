@@ -926,6 +926,7 @@ rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=924214394]
+autostart = true
 
 [node name="Area2D" type="Area2D" parent="Spawner" unique_id=694819266]
 
