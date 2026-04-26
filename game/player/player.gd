@@ -138,6 +138,9 @@ func eat(experience: float, hunger: float) -> void:
 	hunger_value = min(hunger_max, hunger_value + hunger)
 	AudioManager.play_kill()
 	
+	if ui != null:
+		ui.show_gain_popup(experience, hunger, global_position)
+	
 	if exp_value >= exp_max:
 		change_playing_animal(get_next_entity_id(animal.entity_resource.id))
 

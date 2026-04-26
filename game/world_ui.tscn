@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1x6jbnkqmi7s" path="res://game/pause_menu.tscn" id="3_5dlng"]
 [ext_resource type="Texture2D" uid="uid://ckkfb552onp3m" path="res://art/UI/btn-pause.png" id="4_1rgdf"]
 [ext_resource type="Texture2D" uid="uid://b33a5p2rkkfck" path="res://art/UI/btn-pause-hover.png" id="5_svbet"]
+[ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://asset/fonts/Whacky_Joe.ttf" id="6_eltn2"]
 
 [node name="game_ui" type="CanvasLayer" unique_id=686514258 node_paths=PackedStringArray("exp_bar", "hunger_bar")]
 script = ExtResource("1_apb6g")
@@ -80,4 +81,29 @@ texture_hover = ExtResource("5_svbet")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="EatGainPopup" type="Control" parent="." unique_id=236418888]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EatGainPopup" unique_id=236943340]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="XpGainLabel" type="Label" parent="EatGainPopup/VBoxContainer" unique_id=1119320709]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 1, 0.38039216, 1)
+theme_override_fonts/font = ExtResource("6_eltn2")
+theme_override_font_sizes/font_size = 42
+
+[node name="FoodGainLabel" type="Label" parent="EatGainPopup/VBoxContainer" unique_id=2105390513]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9158297, 0.57315564, 0.2570131, 1)
+theme_override_fonts/font = ExtResource("6_eltn2")
+theme_override_font_sizes/font_size = 42
+
+[node name="Timer" type="Timer" parent="EatGainPopup" unique_id=1264875355]
+one_shot = true
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="EatGainPopup/Timer" to="." method="_on_timer_timeout"]
