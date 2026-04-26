@@ -92,10 +92,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k04w"]
 size = Vector2(18, 16)
 
-[node name="Egg" type="CharacterBody2D" unique_id=936244655]
+[node name="Egg" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation")]
 scale = Vector2(2, 2)
 script = ExtResource("1_wau1l")
 entity_resource = SubResource("Resource_leakp")
+animation = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
 material = ExtResource("3_geds1")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://i4qbhifx0g34"]
+
+[ext_resource type="Script" uid="uid://0qyn8c5gw68y" path="res://game/eagle_statue.gd" id="1_60ca5"]
+[ext_resource type="Texture2D" uid="uid://pju4ii0s1bdp" path="res://asset/eagle_statue.png" id="2_ntnnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f33l4"]
+size = Vector2(185, 461)
+
+[node name="EagleStatue" type="Node2D" unique_id=1029823711]
+script = ExtResource("1_60ca5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1139115292]
+texture = ExtResource("2_ntnnn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1372359664]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1685990004]
+position = Vector2(-1.5, 18.5)
+shape = SubResource("RectangleShape2D_f33l4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

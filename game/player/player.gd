@@ -10,13 +10,15 @@ const EVOLUTION_PROTECTION_MS := 750
 
 var animal: Animal
 var _evolution_protection_until_msec: int = 0
-@export var STARTING_CHARACTER : Constants.EntityID
+@export var CURRENT_CHARACTER : Constants.EntityID
 
 @export var spawnpoint_marker: Marker2D
 
 @export var ui: GameUI
 @export var camera: Camera2D
 @export var evolution_animation: AnimatedSprite2D
+
+signal evolved
 
 var hunger_value: float = 100:
 	set(value):
@@ -44,10 +46,11 @@ var exp_max: float = 50:
 
 func _ready() -> void:
 	_resolve_scene_refs()
-	change_playing_animal(STARTING_CHARACTER)
+	change_playing_animal(CURRENT_CHARACTER)
 	if evolution_animation:
 		evolution_animation.hide()
-
+	GameSession.player = self 
+	
 func _resolve_scene_refs() -> void:
 	if spawnpoint_marker == null:
 		spawnpoint_marker = get_node_or_null("../Spawnpoint Marker") as Marker2D
@@ -108,6 +111,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		previous_animal.queue_free()
 	
 	if evolution_animation:
+		evolved.emit()
 		AudioManager.play_evolution()
 		evolution_animation.global_position = spawnpoint
 		evolution_animation.z_index = 200
@@ -148,16 +152,17 @@ func get_next_entity_id(current_id: Constants.EntityID) -> Constants.EntityID:
 	var ids: Array = Constants.EntityID.values()
 	var index := ids.find(current_id)
 	if index == -1:
-		return Constants.EntityID.NONE
+		return CURRENT_CHARACTER
 	
 	for i in range(index + 1, ids.size()):
 		var candidate = ids[i]
 		if candidate == Constants.EntityID.KIWI:
 			continue
 		if Constants.entity_dict.has(candidate):
-			return candidate
-	
-	return Constants.EntityID.NONE
+			CURRENT_CHARACTER=candidate
+			break
+	return CURRENT_CHARACTER
+	#return Constants.EntityID.NONE
 
 func _get_camera_zoom_amount_for_rank(hierarchy: Constants.FoodHierarchy) -> float:
 	match hierarchy:
@@ -185,6 +190,7 @@ func _update_camera_zoom() -> void:
 	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
 	#camera.zoom = Vector2.ONE * zoom_amount 
 	camera.zoom = Vector2.ONE * zoom_amount 
+	
 func _on_evolution_animation_animation_finished() -> void:
 	if evolution_animation:
 		evolution_animation.hide()

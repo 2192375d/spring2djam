@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://c7781yawxpu2f" path="res://game/trophy.gd" id="30_b0wfb"]
 [ext_resource type="Texture2D" uid="uid://dand2cl5j23j7" path="res://asset/water-Sheet.png" id="30_xoic7"]
 [ext_resource type="Texture2D" uid="uid://c4iwbsiq4tapk" path="res://asset/trophy-animation-Sheet.png" id="30_y7dkx"]
+[ext_resource type="PackedScene" uid="uid://i4qbhifx0g34" path="res://game/eagle_statue.tscn" id="31_b0wfb"]
 [ext_resource type="Texture2D" uid="uid://cbwmlkvckxo1x" path="res://asset/mountain-dirt.png" id="32_45vxl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o6il"]
@@ -1022,7 +1023,7 @@ process_material = SubResource("ParticleProcessMaterial_mad0u")
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
-STARTING_CHARACTER = 401
+CURRENT_CHARACTER = 103
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -1367,6 +1368,11 @@ sprite_frames = SubResource("SpriteFrames_xovv4")
 autoplay = "default"
 frame_progress = 0.5741097
 
+[node name="LightUpdateTimer" type="Timer" parent="." unique_id=106237572]
+autostart = true
+
+[node name="EagleStatue" parent="." unique_id=1029823711 instance=ExtResource("31_b0wfb")]
+position = Vector2(12697, 698)
 [node name="tier2 spawner4" type="Node2D" parent="." unique_id=604391345 node_paths=PackedStringArray("rect", "timer")]
 position = Vector2(9436, 250)
 script = ExtResource("23_u8v3k")
