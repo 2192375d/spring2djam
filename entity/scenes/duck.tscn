@@ -18,10 +18,10 @@ script = ExtResource("2_qlkq5")
 id = 202
 spawn_height = 1
 hierarchy = 2
-exp_gain = 20
-exp_max = 30
-hunger_gain = 10
-hunger_max = 20
+exp_gain = 40
+exp_max = 170
+hunger_gain = 50
+hunger_max = 200
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xeoxt"]
 atlas = ExtResource("3_qlkq5")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmu7cihgyophf" path="res://art/screens/pause-menu-overlay.png" id="1_gskg7"]
 [ext_resource type="Script" uid="uid://dyledovft8kua" path="res://game/pause_menu.gd" id="1_oj426"]
 [ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://asset/fonts/Whacky_Joe.ttf" id="2_y60xp"]
+[ext_resource type="PackedScene" uid="uid://dpfent115hf8c" path="res://game/options-menu.tscn" id="3_nriix"]
 [ext_resource type="Texture2D" uid="uid://bsopuw4iudicw" path="res://art/UI/btn1.png" id="3_oj426"]
 [ext_resource type="Texture2D" uid="uid://g8maxmx4fi2f" path="res://art/UI/btn1-hover.png" id="4_nriix"]
 [ext_resource type="Texture2D" uid="uid://djrskvkhoi744" path="res://art/UI/btn2.png" id="5_48io3"]
@@ -39,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_gskg7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=847072722]
+[node name="PauseMenuBox" type="VBoxContainer" parent="Control" unique_id=847072722]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1218841970]
+[node name="Label" type="Label" parent="Control/PauseMenuBox" unique_id=1218841970]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y60xp")
 theme_override_font_sizes/font_size = 40
@@ -62,7 +63,7 @@ text = "Paused :)
 "
 horizontal_alignment = 1
 
-[node name="BtnResume" type="TextureButton" parent="Control/VBoxContainer" unique_id=1204055192]
+[node name="BtnResume" type="TextureButton" parent="Control/PauseMenuBox" unique_id=1204055192]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_oj426")
@@ -70,7 +71,7 @@ texture_hover = ExtResource("4_nriix")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/BtnResume" unique_id=551839834]
+[node name="Label" type="Label" parent="Control/PauseMenuBox/BtnResume" unique_id=551839834]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +85,7 @@ text = "Resume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnOptions" type="TextureButton" parent="Control/VBoxContainer" unique_id=278476468]
+[node name="BtnOptions" type="TextureButton" parent="Control/PauseMenuBox" unique_id=278476468]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("5_48io3")
@@ -92,7 +93,7 @@ texture_hover = ExtResource("6_ho1jy")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/BtnOptions" unique_id=1201441386]
+[node name="Label" type="Label" parent="Control/PauseMenuBox/BtnOptions" unique_id=1201441386]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,7 +107,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnMainMenu" type="TextureButton" parent="Control/VBoxContainer" unique_id=1964875035]
+[node name="BtnMainMenu" type="TextureButton" parent="Control/PauseMenuBox" unique_id=1964875035]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("7_u8ydj")
@@ -114,7 +115,7 @@ texture_hover = ExtResource("8_w8mxi")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/BtnMainMenu" unique_id=1598686903]
+[node name="Label" type="Label" parent="Control/PauseMenuBox/BtnMainMenu" unique_id=1598686903]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,6 +129,10 @@ text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Control/VBoxContainer/BtnResume" to="." method="_on_btn_resume_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/BtnMainMenu" to="." method="_on_btn_main_menu_pressed"]
+[node name="OptionsMenu" parent="Control" unique_id=2051382010 node_paths=PackedStringArray("pause_menu") instance=ExtResource("3_nriix")]
+visible = false
+pause_menu = NodePath("../..")
+
+[connection signal="pressed" from="Control/PauseMenuBox/BtnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="Control/PauseMenuBox/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="Control/PauseMenuBox/BtnMainMenu" to="." method="_on_btn_main_menu_pressed"]
