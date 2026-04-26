@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://q38qkudbta3h"]
 
+[ext_resource type="Script" uid="uid://brnsoc45pnq0n" path="res://world/main_menu.gd" id="1_nxnwp"]
+[ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://art/forestbg.jpg" id="2_y5nw0"]
+[ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://art/fonts/Whacky_Joe.ttf" id="3_r3os6"]
+[ext_resource type="Texture2D" uid="uid://cmb1dcp7jc55i" path="res://art/UI/btn1.png" id="4_a4q7a"]
+[ext_resource type="Texture2D" uid="uid://bhypv6sblat6u" path="res://art/UI/btn1-hover.png" id="5_3iykd"]
+[ext_resource type="Texture2D" uid="uid://dxtgovk7djsqw" path="res://art/UI/btn2.png" id="6_g83lc"]
+[ext_resource type="Texture2D" uid="uid://v3q6ttc7w1ca" path="res://art/UI/btn2-hover.png" id="7_4708v"]
+[ext_resource type="Texture2D" uid="uid://tdumgsvgfdf6" path="res://art/UI/btn3.png" id="8_po2ot"]
+[ext_resource type="Texture2D" uid="uid://dj3u8tmwfcnm6" path="res://art/UI/btn3-hover.png" id="9_c8dpd"]
+[ext_resource type="Texture2D" uid="uid://qiw65wcvofa8" path="res://art/UI/eagle-standing.png" id="10_yhtxf"]
+[ext_resource type="Texture2D" uid="uid://dpoctoge3n3lo" path="res://art/UI/kiwi-standing.png" id="11_htvqh"]
+[ext_resource type="Texture2D" uid="uid://di1u6muc5karv" path="res://art/UI/rock.png" id="11_y5nw0"]
+[ext_resource type="Texture2D" uid="uid://b2db6aurw4fan" path="res://art/UI/pigeon-standing.png" id="12_er4ch"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd33t"]
+texture = ExtResource("2_y5nw0")
+modulate_color = Color(0.7141888, 0.7141888, 0.7141888, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y0i6"]
+
 [node name="MainMenu" type="Control" unique_id=959232440]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +27,133 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nxnwp")
+
+[node name="Panel" type="Panel" parent="." unique_id=2140126435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xd33t")
+
+[node name="Label" type="Label" parent="Panel" unique_id=18636827]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.0
+offset_top = 170.0
+offset_right = 408.0
+offset_bottom = 293.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_r3os6")
+theme_override_font_sizes/font_size = 91
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y0i6")
+text = "Cool Bird Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1511163612]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.875
+offset_top = -153.0
+offset_right = 274.875
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -4
+
+[node name="BtnPlay" type="TextureButton" parent="VBoxContainer" unique_id=1105409664]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_a4q7a")
+texture_hover = ExtResource("5_3iykd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/BtnPlay" unique_id=94256867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
+theme_override_fonts/font = ExtResource("3_r3os6")
+theme_override_font_sizes/font_size = 48
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnOptions" type="TextureButton" parent="VBoxContainer" unique_id=1820326412]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture_normal = ExtResource("6_g83lc")
+texture_hover = ExtResource("7_4708v")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/BtnOptions" unique_id=1316506357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
+theme_override_fonts/font = ExtResource("3_r3os6")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnExit" type="TextureButton" parent="VBoxContainer" unique_id=359952568]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture_normal = ExtResource("8_po2ot")
+texture_hover = ExtResource("9_c8dpd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/BtnExit" unique_id=169072532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18039216, 0.14117648, 0.09411765, 1)
+theme_override_fonts/font = ExtResource("3_r3os6")
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rock" type="Sprite2D" parent="." unique_id=346240132]
+position = Vector2(281, 982.00006)
+texture = ExtResource("11_y5nw0")
+
+[node name="KiwiStanding" type="Sprite2D" parent="." unique_id=1531062504]
+position = Vector2(295, 870.99994)
+scale = Vector2(0.69178087, 0.6917808)
+texture = ExtResource("11_htvqh")
+
+[node name="PigeonStanding" type="Sprite2D" parent="." unique_id=2140567577]
+position = Vector2(828, 130)
+texture = ExtResource("12_er4ch")
+
+[node name="EagleStanding" type="Sprite2D" parent="." unique_id=1907358371]
+position = Vector2(1569.9999, 854)
+scale = Vector2(1.8293413, 1.8293413)
+texture = ExtResource("10_yhtxf")
+
+[connection signal="pressed" from="VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]
