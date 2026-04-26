@@ -27,11 +27,9 @@
 [ext_resource type="TileSet" uid="uid://byj0u6t3nbeco" path="res://water.tres" id="26_b0wfb"]
 [ext_resource type="PackedScene" uid="uid://dskpnxifl4dna" path="res://entity/scenes/eagle.tscn" id="27_bkhbo"]
 [ext_resource type="PackedScene" uid="uid://c27fagqnux74k" path="res://entity/scenes/heron.tscn" id="27_pgfmj"]
-[ext_resource type="Texture2D" uid="uid://8tk0kmehsj8k" path="res://asset/water_surface-Sheet.png" id="29_duk74"]
 [ext_resource type="Script" uid="uid://c7781yawxpu2f" path="res://game/trophy.gd" id="30_b0wfb"]
-[ext_resource type="Texture2D" uid="uid://dand2cl5j23j7" path="res://asset/water-Sheet.png" id="30_xoic7"]
 [ext_resource type="Texture2D" uid="uid://c4iwbsiq4tapk" path="res://asset/trophy-animation-Sheet.png" id="30_y7dkx"]
-[ext_resource type="PackedScene" uid="uid://i4qbhifx0g34" path="res://game/eagle_statue.tscn" id="31_b0wfb"]
+[ext_resource type="PackedScene" path="res://game/eagle_statue.tscn" id="31_b0wfb"]
 [ext_resource type="Texture2D" uid="uid://cbwmlkvckxo1x" path="res://asset/mountain-dirt.png" id="32_45vxl"]
 [ext_resource type="AudioStream" uid="uid://djx7620a4gp0d" path="res://asset/audio/win.wav" id="34_navjm"]
 
@@ -925,7 +923,6 @@ process_material = SubResource("ParticleProcessMaterial_mad0u")
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
-CURRENT_CHARACTER = 103
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -1224,7 +1221,7 @@ rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="tier1 spawner2" unique_id=1591352577]
-wait_time = 20.0
+wait_time = 12.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="tier1 spawner2" unique_id=982184369]
