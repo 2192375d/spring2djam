@@ -68,6 +68,7 @@ var entity_dict: Dictionary[EntityID, PackedScene] = {
 	EntityID.BERRIES : load("uid://b2y3eytux4657"),
 	EntityID.EGGS : load("uid://c4xfc8ea26rbk"),
 	EntityID.SEEDS : load("uid://6ngnf01jash3"),
+	EntityID.GOOSE : load("uid://bpgs6qx88ul1q"),
 }
 
 var blood_effect_scene: PackedScene = load("uid://cdage3p7lypba")
