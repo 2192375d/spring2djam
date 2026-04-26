@@ -20,7 +20,6 @@ func process_physics_frame(delta : float) -> FlyingState.Name:
 		return FlyingState.Name.HEAD_BACK
 	self.actor.navagent.target_position = self.actor.global_position + (self.actor.global_position - predator.global_position) * self.actor.speed * 2
 	self.actor.velocity = self.actor.global_position.direction_to(self.actor.navagent.get_next_path_position()).normalized() * self.actor.speed
-	#print(self.actor.velocity)	
 
 	#self.actor.velocity = (self.actor.global_position - predator.global_position).normalized() * self.actor.speed
 	return FlyingState.Name.RUN_AWAY
