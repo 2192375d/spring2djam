@@ -516,40 +516,40 @@ frame_progress = 1.0
 position = Vector2(3024, 977)
 
 [node name="Worm" parent="animals" unique_id=1498860485 instance=ExtResource("8_j34ew")]
-position = Vector2(605, 758)
+position = Vector2(194, 809)
 
 [node name="Seed" parent="animals" unique_id=936244655 instance=ExtResource("9_p2iis")]
-position = Vector2(2098, 972)
+position = Vector2(2050, 981)
 
 [node name="Seed2" parent="animals" unique_id=1587733142 instance=ExtResource("9_p2iis")]
-position = Vector2(1889, 960)
+position = Vector2(1755, 975)
 
 [node name="Seed3" parent="animals" unique_id=2082441718 instance=ExtResource("9_p2iis")]
-position = Vector2(2208, 960)
+position = Vector2(2268, 983)
 
 [node name="Seed4" parent="animals" unique_id=299122349 instance=ExtResource("9_p2iis")]
-position = Vector2(1576, 961)
+position = Vector2(1667, 975)
 
 [node name="Duck" parent="animals" unique_id=1763314182 instance=ExtResource("11_o1net")]
-position = Vector2(101, 967)
+position = Vector2(264, 944)
 
 [node name="Crow" parent="animals" unique_id=1761793004 instance=ExtResource("12_3ljsx")]
 position = Vector2(1815.0001, -124.99999)
 
 [node name="Worm2" parent="animals" unique_id=455173402 instance=ExtResource("8_j34ew")]
-position = Vector2(1397, 969)
+position = Vector2(820, 972)
 
 [node name="Berrybush" parent="animals" unique_id=1900843695 instance=ExtResource("20_y4mp7")]
-position = Vector2(1974, 982)
+position = Vector2(1824, 980)
 
 [node name="Berrybush2" parent="animals" unique_id=440664918 instance=ExtResource("20_y4mp7")]
 position = Vector2(2325, 708)
 
 [node name="Berrybush3" parent="animals" unique_id=2129252010 instance=ExtResource("20_y4mp7")]
-position = Vector2(1137, 786)
+position = Vector2(727, 986)
 
 [node name="Berrybush4" parent="animals" unique_id=862369621 instance=ExtResource("20_y4mp7")]
-position = Vector2(783, 953)
+position = Vector2(478, 925)
 
 [node name="Berrybush5" parent="animals" unique_id=234296684 instance=ExtResource("20_y4mp7")]
 position = Vector2(998, 466)
@@ -578,7 +578,7 @@ tile_map_data = PackedByteArray("AAAbABUAAAABAAQAAAAcABUAAAACAAQAAAAaABUAAAAAAAQ
 tile_set = SubResource("TileSet_txrfu")
 
 [node name="Spawnpoint Marker" type="Marker2D" parent="." unique_id=1828503632]
-position = Vector2(1970, 953)
+position = Vector2(2234, 969)
 
 [node name="PLANTSpawn" type="Timer" parent="." unique_id=726503740]
 autostart = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsdwjkxvygqdw"
-path="res://.godot/imported/btn3.png-78a8ea23173628ae71d87a175bf5c1cd.ctex"
+uid="uid://bfirxj86x12qd"
+path="res://.godot/imported/seed-animation-Sheet.png-c4358c6a5ba3347fca9e73f561a01178.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/btn3.png"
-dest_files=["res://.godot/imported/btn3.png-78a8ea23173628ae71d87a175bf5c1cd.ctex"]
+source_file="res://asset/animals/seed-animation-Sheet.png"
+dest_files=["res://.godot/imported/seed-animation-Sheet.png-c4358c6a5ba3347fca9e73f561a01178.ctex"]
 
 [params]
 
