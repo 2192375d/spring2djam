@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8rdrp8yvk2n8"
-path="res://.godot/imported/pigeon-standing.png-f579a46583cb857acfe901ee3b902738.ctex"
+uid="uid://cxg8d2vay2wg1"
+path="res://.godot/imported/butterfly-flying-Sheet.png-31c26548dfc578a80094d0f93548d050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/pigeon-standing.png"
-dest_files=["res://.godot/imported/pigeon-standing.png-f579a46583cb857acfe901ee3b902738.ctex"]
+source_file="res://asset/butterfly-flying-Sheet.png"
+dest_files=["res://.godot/imported/butterfly-flying-Sheet.png-31c26548dfc578a80094d0f93548d050.ctex"]
 
 [params]
 

@@ -111,7 +111,7 @@ radius = 12.539936
 radius = 83.501495
 
 [node name="Duck" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 script = ExtResource("1_ronqj")
 speed = 80.0
 animation = NodePath("AnimatedSprite2D")

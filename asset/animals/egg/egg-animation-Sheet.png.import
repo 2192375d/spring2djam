@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://31uiq54sojb"
-path="res://.godot/imported/kiwi-standing.png-52087dfe959ca2c60b0165294a1eaec7.ctex"
+uid="uid://ccd5p2sqdtd3x"
+path="res://.godot/imported/egg-animation-Sheet.png-7a1d72edc7fa36a159d7e8f37fd66d6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/kiwi-standing.png"
-dest_files=["res://.godot/imported/kiwi-standing.png-52087dfe959ca2c60b0165294a1eaec7.ctex"]
+source_file="res://asset/animals/egg/egg-animation-Sheet.png"
+dest_files=["res://.godot/imported/egg-animation-Sheet.png-7a1d72edc7fa36a159d7e8f37fd66d6d.ctex"]
 
 [params]
 
