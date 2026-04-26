@@ -1,10 +1,7 @@
 class_name GroundAnimal
 extends SentientAnimal
 
-
-
 #@export var state_machine : GroundStateMachine
-
 
 var grav_accel : float
 
