@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var entity_resource: EntityResource
 @abstract func player_movement(delta: float) -> void
 
+func _enter_tree() -> void:
+	add_to_group("animals")
+
 func _get_blood_effect_scale_multiplier() -> float:
 	match entity_resource.hierarchy:
 		Constants.FoodHierarchy.SEED:

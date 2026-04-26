@@ -152,7 +152,7 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1822918762]
 shape = SubResource("CircleShape2D_v068a")
-debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.15)
 
 [node name="FlyingStateMachine" type="Node" parent="." unique_id=517371438 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("8_8on0b")
