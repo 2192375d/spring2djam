@@ -5,6 +5,7 @@ class_name Player
 const CAMERA_ZOOM_MAX := 2.0
 const CAMERA_ZOOM_MIN := 0.35
 const CAMERA_REFERENCE_VISION_RADIUS := 33.359993
+var CAMERA_RECT : Rect2 
 const EVOLUTION_PROTECTION_MS := 750
 
 var animal: Animal
@@ -163,3 +164,21 @@ func _update_camera_zoom() -> void:
 
 func _on_evolution_animation_animation_finished() -> void:
 	evolution_animation.hide()
+
+func get_camera_rect() -> Rect2:
+	var viewport_size := get_viewport().get_visible_rect().size
+	var center := camera.get_screen_center_position()
+	# Camera2D zoom scales screen pixels per world unit; world-space visible size is viewport / zoom.
+	var size := (viewport_size / camera.zoom) * 1.5
+	return Rect2(center - size * 0.5, size)
+	
+func _on_repause_timer_timeout() -> void:
+	# iterate through all animals
+	CAMERA_RECT = get_camera_rect()
+	for animal : Animal in get_tree().get_nodes_in_group("animals"):
+		if CAMERA_RECT.has_point(animal.global_position):
+			animal.process_mode = PROCESS_MODE_INHERIT
+		else:
+			animal.process_mode = PROCESS_MODE_DISABLED
+			print("paused this", animal)
+		

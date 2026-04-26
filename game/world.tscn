@@ -659,7 +659,7 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygw6s"]
-size = Vector2(260, 694.6875)
+size = Vector2(217, 694.6875)
 
 [node name="World" type="Node2D" unique_id=301270681]
 script = ExtResource("1_mad0u")
@@ -799,6 +799,7 @@ color = Color(0, 0, 0, 0.5137255)
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
+STARTING_CHARACTER = 401
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
@@ -832,27 +833,30 @@ sprite_frames = SubResource("SpriteFrames_8w43l")
 frame = 9
 frame_progress = 1.0
 
+[node name="RepauseTimer" type="Timer" parent="Player" unique_id=800910682]
+autostart = true
+
 [node name="animals" type="Node2D" parent="." unique_id=884090246]
 
-[node name="Kiwi" parent="animals" unique_id=264854970 instance=ExtResource("14_s7c85")]
+[node name="Kiwi" parent="animals" unique_id=264854970 groups=["animals"] instance=ExtResource("14_s7c85")]
 position = Vector2(3024, 977)
 
-[node name="Worm" parent="animals" unique_id=1498860485 instance=ExtResource("8_j34ew")]
+[node name="Worm" parent="animals" unique_id=1498860485 groups=["animals"] instance=ExtResource("8_j34ew")]
 position = Vector2(194, 809)
 
-[node name="Seed" parent="animals" unique_id=936244655 instance=ExtResource("9_p2iis")]
+[node name="Seed" parent="animals" unique_id=936244655 groups=["animals"] instance=ExtResource("9_p2iis")]
 position = Vector2(531, 1324)
 
-[node name="Seed2" parent="animals" unique_id=1587733142 instance=ExtResource("9_p2iis")]
+[node name="Seed2" parent="animals" unique_id=1587733142 groups=["animals"] instance=ExtResource("9_p2iis")]
 position = Vector2(1336, 1161)
 
-[node name="Seed3" parent="animals" unique_id=2082441718 instance=ExtResource("9_p2iis")]
+[node name="Seed3" parent="animals" unique_id=2082441718 groups=["animals"] instance=ExtResource("9_p2iis")]
 position = Vector2(1036, 1330)
 
-[node name="Seed4" parent="animals" unique_id=299122349 instance=ExtResource("9_p2iis")]
+[node name="Seed4" parent="animals" unique_id=299122349 groups=["animals"] instance=ExtResource("9_p2iis")]
 position = Vector2(1667, 975)
 
-[node name="Duck" parent="animals" unique_id=1763314182 instance=ExtResource("11_o1net")]
+[node name="Duck" parent="animals" unique_id=1763314182 groups=["animals"] instance=ExtResource("11_o1net")]
 position = Vector2(-1747, 760)
 
 [node name="Crow" parent="animals" unique_id=1761793004 instance=ExtResource("12_3ljsx")]
@@ -864,37 +868,37 @@ position = Vector2(-2382, -1926.0002)
 [node name="Crow3" parent="animals" unique_id=1779154638 instance=ExtResource("12_3ljsx")]
 position = Vector2(4699, -1537.0001)
 
-[node name="Worm2" parent="animals" unique_id=455173402 instance=ExtResource("8_j34ew")]
+[node name="Worm2" parent="animals" unique_id=455173402 groups=["animals"] instance=ExtResource("8_j34ew")]
 position = Vector2(776, 1315)
 
-[node name="Berrybush" parent="animals" unique_id=1900843695 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush" parent="animals" unique_id=1900843695 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(727, 1311)
 
-[node name="Berrybush2" parent="animals" unique_id=440664918 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush2" parent="animals" unique_id=440664918 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(2325, 708)
 
-[node name="Berrybush3" parent="animals" unique_id=2129252010 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush3" parent="animals" unique_id=2129252010 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(727, 986)
 
-[node name="Berrybush4" parent="animals" unique_id=862369621 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush4" parent="animals" unique_id=862369621 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(478, 925)
 
-[node name="Berrybush5" parent="animals" unique_id=234296684 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush5" parent="animals" unique_id=234296684 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(998, 466)
 
-[node name="Berrybush6" parent="animals" unique_id=2048494311 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush6" parent="animals" unique_id=2048494311 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(858, 669)
 
-[node name="Berrybush7" parent="animals" unique_id=1374427448 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush7" parent="animals" unique_id=1374427448 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(2761, 952)
 
-[node name="Berrybush8" parent="animals" unique_id=1593052160 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush8" parent="animals" unique_id=1593052160 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(1820, 397)
 
-[node name="Berrybush9" parent="animals" unique_id=853122295 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush9" parent="animals" unique_id=853122295 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(1977, 644)
 
-[node name="Berrybush10" parent="animals" unique_id=1898731108 instance=ExtResource("20_y4mp7")]
+[node name="Berrybush10" parent="animals" unique_id=1898731108 groups=["animals"] instance=ExtResource("20_y4mp7")]
 position = Vector2(1351, 211)
 
 [node name="ForestStatic" type="TileMapLayer" parent="." unique_id=277792498 groups=["navigation"]]
@@ -921,12 +925,14 @@ rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=924214394]
+autostart = true
 
 [node name="Area2D" type="Area2D" parent="Spawner" unique_id=694819266]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D" unique_id=1192285438]
-position = Vector2(-826, -106.65625)
+position = Vector2(-804.5, -106.65625)
 shape = SubResource("RectangleShape2D_ygw6s")
 
 [connection signal="timeout" from="Player/HungerDrainTimer" to="Player" method="_on_hunger_drain_timer_timeout"]
 [connection signal="animation_finished" from="Player/EvolutionAnimation" to="Player" method="_on_evolution_animation_animation_finished"]
+[connection signal="timeout" from="Player/RepauseTimer" to="Player" method="_on_repause_timer_timeout"]

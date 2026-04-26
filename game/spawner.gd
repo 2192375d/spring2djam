@@ -19,6 +19,7 @@ func spawn_entity(entityenum : int):
 	if (animal_scene):
 		var animal : Animal = animal_scene.instantiate()
 		self.add_child(animal)
+		animal.add_to_group("animals")
 		# get animal spawn position enums
 		var pos : Vector2 = random_position(animal.entity_resource.spawn_height)
 		# ensure non-collisions
