@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnp1yaxxdd2wl" path="res://entity/flying_animal.gd" id="1_ronqj"]
 [ext_resource type="Script" uid="uid://nd7o5mrcn55k" path="res://entity/entity_resource.gd" id="2_qlkq5"]
+[ext_resource type="Material" uid="uid://ccvmdrb0ys7rj" path="res://effects/glow_shader_material.tres" id="3_kxjd5"]
 [ext_resource type="Texture2D" uid="uid://djff6xcmt6p2b" path="res://asset/animals/duck/duck-eating.png" id="3_qlkq5"]
 [ext_resource type="Texture2D" uid="uid://b37f78gvynpt8" path="res://asset/animals/duck/duck-flying.png" id="4_kxjd5"]
 [ext_resource type="Texture2D" uid="uid://d2tf0vp8o614d" path="res://asset/animals/duck/duck-standing.png" id="5_tf3w3"]
@@ -122,6 +123,7 @@ eating_area = NodePath("EatingArea")
 entity_resource = SubResource("Resource_kxjd5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827106777]
+material = ExtResource("3_kxjd5")
 position = Vector2(-1.4901161e-08, 1.1622906e-06)
 scale = Vector2(0.1328125, 0.12500001)
 sprite_frames = SubResource("SpriteFrames_252sp")
