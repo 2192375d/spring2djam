@@ -1,0 +1,35 @@
+[gd_resource type="TileSet" format=3 uid="uid://byj0u6t3nbeco"]
+
+[ext_resource type="Texture2D" uid="uid://8tk0kmehsj8k" path="res://asset/water_surface-Sheet.png" id="1_y6fc4"]
+[ext_resource type="Texture2D" uid="uid://dand2cl5j23j7" path="res://asset/water-Sheet.png" id="2_4hbtk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_duk74"]
+texture = ExtResource("1_y6fc4")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_speed = 0.1
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/animation_frame_4/duration = 0.1
+0:0/animation_frame_5/duration = 0.1
+0:0/animation_frame_6/duration = 0.1
+0:0/animation_frame_7/duration = 0.1
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_navjm"]
+texture = ExtResource("2_4hbtk")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_duk74")
+sources/2 = SubResource("TileSetAtlasSource_navjm")
