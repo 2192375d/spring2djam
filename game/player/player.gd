@@ -51,6 +51,8 @@ func _physics_process(delta: float) -> void:
 	if hunger_value < 0.0:
 		animal.die()
 		animal = null
+		if ui != null:
+			ui.show_death_screen()
 		return
 	if exp_value > exp_max:
 		# do level up
