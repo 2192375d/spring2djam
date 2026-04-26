@@ -59,6 +59,8 @@ func _resolve_scene_refs() -> void:
 		evolution_animation = get_node_or_null("EvolutionAnimation") as AnimatedSprite2D
 
 func on_animal_died() -> void:
+	AudioManager.play_death()
+	AudioManager.stop_game_music()
 	if animal:
 		animal = null
 	if ui:
@@ -106,6 +108,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		previous_animal.queue_free()
 	
 	if evolution_animation:
+    AudioManager.play_evolution()
 		evolution_animation.global_position = spawnpoint
 		evolution_animation.z_index = 200
 		evolution_animation.stop()
@@ -133,6 +136,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 func eat(experience: float, hunger: float) -> void:
 	exp_value += experience
 	hunger_value = min(hunger_max, hunger_value + hunger)
+	AudioManager.play_kill()
 	
 	if exp_value >= exp_max:
 		change_playing_animal(get_next_entity_id(animal.entity_resource.id))

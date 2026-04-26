@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 
 func show_pause_menu() -> void:
 	show()
+	AudioManager.set_music_paused_state(true)
 	get_tree().paused = true
 
 	var tween = create_tween()
@@ -57,13 +58,19 @@ func hide_pause_menu() -> void:
 
 	hide()
 	get_tree().paused = false
+	AudioManager.set_music_paused_state(false)
 
 func _on_btn_resume_pressed() -> void:
+	AudioManager.play_ui_click()
 	hide_pause_menu()
 
 func _on_btn_options_pressed() -> void:
+	AudioManager.play_ui_click()
 	pass # Replace with function body.
 
 func _on_btn_main_menu_pressed() -> void:
+	AudioManager.play_ui_click()
+	AudioManager.set_music_paused_state(false)
+	AudioManager.stop_game_music()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game/main-menu.tscn")

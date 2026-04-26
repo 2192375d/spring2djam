@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Constants="*uid://shehpekoqxo5"
 GameSession="*uid://c3kndpx3bs0e6"
+AudioManager="*uid://dc35yeslllg2h"
 
 [display]
 

@@ -66,6 +66,8 @@ func _connect_legacy_spawn_timer(timer: Timer, targetlist: Array[int]) -> void:
 	if !timer.timeout.is_connected(timeout_spawn.bind(targetlist)):
 		timer.timeout.connect(timeout_spawn.bind(targetlist))
 	
+	AudioManager.play_game_music()
+	
 func random_position(spawn_enum : int) -> Vector2:
 	var ranges : Array
 	if low_spawn and (spawn_enum & Constants.SpawnHeight.LOW):
