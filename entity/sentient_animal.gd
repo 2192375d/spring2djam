@@ -61,6 +61,10 @@ func _on_vision_body_exited(body: Node2D) -> void:
 
 func _on_eating_area_body_entered(body: Node2D) -> void:
 	if body is Animal:
+		if body.get_parent() is Player:
+			var player := body.get_parent() as Player
+			if player.is_evolution_protected():
+				return
 		if body.entity_resource.hierarchy < entity_resource.hierarchy:
 			if get_parent() is Player:
 				var player: Player = get_parent() as Player
