@@ -65,8 +65,25 @@ func _physics_process(delta: float) -> void:
 func change_playing_animal(animal_id: Constants.EntityID) -> void:
 	var spawnpoint: Vector2 = spawnpoint_marker.global_position
 	if animal:
-		spawnpoint = animal.global_position
-		animal.queue_free()
+		var previous_animal := animal
+		spawnpoint = previous_animal.global_position
+		animal = null
+
+		previous_animal.set_physics_process(false)
+		previous_animal.collision_layer = 0
+		previous_animal.collision_mask = 0
+
+		if previous_animal is SentientAnimal:
+			var sentient_previous := previous_animal as SentientAnimal
+			if sentient_previous.eating_area:
+				sentient_previous.eating_area.monitoring = false
+				sentient_previous.eating_area.monitorable = false
+			if sentient_previous.vision_area:
+				sentient_previous.vision_area.monitoring = false
+				sentient_previous.vision_area.monitorable = false
+
+		remove_child(previous_animal)
+		previous_animal.queue_free()
 
 	evolution_animation.global_position = spawnpoint
 	evolution_animation.z_index = 200
@@ -138,7 +155,6 @@ func _update_camera_zoom() -> void:
 
 	var zoom_amount := _get_camera_zoom_amount_for_rank(animal.entity_resource.hierarchy)
 	camera.zoom = Vector2.ONE * zoom_amount
-
 
 func _on_evolution_animation_animation_finished() -> void:
 	evolution_animation.hide()

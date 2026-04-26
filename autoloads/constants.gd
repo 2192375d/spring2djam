@@ -26,6 +26,7 @@ enum AIType {
 	LOW = 1, 
 	HIGH = 1,
 }
+
 enum EntityID {
 	NONE = -999,
 	
@@ -44,7 +45,7 @@ enum EntityID {
 	CROW = 103,
 	
 	# tier 2
-	LOON = 201,
+	#LOON = 201,
 	DUCK = 202,
 	GOOSE = 203,
 	
