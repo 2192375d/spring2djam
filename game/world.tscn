@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://ckavqb25bdaul"]
 
 [ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://game/world.gd" id="1_mad0u"]
+[ext_resource type="Script" uid="uid://blj6c8ersr236" path="res://game/guides.gd" id="2_26k6w"]
 [ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://game/world_ui.tscn" id="2_ocfjn"]
+[ext_resource type="Shader" uid="uid://4wo2mea1ojtj" path="res://effects/label.gdshader" id="3_0o6il"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_dqqhb"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://asset/forestbg.jpg" id="4_b2suy"]
 [ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://game/player/player.gd" id="5_h8lre"]
@@ -20,6 +22,20 @@
 [ext_resource type="Texture2D" uid="uid://6bgjf565gouc" path="res://asset/rain.png" id="13_ocfjn"]
 [ext_resource type="PackedScene" uid="uid://n17g23ay3e7i" path="res://entity/scenes/kiwi.tscn" id="14_s7c85"]
 [ext_resource type="PackedScene" path="res://entity/scenes/berrybush.tscn" id="20_y4mp7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0o6il"]
+shader = ExtResource("3_0o6il")
+shader_parameter/speed = 1.5
+shader_parameter/saturation = 0.9
+shader_parameter/value = 1.0
+shader_parameter/width = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8v3k"]
+shader = ExtResource("3_0o6il")
+shader_parameter/speed = 1.5
+shader_parameter/saturation = 0.9
+shader_parameter/value = 1.0
+shader_parameter/width = 3.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mad0u"]
 particle_flag_disable_z = true
@@ -665,6 +681,85 @@ med_spawn = NodePath("MedSpawn")
 high_spawn = NodePath("HighSpawn")
 metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
+[node name="guides" type="Node" parent="." unique_id=1288094891]
+script = ExtResource("2_26k6w")
+
+[node name="guide1" type="Label" parent="guides" unique_id=151588854]
+offset_left = 1356.0
+offset_top = 868.0
+offset_right = 1508.0
+offset_bottom = 897.0
+text = "welcome to the"
+horizontal_alignment = 1
+
+[node name="guide3" type="Label" parent="guides" unique_id=52866060]
+material = SubResource("ShaderMaterial_0o6il")
+offset_left = 1357.0
+offset_top = 890.0
+offset_right = 1509.0
+offset_bottom = 919.0
+text = "bird world"
+horizontal_alignment = 1
+
+[node name="guide2" type="Label" parent="guides" unique_id=1156097925]
+offset_left = 1615.0
+offset_top = 840.0
+offset_right = 1706.0
+offset_bottom = 941.0
+text = "eat the seed here to gain hunger"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide4" type="Label" parent="guides" unique_id=836715169]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1595.0
+offset_top = 866.0
+offset_right = 1686.0
+offset_bottom = 967.0
+text = "seed"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide5" type="Label" parent="guides" unique_id=2071961428]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1615.0
+offset_top = 918.0
+offset_right = 1706.0
+offset_bottom = 1019.0
+text = "hunger"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide6" type="Label" parent="guides" unique_id=380140037]
+offset_left = 1743.0
+offset_top = 855.0
+offset_right = 1890.0
+offset_bottom = 956.0
+text = "you can't eat berrybush yet! 
+You will once you become a butterfly"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide7" type="Label" parent="guides" unique_id=240943158]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1811.0
+offset_top = 933.0
+offset_right = 1902.0
+offset_bottom = 1034.0
+text = "butterfly"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="guide8" type="Label" parent="guides" unique_id=1610469150]
+material = SubResource("ShaderMaterial_u8v3k")
+offset_left = 1753.0
+offset_top = 881.0
+offset_right = 1844.0
+offset_bottom = 982.0
+text = "berrybush"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="game_ui" parent="." unique_id=686514258 instance=ExtResource("2_ocfjn")]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1001805182]
@@ -689,7 +784,7 @@ texture = ExtResource("13_j15d7")
 stretch_mode = 1
 
 [node name="biome1_effect" type="PointLight2D" parent="." unique_id=322917135]
-position = Vector2(3730.4001, -1593)
+position = Vector2(3665.0002, -1580)
 scale = Vector2(18.620966, 16.40398)
 texture = ExtResource("6_mj0fl")
 texture_scale = 37.2
@@ -756,13 +851,13 @@ position = Vector2(2268, 983)
 position = Vector2(1667, 975)
 
 [node name="Duck" parent="animals" unique_id=1763314182 instance=ExtResource("11_o1net")]
-position = Vector2(264, 944)
+position = Vector2(-696, 793)
 
 [node name="Crow" parent="animals" unique_id=1761793004 instance=ExtResource("12_3ljsx")]
 position = Vector2(1815.0001, -124.99999)
 
 [node name="Worm2" parent="animals" unique_id=455173402 instance=ExtResource("8_j34ew")]
-position = Vector2(820, 972)
+position = Vector2(1986, 981)
 
 [node name="Berrybush" parent="animals" unique_id=1900843695 instance=ExtResource("20_y4mp7")]
 position = Vector2(1824, 980)
@@ -803,7 +898,7 @@ tile_map_data = PackedByteArray("AAAbABUAAAABAAQAAAAcABUAAAACAAQAAAAaABUAAAAAAAQ
 tile_set = SubResource("TileSet_txrfu")
 
 [node name="Spawnpoint Marker" type="Marker2D" parent="." unique_id=1828503632]
-position = Vector2(2234, 969)
+position = Vector2(1335, 934)
 
 [node name="PLANTSpawn" type="Timer" parent="." unique_id=726503740]
 autostart = true
