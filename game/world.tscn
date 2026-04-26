@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2t65g5s8eli3" path="res://game/world.gd" id="1_mad0u"]
 [ext_resource type="Script" uid="uid://blj6c8ersr236" path="res://game/guides.gd" id="1_u7g4v"]
+[ext_resource type="PackedScene" path="res://game/wind_particles.tscn" id="2_bkhbo"]
 [ext_resource type="PackedScene" uid="uid://dy7truvlgrnsw" path="res://game/world_ui.tscn" id="2_ocfjn"]
 [ext_resource type="Shader" uid="uid://4wo2mea1ojtj" path="res://effects/label.gdshader" id="3_0o6il"]
 [ext_resource type="Texture2D" uid="uid://2swrs8b2b6go" path="res://asset/forestbg.jpg" id="4_b2suy"]
@@ -675,6 +676,8 @@ size = Vector2(1895.5, 754)
 script = ExtResource("1_mad0u")
 metadata/_custom_type_script = "uid://b2t65g5s8eli3"
 
+[node name="CanvasLayer" parent="." unique_id=755706679 instance=ExtResource("2_bkhbo")]
+
 [node name="guides" type="Node" parent="." unique_id=1288094891]
 script = ExtResource("1_u7g4v")
 
@@ -1071,7 +1074,7 @@ navigation_polygon = SubResource("NavigationPolygon_usg7j")
 [node name="starting spawner" type="Node2D" parent="." unique_id=158954862 node_paths=PackedStringArray("rect", "timer")]
 position = Vector2(2044, 924)
 script = ExtResource("23_u8v3k")
-allowed_enemies = Array[int]([0, -99])
+allowed_enemies = [0, -99]
 rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
@@ -1088,7 +1091,7 @@ shape = SubResource("RectangleShape2D_ygw6s")
 [node name="butterfly spawner" type="Node2D" parent="." unique_id=1975848724 node_paths=PackedStringArray("rect", "timer")]
 position = Vector2(2141, 604)
 script = ExtResource("23_u8v3k")
-allowed_enemies = Array[int]([1])
+allowed_enemies = [1]
 rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
@@ -1105,7 +1108,7 @@ shape = SubResource("RectangleShape2D_kyo38")
 [node name="butterfly spawner2" type="Node2D" parent="." unique_id=988018969 node_paths=PackedStringArray("rect", "timer")]
 position = Vector2(-1433, 1079)
 script = ExtResource("23_u8v3k")
-allowed_enemies = Array[int]([1])
+allowed_enemies = [1]
 rect = NodePath("Area2D")
 timer = NodePath("Timer")
 
@@ -1122,7 +1125,7 @@ shape = SubResource("RectangleShape2D_bkhbo")
 [node name="butterfly spawner3" type="Node2D" parent="." unique_id=333374820 node_paths=PackedStringArray("rect", "timer")]
 position = Vector2(4888, 926)
 script = ExtResource("23_u8v3k")
-allowed_enemies = Array[int]([1])
+allowed_enemies = [1]
 rect = NodePath("Area2D")
 timer = NodePath("Timer")
 

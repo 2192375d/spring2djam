@@ -108,7 +108,7 @@ func change_playing_animal(animal_id: Constants.EntityID) -> void:
 		previous_animal.queue_free()
 	
 	if evolution_animation:
-    AudioManager.play_evolution()
+		AudioManager.play_evolution()
 		evolution_animation.global_position = spawnpoint
 		evolution_animation.z_index = 200
 		evolution_animation.stop()
