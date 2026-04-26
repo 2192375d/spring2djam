@@ -19,7 +19,7 @@ id = 401
 spawn_height = 4
 hierarchy = 4
 exp_gain = 30
-exp_max = 30
+exp_max = 1000
 hunger_gain = 40
 hunger_max = 40
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
@@ -119,7 +119,7 @@ size = Vector2(17, 16)
 radius = 12.539936
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v068a"]
-radius = 280.22574
+radius = 206.8813
 
 [node name="Eagle" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
