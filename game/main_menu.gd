@@ -12,15 +12,18 @@ func _process(delta: float) -> void:
 
 
 func _on_btn_play_pressed() -> void:
+	AudioManager.play_ui_click()
 	print("Play pressed")
 	get_tree().change_scene_to_file("res://game/world.tscn")
 
 
 func _on_btn_options_pressed() -> void:
+	AudioManager.play_ui_click()
 	print("Options pressed")
 	# the rest is to be implemented once pause/settings menu is made
 
 
 func _on_btn_exit_pressed() -> void:
+	AudioManager.play_ui_click()
 	print("Exit pressed")
 	get_tree().quit()

@@ -49,6 +49,8 @@ func _ready() -> void:
 	tier4_timer.timeout.connect(func(): timeout_spawn(tier4_enums))
 	dominant_timer.timeout.connect(func(): timeout_spawn(dominant_enums))
 	
+	AudioManager.play_game_music()
+	
 func random_position(spawn_enum : int) -> Vector2:
 	var ranges : Array
 	if (spawn_enum & Constants.SpawnHeight.LOW):

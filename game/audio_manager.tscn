@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dc35yeslllg2h"]
+
+[ext_resource type="AudioStream" uid="uid://b64i61dsb8lqq" path="res://asset/audio/soundtrack.mp3" id="1_lg7t1"]
+[ext_resource type="Script" uid="uid://e3qj8ii4k24p" path="res://game/audio_manager.gd" id="1_p2upy"]
+[ext_resource type="AudioStream" uid="uid://dutwexx2ld2n" path="res://asset/audio/ui_click.wav" id="3_gyif5"]
+[ext_resource type="AudioStream" uid="uid://chnmngwp1w5k4" path="res://asset/audio/day_ambience_2.wav" id="3_wbowy"]
+[ext_resource type="AudioStream" uid="uid://c0css83j2r5af" path="res://asset/audio/death.wav" id="4_wbowy"]
+[ext_resource type="AudioStream" uid="uid://waxe8lll8moc" path="res://asset/audio/evolve.wav" id="6_hled4"]
+[ext_resource type="AudioStream" uid="uid://cuc8uq8qu3grn" path="res://asset/audio/kill.wav" id="7_nlhoo"]
+
+[node name="AudioManager" type="Node2D" unique_id=283460764]
+script = ExtResource("1_p2upy")
+music_track = ExtResource("1_lg7t1")
+ambient_track = ExtResource("3_wbowy")
+ui_click_sound = ExtResource("3_gyif5")
+death_sound = ExtResource("4_wbowy")
+evolution_sound = ExtResource("6_hled4")
+kill_sound = ExtResource("7_nlhoo")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=429345899]
+bus = &"Music"
+
+[node name="UISfxPlayer" type="AudioStreamPlayer" parent="." unique_id=602779036]
+bus = &"SFX"
+
+[node name="DeathSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1140209543]
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="." unique_id=174771787]
+bus = &"Ambient"
+
+[node name="EvolutionPlayer" type="AudioStreamPlayer" parent="." unique_id=120174880]
+bus = &"SFX"
+
+[node name="KillPlayer" type="AudioStreamPlayer" parent="." unique_id=725521754]
+bus = &"SFX"
