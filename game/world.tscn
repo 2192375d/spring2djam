@@ -800,6 +800,7 @@ color = Color(0, 0, 0, 0.5137255)
 
 [node name="Player" type="Node2D" parent="." unique_id=2039730567 node_paths=PackedStringArray("spawnpoint_marker", "ui", "camera", "evolution_animation")]
 script = ExtResource("5_h8lre")
+STARTING_CHARACTER = 301
 spawnpoint_marker = NodePath("../Spawnpoint Marker")
 ui = NodePath("../game_ui")
 camera = NodePath("Camera2D")
