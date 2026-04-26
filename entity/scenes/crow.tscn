@@ -112,7 +112,7 @@ radius = 160.01799
 [node name="Crow" type="CharacterBody2D" unique_id=936244655 node_paths=PackedStringArray("animation", "state_machine", "vision_area", "eating_area")]
 scale = Vector2(5, 5)
 script = ExtResource("1_yny8u")
-speed = 250.0
+speed = 500.0
 animation = NodePath("AnimatedSprite2D")
 domain_radius = 100
 state_machine = NodePath("FlyingStateMachine")
@@ -140,7 +140,7 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1822918762]
 shape = SubResource("CircleShape2D_v068a")
-debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.15)
 
 [node name="FlyingStateMachine" type="Node" parent="." unique_id=517371438 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("6_71wpw")

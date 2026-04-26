@@ -132,13 +132,6 @@ animation = &"fly"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996539030]
 shape = SubResource("RectangleShape2D_6k04w")
 
-[node name="Label" type="Label" parent="." unique_id=1647516719]
-offset_left = -26.5
-offset_top = -14.0
-offset_right = 26.5
-offset_bottom = 9.0
-text = "pigeon"
-
 [node name="EatingArea" type="Area2D" parent="." unique_id=560403562]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=441247340]
@@ -149,7 +142,7 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1102807127]
 shape = SubResource("CircleShape2D_wmuns")
-debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.41960785)
+debug_color = Color(0.30293953, 0.6185986, 0.34089094, 0.15)
 
 [node name="FlyingStateMachine" type="Node" parent="." unique_id=1122343991 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("4_q2pjv")

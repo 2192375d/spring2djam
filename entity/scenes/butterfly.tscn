@@ -14,9 +14,8 @@
 script = ExtResource("2_p33uf")
 id = 1
 spawn_height = 5
-hierarchy = 0
 exp_gain = 5
-exp_max = 12
+exp_max = 20
 hunger_gain = 2
 hunger_max = 20
 metadata/_custom_type_script = "uid://nd7o5mrcn55k"
@@ -210,7 +209,7 @@ debug_color = Color(0.9862979, 0, 0.32981443, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=779019025]
 shape = SubResource("CircleShape2D_0kf1m")
-debug_color = Color(3.85046e-07, 0.64647317, 0.27174348, 0.41960785)
+debug_color = Color(3.85046e-07, 0.64647317, 0.27174348, 0.15)
 
 [node name="FlyingStateMachine" type="Node" parent="." unique_id=2101319488 node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("4_bu7ff")
