@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dfpd5mnnceve4"]
+
+[ext_resource type="Script" uid="uid://cx272d6xkkp2s" path="res://game/death_screen.gd" id="1_j84e5"]
+[ext_resource type="Texture2D" uid="uid://cih8m7lntc07g" path="res://art/screens/death-scene.png" id="2_atkmj"]
+[ext_resource type="FontFile" uid="uid://b3hbmcbbkl3dd" path="res://art/fonts/Whacky_Joe.ttf" id="3_qvgll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cet23"]
+bg_color = Color(0.6627451, 0.28627452, 0.28627452, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j84e5"]
+bg_color = Color(0.10982918, 0.0252034, 0.0252034, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtqos"]
+bg_color = Color(0.2984211, 0.1130452, 0.1130452, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=1492072331]
+script = ExtResource("1_j84e5")
+
+[node name="Control" type="Control" parent="." unique_id=648293780]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1124219775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10980392, 0.10980392, 0.10980392, 0.5647059)
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2060694099]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_atkmj")
+
+[node name="Label" type="Label" parent="Control" unique_id=1820717880]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -519.0
+offset_top = -104.0
+offset_right = 493.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.6627451, 0.28627452, 0.28627452, 1)
+theme_override_fonts/font = ExtResource("3_qvgll")
+theme_override_font_sizes/font_size = 130
+text = "YOU DIED!"
+
+[node name="BtnMainMenu" type="Button" parent="Control" unique_id=1881135736]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -785.0
+offset_top = -275.0
+offset_right = -282.0
+offset_bottom = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qvgll")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_cet23")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j84e5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wtqos")
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/BtnMainMenu" to="." method="_on_main_menu_button_pressed"]
